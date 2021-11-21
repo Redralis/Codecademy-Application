@@ -1,2 +1,2 @@
-Namen:
+Names:
 Lucas de Kleijn

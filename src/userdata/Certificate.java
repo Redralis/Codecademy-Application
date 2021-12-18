@@ -1,9 +1,9 @@
 package userdata;
 
 public class Certificate {
-    private int certificateId;
-    private double rating;
-    private String nameEmployee;
+    private final int certificateId;
+    private final double rating;
+    private final String nameEmployee;
 
     public Certificate(int certificateId, double rating, String nameEmployee) {
         this.certificateId = certificateId;
@@ -15,24 +15,12 @@ public class Certificate {
         return certificateId;
     }
 
-    public void setCertificateId(int certificateId) {
-        this.certificateId = certificateId;
-    }
-
     public double getRating() {
         return rating;
     }
 
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
-
     public String getNameEmployee() {
         return nameEmployee;
-    }
-
-    public void setNameEmployee(String nameEmployee) {
-        this.nameEmployee = nameEmployee;
     }
 
 }

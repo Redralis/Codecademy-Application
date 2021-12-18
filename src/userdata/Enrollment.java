@@ -3,7 +3,7 @@ package userdata;
 import java.time.LocalDate;
 
 public class Enrollment {
-    private LocalDate dateOfEnrollment;
+    private final LocalDate dateOfEnrollment;
     private Certificate certificate;
 
     public Enrollment() {
@@ -14,8 +14,8 @@ public class Enrollment {
         return dateOfEnrollment;
     }
 
-    public void setDateOfEnrollment(LocalDate dateOfEnrollment) {
-        this.dateOfEnrollment = dateOfEnrollment;
+    public Certificate getCertificate() {
+        return certificate;
     }
 
 }

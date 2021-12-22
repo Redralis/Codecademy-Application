@@ -11,6 +11,10 @@ public class Certificate {
         this.nameEmployee = nameEmployee;
     }
 
+    public boolean validateRating(double rating) {
+        return rating >= 1 & rating <= 10;
+    }
+
     public int getCertificateId() {
         return certificateId;
     }

@@ -1,3 +1,5 @@
+package gui;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -22,7 +24,7 @@ public class UsersGUI {
         right.setStyle("-fx-background-color: #fff0e5");
         // buttons aanmaken menu
         Button back = new Button("Back");
-        Label nameText = new Label("Codeacademy");
+        Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
         Button settings = new Button("Settings");
         Button logout = new Button("Logout");

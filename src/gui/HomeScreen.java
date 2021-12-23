@@ -1,3 +1,5 @@
+package gui;
+
 import javax.swing.plaf.InsetsUIResource;
 
 import javafx.application.Application;

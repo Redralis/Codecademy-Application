@@ -100,6 +100,10 @@ public class HomeScreen extends Application {
             UsersGUI uGui = new UsersGUI();
             window.setScene(uGui.getScene());
         });
+        info.setOnAction(event -> {
+            InfoGUI infoGUI = new InfoGUI();
+            window.setScene(infoGUI.getScene());
+        });
         mainStage = window;
         
     }public static Stage getStage() {

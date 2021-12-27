@@ -6,7 +6,7 @@ public class Enrollment {
     private final LocalDate dateOfEnrollment;
     private Certificate certificate;
 
-    public Enrollment() {
+    public Enrollment(String dateOfEnrollment) {
         this.dateOfEnrollment = LocalDate.now();
     }
 

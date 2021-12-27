@@ -80,12 +80,12 @@ public class HomeScreenGUI extends Application {
             window.setScene(mGui.getScene());
         });
         webcasts.setOnAction(event -> {
-            WebcastsGUI wGui = new WebcastsGUI();
+            EnrollmentsGUI wGui = new EnrollmentsGUI();
             Stage window = HomeScreen.getStage();
             window.setScene(wGui.getScene());
         });
         users.setOnAction(event -> {
-            UsersGUI uGui = new UsersGUI();
+            StudentsGUI uGui = new StudentsGUI();
             Stage window = HomeScreen.getStage();
             window.setScene(uGui.getScene());
         });

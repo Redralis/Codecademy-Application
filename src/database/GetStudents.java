@@ -1,14 +1,14 @@
 package database;
 
 import javafx.scene.control.TableView;
-import userdata.Course;
-import userdata.Level;
+import userdata.Gender;
+import userdata.Student;
 import java.sql.*;
 
-public class GetCourses {
+public class GetStudents {
 
-    public static TableView<Course> courses() {
-        TableView<Course> table = new TableView<Course>();
+    public static TableView<Student> students() {
+        TableView<Student> table = new TableView<Student>();
 
         // These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
@@ -30,7 +30,7 @@ public class GetCourses {
             con = DriverManager.getConnection(connectionUrl);
 
             // Making a SQL query.
-            String SQL = "SELECT * FROM Cursus";
+            String SQL = "SELECT * FROM Cursist";
             stmt = con.createStatement();
             // Executing the query in the database
             rs = stmt.executeQuery(SQL);
@@ -38,15 +38,26 @@ public class GetCourses {
             // If there are results in the ResultSet we go through them here and print them.
             while (rs.next()) {
                 // Getting the columns per row
+                String email = rs.getString("Email");
                 String name = rs.getString("Naam");
-                String subject = rs.getString("Onderwerp");
-                String introductionText = rs.getString("IntroductieTekst");
-                String level = rs.getString("Niveau");
+                String dateOfBirth = rs.getString("GeboorteDatum");
+                String gender = rs.getString("Geslacht");
+                String address = rs.getString("Adres");
+                String city = rs.getString("Woonplaats");
+                String country = rs.getString("Land");
+                String postalCode = rs.getString("PostCode");
 
-                // Converting level to an enum value.
-                Level level1 = Level.valueOf(level);
+                // Converting gender to an enum value
+                Gender gender1;
+                if (gender.equals("Man")) {
+                    gender1 = Gender.valueOf("M");
+                } else {
+                    gender1 = Gender.valueOf("F");
+                }
 
-                table.getItems().add(new Course(name, subject, introductionText, level1));
+                // Adding each individual row into the table.
+                table.getItems().add(new Student(email, name, dateOfBirth, gender1, address, city,
+                        country, postalCode));
             }
 
         }
@@ -61,6 +72,7 @@ public class GetCourses {
             if (con != null) try { con.close(); } catch(Exception e) {}
         }
 
+        // Returning the table.
         return table;
     }
 }

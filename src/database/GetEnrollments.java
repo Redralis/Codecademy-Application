@@ -1,14 +1,13 @@
 package database;
 
 import javafx.scene.control.TableView;
-import userdata.Course;
-import userdata.Level;
+import userdata.Enrollment;
 import java.sql.*;
 
-public class GetCourses {
+public class GetEnrollments {
 
-    public static TableView<Course> courses() {
-        TableView<Course> table = new TableView<Course>();
+    public static TableView<Enrollment> enrollments() {
+        TableView<Enrollment> table = new TableView<Enrollment>();
 
         // These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
@@ -30,7 +29,7 @@ public class GetCourses {
             con = DriverManager.getConnection(connectionUrl);
 
             // Making a SQL query.
-            String SQL = "SELECT * FROM Cursus";
+            String SQL = "SELECT * FROM Inschrijving";
             stmt = con.createStatement();
             // Executing the query in the database
             rs = stmt.executeQuery(SQL);
@@ -38,15 +37,9 @@ public class GetCourses {
             // If there are results in the ResultSet we go through them here and print them.
             while (rs.next()) {
                 // Getting the columns per row
-                String name = rs.getString("Naam");
-                String subject = rs.getString("Onderwerp");
-                String introductionText = rs.getString("IntroductieTekst");
-                String level = rs.getString("Niveau");
+                String dateOfEnrollment = rs.getString("InschrijfDatum");
 
-                // Converting level to an enum value.
-                Level level1 = Level.valueOf(level);
-
-                table.getItems().add(new Course(name, subject, introductionText, level1));
+                table.getItems().add(new Enrollment(dateOfEnrollment));
             }
 
         }

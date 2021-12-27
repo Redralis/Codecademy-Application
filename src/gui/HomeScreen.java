@@ -17,10 +17,10 @@ public class HomeScreen extends Application {
     @Override
     public void start(Stage window) {
         
-        // makes layout
+        //Creating the layout...
         BorderPane layout = new BorderPane();
 
-        // makes menu
+        //Creating the menu...
         HBox menu = new HBox();
 
         // makes body
@@ -86,12 +86,12 @@ public class HomeScreen extends Application {
            // window.setScene(mGui.getScene());
         });
         webcasts.setOnAction(event -> {
-            WebcastsGUI wGUI = new WebcastsGUI();
+            EnrollmentsGUI wGUI = new EnrollmentsGUI();
             window.setScene(wGUI.getScene());
             
         });
         users.setOnAction(event -> {
-            UsersGUI uGui = new UsersGUI();
+            StudentsGUI uGui = new StudentsGUI();
             window.setScene(uGui.getScene());
         });
         info.setOnAction(event -> {

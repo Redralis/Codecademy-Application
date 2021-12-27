@@ -14,7 +14,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import userdata.Course;
-import userdata.Level;
 
 public class CoursesGUI {
     

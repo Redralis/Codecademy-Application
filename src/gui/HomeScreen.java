@@ -1,7 +1,5 @@
 package gui;
 
-import javax.swing.plaf.InsetsUIResource;
-
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -11,10 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 public class HomeScreen extends Application {
     public static Stage mainStage;
@@ -87,7 +82,7 @@ public class HomeScreen extends Application {
             System.exit(1);
         });
         modules.setOnAction(event -> {
-            ModulesGUI mGui = new ModulesGUI();
+            CoursesGUI mGui = new CoursesGUI();
             window.setScene(mGui.getScene());
            // window.setScene(mGui.getScene());
         });

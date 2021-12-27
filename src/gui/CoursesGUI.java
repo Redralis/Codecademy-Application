@@ -60,6 +60,7 @@ public class CoursesGUI {
 
         //Creating the buttons for the body
         Button add = new Button("Add");
+        Button edit = new Button("Edit");
         Button delete = new Button("Delete");
         Button overzicht = new Button("Overzicht");
         Button top3 = new Button("Top 3");
@@ -69,7 +70,7 @@ public class CoursesGUI {
 
 
         //Adding the buttons to the body
-        right.getChildren().addAll(add, delete, overzicht, top3, percBehaald);
+        right.getChildren().addAll(add, edit,  delete, overzicht, top3, percBehaald);
 
         //Adding the buttons to menu
         menu.getChildren().addAll(back, nameText, info, settings, logout);

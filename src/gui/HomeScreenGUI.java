@@ -13,22 +13,21 @@ import javafx.stage.Stage;
 
 public class HomeScreenGUI extends Application {
     public Scene getScene() {
-        // aanmaken layout
+        // makes layout
         BorderPane layout = new BorderPane();
 
-        // aanmaken menu
+        // makes menu
         HBox menu = new HBox();
 
-        // middel aanmaken
+        // makes body
         HBox body = new HBox();
 
-        // buttons aanmaken menu
+        // makes buttons for menu
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
-        Button settings = new Button("Settings");
         Button logout = new Button("Logout");
 
-        // buttons aanmaken body
+        // makes buttons for body
         Button modules = new Button("Cursussen");
         Button webcasts = new Button("Webcasts");
         Button users = new Button("Cursisten");
@@ -45,23 +44,23 @@ public class HomeScreenGUI extends Application {
         webcasts.setStyle("-fx-font-size:30");
         users.setStyle("-fx-font-size:30");
 
-        // toevoegen aan menu
-        menu.getChildren().addAll(nameText, info, settings, logout);
+        // adds to menu
+        menu.getChildren().addAll(nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
-        // toevoegen aan body
+        // adds to body
         body.getChildren().addAll(modules, webcasts, users);
         body.setStyle("-fx-background-color: #fff0e5");
 
-        // menu toevoegen aan layout
+        // add menu to layout
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));
         menu.setAlignment(Pos.BASELINE_CENTER);
         layout.setTop(menu);
 
-        // body toevoegen aan layout
+        // adds body to layout
         layout.setCenter(body);
 
-        // positionering van de body buttons
+        // positioning of the buttons
         body.setAlignment(Pos.BASELINE_CENTER);
         modules.setTranslateX(5);
         modules.setTranslateY(45);
@@ -90,15 +89,18 @@ public class HomeScreenGUI extends Application {
             Stage window = HomeScreen.getStage();
             window.setScene(uGui.getScene());
         });
-
+        info.setOnAction(event -> {
+            InfoGUI InfoGUI = new InfoGUI();
+            Stage window = HomeScreen.getStage();
+            window.setScene(InfoGUI.getScene());
+        });
+        //makes scene
         Scene scene = new Scene(layout,550,200);
         return scene;
         
         
     }
-    // public void setScene(HomeScreen home) {
-    //     home.setScene(getScene());
-    // }
+
     @Override
     public void start(Stage window) throws Exception {
         

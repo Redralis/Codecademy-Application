@@ -16,37 +16,37 @@ public class WebcastsGUI {
     public Scene getScene() {
         BorderPane layout = new BorderPane();
 
-        // aanmaken menu
+        // makes menu
         HBox menu = new HBox();
 
-        // middel aanmaken
+        // makes body
         VBox body = new VBox();
         body.setStyle("-fx-background-color: #fff0e5");
         VBox right = new VBox();
         right.setStyle("-fx-background-color: #fff0e5");
-        // buttons aanmaken menu
+        // makes buttons for menu
         Button back = new Button("Back");
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
-        Button settings = new Button("Settings");
         Button logout = new Button("Logout");
 
-        // buttons aanmaken voor body
+        // makes buttons for body
         Button add = new Button("Add");
+        Button edit = new Button("Edit");
         Button delete = new Button("Delete");
         Button top3 = new Button("Top 3");
 
-        // buttons toevoegen aan menu
-        menu.getChildren().addAll(back, nameText, info, settings, logout);
+        // adds buttons to menu
+        menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
-        // buttons toevoegen aan body
-        right.getChildren().addAll(add, delete, top3);
+        // adds buttons to body
+        right.getChildren().addAll(add, edit, delete, top3);
 
-        // body toevoegen aan layout
+        // adds body to layout
         layout.setCenter(body);
         layout.setRight(right);
-        // buttons functie geven
+        // giving the buttons function
         logout.setOnAction((event) -> {
             System.exit(1);
         });
@@ -57,12 +57,12 @@ public class WebcastsGUI {
             
         });
 
-        // menu toevoegen aan layout
+        // adds menu to the layout
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));
         menu.setAlignment(Pos.BASELINE_CENTER);
         layout.setTop(menu);
 
-        // scene aanmaken
+        // makes the scene
         Scene scene = new Scene(layout, 550, 200);
         return scene;
     }

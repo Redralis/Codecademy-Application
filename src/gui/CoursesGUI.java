@@ -1,6 +1,5 @@
 package gui;
 
-import database.GetCourses;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -14,7 +13,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import userdata.Course;
-import userdata.Level;
 
 public class CoursesGUI {
     
@@ -27,22 +25,22 @@ public class CoursesGUI {
         VBox right = new VBox();
 
         //Making the table for viewing the courses
-        TableView<Course> table = GetCourses.courses();
+        TableView table = new TableView<Course>();
         table.setStyle("-fx-background-color: #fff0e5");
         right.setStyle("-fx-background-color: #fff0e5");
 
         //Making columns
-        TableColumn<Course, String> nameColumn = new TableColumn<Course, String>("Name");
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        TableColumn nameColumn = new TableColumn<Course, String>("Name");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("name"));
 
-        TableColumn<Course, String> subjectColumn = new TableColumn<Course, String>("Subject");
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("subject"));
+        TableColumn subjectColumn = new TableColumn<Course, String>("Subject");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("subject"));
 
-        TableColumn<Course, String> introductionTextColumn = new TableColumn<Course, String>("introductionText");
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("introductionText"));
+        TableColumn introductionTextColumn = new TableColumn<Course, String>("introductionText");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("introductionText"));
 
-        TableColumn<Course, Level> levelColumn = new TableColumn<Course, Level>("Level");
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("level"));
+        TableColumn levelColumn = new TableColumn<Course, String>("Level");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("level"));
 
         //Adding the columns to the table
         table.getColumns().add(nameColumn);

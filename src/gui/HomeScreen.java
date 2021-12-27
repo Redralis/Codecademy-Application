@@ -17,21 +17,21 @@ public class HomeScreen extends Application {
     @Override
     public void start(Stage window) {
         
-        // aanmaken layout
+        // makes layout
         BorderPane layout = new BorderPane();
 
-        // aanmaken menu
+        // makes menu
         HBox menu = new HBox();
 
-        // middel aanmaken
+        // makes body
         HBox body = new HBox();
 
-        // buttons aanmaken menu
+        // makes menu buttons
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
         Button logout = new Button("Logout");
 
-        // buttons aanmaken body
+        // makes body buttons
         Button modules = new Button("Cursussen");
         Button webcasts = new Button("Webcasts");
         Button users = new Button("Cursisten");
@@ -48,23 +48,23 @@ public class HomeScreen extends Application {
         webcasts.setStyle("-fx-font-size:30");
         users.setStyle("-fx-font-size:30");
 
-        // toevoegen aan menu
+        // adds to menu
         menu.getChildren().addAll(nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
-        // toevoegen aan body
+        // adds to body
         body.getChildren().addAll(modules, webcasts, users);
         body.setStyle("-fx-background-color: #fff0e5");
 
-        // menu toevoegen aan layout
+        // adds menu to layout
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));
         menu.setAlignment(Pos.BASELINE_CENTER);
         layout.setTop(menu);
 
-        // body toevoegen aan layout
+        // adds body to layout
         layout.setCenter(body);
 
-        // positionering van de body buttons
+        // positioning of the body
         body.setAlignment(Pos.BASELINE_CENTER);
         modules.setTranslateX(5);
         modules.setTranslateY(45);
@@ -76,7 +76,7 @@ public class HomeScreen extends Application {
         Scene scene = new Scene(layout,550,200);
         window.setScene(scene);
         window.show();
-        // button van menu fuctie geven
+        // giving the buttons from the menu function
         logout.setOnAction((event) -> {
             System.exit(1);
         });

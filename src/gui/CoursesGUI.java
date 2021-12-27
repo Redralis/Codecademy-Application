@@ -63,13 +63,14 @@ public class CoursesGUI {
         Button delete = new Button("Delete");
         Button overzicht = new Button("Overzicht");
         Button top3 = new Button("Top 3");
-        Label percBehaald = new Label("...% / 100%"); 
+        Label percBehaald = new Label("...% / 100%");
+        Button edit = new Button("Edit");
 
         
 
 
         //Adding the buttons to the body
-        right.getChildren().addAll(add, delete, overzicht, top3, percBehaald);
+        right.getChildren().addAll(add, edit, delete, overzicht, top3, percBehaald);
 
         //Adding the buttons to menu
         menu.getChildren().addAll(back, nameText, info, settings, logout);

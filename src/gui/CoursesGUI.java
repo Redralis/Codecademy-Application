@@ -2,43 +2,63 @@ package gui;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.Window;
+import userdata.Course;
 
-public class ModulesGUI {
+public class CoursesGUI {
     
     public Scene getScene() {
-        // aanmaken layout
+        //Creating the layout
         BorderPane layout = new BorderPane();
 
-        // aanmaken menu
+        //Creating the menu
         HBox menu = new HBox();
         VBox right = new VBox();
 
-        // middel aanmaken
-        VBox body = new VBox();
-        body.setStyle("-fx-background-color: #fff0e5");
+        //Making the table for viewing the courses
+        TableView table = new TableView<Course>();
+        table.setStyle("-fx-background-color: #fff0e5");
         right.setStyle("-fx-background-color: #fff0e5");
 
-        //moet toegevoegd worden aan geselecteerde cursussen
+        //Making columns
+        TableColumn nameColumn = new TableColumn<Course, String>("Name");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("name"));
+
+        TableColumn subjectColumn = new TableColumn<Course, String>("Subject");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("subject"));
+
+        TableColumn introductionTextColumn = new TableColumn<Course, String>("introductionText");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("introductionText"));
+
+        TableColumn levelColumn = new TableColumn<Course, String>("Level");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Course, String>("level"));
+
+        //Adding the columns to the table
+        table.getColumns().add(nameColumn);
+        table.getColumns().add(subjectColumn);
+        table.getColumns().add(introductionTextColumn);
+        table.getColumns().add(levelColumn);
+
+        //Has to be added to selected courses
         HBox aanbevolen = new HBox();
 
-        // buttons aanmaken menu
+        //Creating the buttons for the menu
         Button back = new Button("Back");
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
         Button settings = new Button("Settings");
         Button logout = new Button("Logout");
 
-        //buttons aanmaken voor body
+        //Creating the buttons for the body
         Button add = new Button("Add");
         Button delete = new Button("Delete");
         Button overzicht = new Button("Overzicht");
@@ -48,22 +68,22 @@ public class ModulesGUI {
         
 
 
-        //buttons toevoegen aan body
+        //Adding the buttons to the body
         right.getChildren().addAll(add, delete, overzicht, top3, percBehaald);
 
-        //buttons toevoegen aan menu
+        //Adding the buttons to menu
         menu.getChildren().addAll(back, nameText, info, settings, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
-        //menu toevoegen aan layout
+        //Adding the menu to the layout
         HBox.setMargin(nameText, new Insets(10,10,10,10));
         menu.setAlignment(Pos.BASELINE_CENTER);
         layout.setTop(menu);
 
-        //body toevoegen aan layout
-        layout.setCenter(body);
+        //Adding the body to the layout
+        layout.setCenter(table);
         layout.setRight(right);
-        //buttons functie geven
+        //Giving the buttons function
         logout.setOnAction((event) -> {
             System.exit(1);
         });
@@ -75,7 +95,7 @@ public class ModulesGUI {
         });
        
 
-        //scene aanmaken
+        //Making the scene
         Scene modulesG = new Scene(layout, 550, 200); 
         
         return modulesG;

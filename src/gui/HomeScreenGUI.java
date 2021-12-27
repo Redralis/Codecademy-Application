@@ -10,7 +10,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 public class HomeScreenGUI extends Application {
     public Scene getScene() {
@@ -26,7 +25,6 @@ public class HomeScreenGUI extends Application {
         // buttons aanmaken menu
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
-        Button settings = new Button("Settings");
         Button logout = new Button("Logout");
 
         // buttons aanmaken body
@@ -47,7 +45,7 @@ public class HomeScreenGUI extends Application {
         users.setStyle("-fx-font-size:30");
 
         // toevoegen aan menu
-        menu.getChildren().addAll(nameText, info, settings, logout);
+        menu.getChildren().addAll(nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
         // toevoegen aan body
@@ -77,7 +75,7 @@ public class HomeScreenGUI extends Application {
         });
         modules.setOnAction(event -> {
             
-            ModulesGUI mGui = new ModulesGUI();
+            CoursesGUI mGui = new CoursesGUI();
             Stage window = HomeScreen.getStage();
             window.setScene(mGui.getScene());
         });
@@ -90,6 +88,11 @@ public class HomeScreenGUI extends Application {
             UsersGUI uGui = new UsersGUI();
             Stage window = HomeScreen.getStage();
             window.setScene(uGui.getScene());
+        });
+        info.setOnAction(event -> {
+            InfoGUI InfoGUI = new InfoGUI();
+            Stage window = HomeScreen.getStage();
+            window.setScene(InfoGUI.getScene());
         });
 
         Scene scene = new Scene(layout,550,200);

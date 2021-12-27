@@ -10,7 +10,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 public class HomeScreenGUI extends Application {
     public Scene getScene() {
@@ -76,7 +75,7 @@ public class HomeScreenGUI extends Application {
         });
         modules.setOnAction(event -> {
             
-            ModulesGUI mGui = new ModulesGUI();
+            CoursesGUI mGui = new CoursesGUI();
             Stage window = HomeScreen.getStage();
             window.setScene(mGui.getScene());
         });

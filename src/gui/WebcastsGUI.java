@@ -56,6 +56,11 @@ public class WebcastsGUI {
             window.setScene(hGui.getScene());
             
         });
+        info.setOnAction(event -> {
+            InfoGUI InfoGUI = new InfoGUI();
+            Stage window = HomeScreen.getStage();
+            window.setScene(InfoGUI.getScene());
+        });
 
         // adds menu to the layout
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));

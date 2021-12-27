@@ -53,6 +53,11 @@ public class UsersGUI {
             window.setScene(hGui.getScene());
             
         });
+        info.setOnAction(event -> {
+            InfoGUI InfoGUI = new InfoGUI();
+            Stage window = HomeScreen.getStage();
+            window.setScene(InfoGUI.getScene());
+        });
 
         // adds menu to layout
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));

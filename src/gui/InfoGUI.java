@@ -24,11 +24,10 @@ public class InfoGUI {
         //creates the buttons for the menu
         Button back = new Button("Back");
         Label nameText = new Label("Codecademy");
-        Button settings = new Button("Settings");
         Button logout = new Button("Logout");
 
         //adds the buttons to the menu
-        menu.getChildren().addAll(back, nameText, settings, logout);
+        menu.getChildren().addAll(back, nameText, logout);
 
         //edit menu
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));

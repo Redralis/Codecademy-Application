@@ -35,7 +35,6 @@ public class ModulesGUI {
         Button back = new Button("Back");
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
-        Button settings = new Button("Settings");
         Button logout = new Button("Logout");
 
         //buttons aanmaken voor body
@@ -52,7 +51,7 @@ public class ModulesGUI {
         right.getChildren().addAll(add, delete, overzicht, top3, percBehaald);
 
         //buttons toevoegen aan menu
-        menu.getChildren().addAll(back, nameText, info, settings, logout);
+        menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
         //menu toevoegen aan layout

@@ -28,7 +28,6 @@ public class WebcastsGUI {
         Button back = new Button("Back");
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
-        Button settings = new Button("Settings");
         Button logout = new Button("Logout");
 
         // buttons aanmaken voor body
@@ -37,7 +36,7 @@ public class WebcastsGUI {
         Button top3 = new Button("Top 3");
 
         // buttons toevoegen aan menu
-        menu.getChildren().addAll(back, nameText, info, settings, logout);
+        menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
         // buttons toevoegen aan body

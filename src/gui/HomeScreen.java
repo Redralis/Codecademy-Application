@@ -34,7 +34,6 @@ public class HomeScreen extends Application {
         // buttons aanmaken menu
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
-        Button settings = new Button("Settings");
         Button logout = new Button("Logout");
 
         // buttons aanmaken body
@@ -55,7 +54,7 @@ public class HomeScreen extends Application {
         users.setStyle("-fx-font-size:30");
 
         // toevoegen aan menu
-        menu.getChildren().addAll(nameText, info, settings, logout);
+        menu.getChildren().addAll(nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
         // toevoegen aan body

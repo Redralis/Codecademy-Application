@@ -19,6 +19,7 @@ import userdata.Enrollment;
 public class EnrollmentsGUI {
 
     public Scene getScene() {
+
         //Creating the layout...
         BorderPane layout = new BorderPane();
 
@@ -81,5 +82,7 @@ public class EnrollmentsGUI {
 
         //Making the scene...
         return new Scene(layout, 550, 200);
+
     }
+
 }

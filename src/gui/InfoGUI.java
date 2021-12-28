@@ -40,18 +40,21 @@ public class InfoGUI {
         body.setStyle("-fx-background-color: #fff0e5");
 
         //Creating buttons for the body...
-        Label infoBody = new Label("- This application is made by Hans Gerard Karremans, Joost van Dam, Rick Wijkmans en Lucas de Kleijn");
-        Label infoMore = new Label("- If there are any problems regarding this application please mail them to: \n  hg.karremans@student.avans.nl");
+        Label infoBody = new Label("- This application is made by Hans Gerard Karremans, Joost van Dam," +
+                " Rick Wijkmans en Lucas de Kleijn");
+        Label infoMore = new Label("- If there are any problems regarding this application please mail " +
+                "them to: \n  hg.karremans@student.avans.nl");
 
-        //adds the buttons to the body
+        //Adding buttons to body...
         bodyB.getChildren().add(infoBody);
         bodyO.getChildren().add(infoMore);
         body.getChildren().addAll(bodyB, bodyO);
-        //adds the menu and body to the layout
+
+        //Adding body and menu to layout...
         layout.setTop(menu);
         layout.setCenter(body);
 
-        //gives the buttons function
+        //Giving buttons function...
         logout.setOnAction((event) -> {
             System.exit(1);
         });
@@ -62,12 +65,9 @@ public class InfoGUI {
 
         });
 
-        //makes a scene
-        Scene scene = new Scene(layout, 550, 200);
-
-        return scene;
-
-
+        //Making scene...
+        return new Scene(layout, 550, 200);
 
     }
+
 }

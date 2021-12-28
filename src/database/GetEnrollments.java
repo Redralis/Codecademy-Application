@@ -7,6 +7,7 @@ import java.sql.*;
 public class GetEnrollments {
 
     public static TableView<Enrollment> enrollments() {
+
         TableView<Enrollment> table = new TableView<Enrollment>();
 
         // These are the settings for the connection.
@@ -55,5 +56,7 @@ public class GetEnrollments {
         }
 
         return table;
+
     }
+
 }

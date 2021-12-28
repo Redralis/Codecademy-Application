@@ -8,6 +8,7 @@ import java.sql.*;
 public class GetStudents {
 
     public static TableView<Student> students() {
+
         TableView<Student> table = new TableView<Student>();
 
         // These are the settings for the connection.
@@ -74,5 +75,7 @@ public class GetStudents {
 
         // Returning the table.
         return table;
+
     }
+
 }

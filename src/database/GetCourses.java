@@ -8,6 +8,7 @@ import java.sql.*;
 public class GetCourses {
 
     public static TableView<Course> courses() {
+
         TableView<Course> table = new TableView<Course>();
 
         // These are the settings for the connection.
@@ -62,5 +63,7 @@ public class GetCourses {
         }
 
         return table;
+
     }
+
 }

@@ -12,79 +12,80 @@ import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 
 public class HomeScreenGUI extends Application {
+
     public Scene getScene() {
-        // makes layout
+
+        //Creating the layout...
         BorderPane layout = new BorderPane();
 
-        // makes menu
+        //Creating the menu...
         HBox menu = new HBox();
 
-        // makes body
+        //Creating the body...
         HBox body = new HBox();
 
-        // makes buttons for menu
+        //Creating buttons for the menu...
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
         Button logout = new Button("Logout");
 
-        // makes buttons for body
-        Button modules = new Button("Cursussen");
-        Button webcasts = new Button("Webcasts");
-        Button users = new Button("Cursisten");
+        //Creating buttons for the body...
+        Button courses = new Button("Cursussen");
+        Button enrollments = new Button("Inschrijvingen");
+        Button students = new Button("Studenten");
 
-        HBox.setHgrow(modules, Priority.ALWAYS);
-        HBox.setHgrow(webcasts, Priority.ALWAYS);
-        HBox.setHgrow(users, Priority.ALWAYS);
+        HBox.setHgrow(courses, Priority.ALWAYS);
+        HBox.setHgrow(enrollments, Priority.ALWAYS);
+        HBox.setHgrow(students, Priority.ALWAYS);
 
-        modules.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        webcasts.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        users.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        courses.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        enrollments.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        students.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 
-        modules.setStyle("-fx-font-size:30");
-        webcasts.setStyle("-fx-font-size:30");
-        users.setStyle("-fx-font-size:30");
+        courses.setStyle("-fx-font-size:30");
+        enrollments.setStyle("-fx-font-size:30");
+        students.setStyle("-fx-font-size:30");
 
-        // adds to menu
+        //Adding to the menu...
         menu.getChildren().addAll(nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
-        // adds to body
-        body.getChildren().addAll(modules, webcasts, users);
+        //Adding to the body...
+        body.getChildren().addAll(courses, enrollments, students);
         body.setStyle("-fx-background-color: #fff0e5");
 
-        // add menu to layout
+        //Adding menu to layout...
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));
         menu.setAlignment(Pos.BASELINE_CENTER);
         layout.setTop(menu);
 
-        // adds body to layout
+        //Adding body to layout...
         layout.setCenter(body);
 
-        // positioning of the buttons
+        //Positioning the buttons...
         body.setAlignment(Pos.BASELINE_CENTER);
-        modules.setTranslateX(5);
-        modules.setTranslateY(45);
-        webcasts.setTranslateX(5);
-        webcasts.setTranslateY(45);
-        users.setTranslateX(5);
-        users.setTranslateY(45);
+        courses.setTranslateX(5);
+        courses.setTranslateY(45);
+        enrollments.setTranslateX(5);
+        enrollments.setTranslateY(45);
+        students.setTranslateX(5);
+        students.setTranslateY(45);
         
-        //giving the buttons function
+        //Giving buttons function...
         logout.setOnAction(event -> {
             System.exit(1);
         });
-        modules.setOnAction(event -> {
-            
+        courses.setOnAction(event -> {
             CoursesGUI mGui = new CoursesGUI();
             Stage window = HomeScreen.getStage();
             window.setScene(mGui.getScene());
         });
-        webcasts.setOnAction(event -> {
+        enrollments.setOnAction(event -> {
             EnrollmentsGUI wGui = new EnrollmentsGUI();
             Stage window = HomeScreen.getStage();
             window.setScene(wGui.getScene());
         });
-        users.setOnAction(event -> {
+        students.setOnAction(event -> {
             StudentsGUI uGui = new StudentsGUI();
             Stage window = HomeScreen.getStage();
             window.setScene(uGui.getScene());
@@ -94,15 +95,15 @@ public class HomeScreenGUI extends Application {
             Stage window = HomeScreen.getStage();
             window.setScene(InfoGUI.getScene());
         });
-        //makes scene
-        Scene scene = new Scene(layout,550,200);
-        return scene;
-        
-        
+
+        //Making scene...
+        return new Scene(layout,550,200);
+
     }
 
     @Override
     public void start(Stage window) throws Exception {
         
     }
+
 }

@@ -73,7 +73,7 @@ public class HomeScreen extends Application {
         students.setTranslateX(5);
         students.setTranslateY(45);
 
-        Scene scene = new Scene(layout, 550, 200);
+        Scene scene = new Scene(layout, 700, 200);
         window.setScene(scene);
         window.show();
 

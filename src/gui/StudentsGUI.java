@@ -98,9 +98,14 @@ public class StudentsGUI {
             window.setScene(hGui.getScene());
             
         });
+        info.setOnAction(event -> {
+            InfoGUI InfoGUI = new InfoGUI();
+            Stage window = HomeScreen.getStage();
+            window.setScene(InfoGUI.getScene());
+        });
 
         //Making the scene...
-        return new Scene(layout, 550, 200);
+        return new Scene(layout, 700, 200);
 
     }
 

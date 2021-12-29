@@ -75,7 +75,7 @@ public class StudentsGUI {
 
         //Adding the buttons to the menu...
         menu.getChildren().addAll(back, nameText, info, logout);
-        menu.setStyle("-fx-background-color: #ffd300;");
+        menu.setStyle("-fx-background-color: #ffd300");
 
         //Adding the buttons to the body...
         right.getChildren().addAll(add, edit, delete);
@@ -102,6 +102,11 @@ public class StudentsGUI {
             InfoGUI InfoGUI = new InfoGUI();
             Stage window = HomeScreen.getStage();
             window.setScene(InfoGUI.getScene());
+        });
+        add.setOnAction(event -> {
+            AddGUI addGUI = new AddGUI();
+            Stage window = HomeScreen.getStage();
+            window.setScene(addGUI.getStage());
         });
 
         //Making the scene...

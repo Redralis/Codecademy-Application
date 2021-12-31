@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import userdata.Course;
 import userdata.Enrollment;
+import userdata.Student;
 
 public class EnrollmentsGUI {
 
@@ -94,6 +95,16 @@ public class EnrollmentsGUI {
             InfoGUI InfoGUI = new InfoGUI();
             Stage window = MainGUI.getStage();
             window.setScene(InfoGUI.getScene());
+        });
+        delete.setOnAction(actionEvent -> {
+            Enrollment enrollment = table.getSelectionModel().getSelectedItem();
+            if (enrollment != null) {
+                DeleteItem.deleteItem(enrollment.getStudent(), enrollment.getDateOfEnrollment(), "Inschrijving",
+                "FK_Cursist", "InschrijfDatum");
+                EnrollmentsGUI mGui = new EnrollmentsGUI();
+                Stage window = MainGUI.getStage();
+                window.setScene(mGui.getScene());
+            }
         });
 
         //Making the scene...

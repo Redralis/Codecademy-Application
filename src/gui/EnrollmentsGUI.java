@@ -42,8 +42,15 @@ public class EnrollmentsGUI {
         TableColumn<Enrollment, String> studentColumn = new TableColumn<Enrollment, String>("Student");
         studentColumn.setCellValueFactory(new PropertyValueFactory<>("student"));
 
+        TableColumn<Enrollment, String> courseColumn = new TableColumn<Enrollment, String>("Course");
+        courseColumn.setCellValueFactory(new PropertyValueFactory<>("course"));
+
+        TableColumn<Enrollment, String> certificateColumn = new TableColumn<Enrollment, String>("Certificate");
+        certificateColumn.setCellValueFactory(new PropertyValueFactory<>("certificate"));
+
+
         //Adding the columns to the table...
-        table.getColumns().addAll(dateOfEnrollmentColumn, studentColumn);
+        table.getColumns().addAll(dateOfEnrollmentColumn, studentColumn, courseColumn, certificateColumn);
 
         //Creating buttons for the menu...
         Button back = new Button("Back");

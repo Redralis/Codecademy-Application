@@ -40,8 +40,10 @@ public class GetEnrollments {
                 // Getting the columns per row
                 String dateOfEnrollment = rs.getString("InschrijfDatum");
                 String student = rs.getString("FK_Cursist");
+                String course = rs.getString("FK_Cursus");
+                String certificate = rs.getString("FK_Certificaat");
 
-                table.getItems().add(new Enrollment(dateOfEnrollment, student));
+                table.getItems().add(new Enrollment(dateOfEnrollment, student, course, certificate));
             }
 
         }

@@ -94,18 +94,18 @@ public class StudentsGUI {
         });
         back.setOnAction(event -> {
             HomeScreenGUI hGui = new HomeScreenGUI();
-            Stage window = HomeScreen.getStage();
+            Stage window = MainGUI.getStage();
             window.setScene(hGui.getScene());
-            
+
         });
         info.setOnAction(event -> {
             InfoGUI InfoGUI = new InfoGUI();
-            Stage window = HomeScreen.getStage();
+            Stage window = MainGUI.getStage();
             window.setScene(InfoGUI.getScene());
         });
         add.setOnAction(event -> {
-            AddGUI addGUI = new AddGUI();
-            Stage window = HomeScreen.getStage();
+            AddStudentsGUI addGUI = new AddStudentsGUI();
+            Stage window = MainGUI.getStage();
             window.setScene(addGUI.getStage());
         });
 

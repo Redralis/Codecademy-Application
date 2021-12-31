@@ -70,40 +70,40 @@ public class HomeScreenGUI extends Application {
         enrollments.setTranslateY(45);
         students.setTranslateX(5);
         students.setTranslateY(45);
-        
+
         //Giving buttons function...
         logout.setOnAction(event -> {
             System.exit(1);
         });
         courses.setOnAction(event -> {
             CoursesGUI mGui = new CoursesGUI();
-            Stage window = HomeScreen.getStage();
+            Stage window = MainGUI.getStage();
             window.setScene(mGui.getScene());
         });
         enrollments.setOnAction(event -> {
             EnrollmentsGUI wGui = new EnrollmentsGUI();
-            Stage window = HomeScreen.getStage();
+            Stage window = MainGUI.getStage();
             window.setScene(wGui.getScene());
         });
         students.setOnAction(event -> {
             StudentsGUI uGui = new StudentsGUI();
-            Stage window = HomeScreen.getStage();
+            Stage window = MainGUI.getStage();
             window.setScene(uGui.getScene());
         });
         info.setOnAction(event -> {
             InfoGUI InfoGUI = new InfoGUI();
-            Stage window = HomeScreen.getStage();
+            Stage window = MainGUI.getStage();
             window.setScene(InfoGUI.getScene());
         });
 
         //Making scene...
-        return new Scene(layout,700,200);
+        return new Scene(layout, 700, 200);
 
     }
 
     @Override
     public void start(Stage window) throws Exception {
-        
+
     }
 
 }

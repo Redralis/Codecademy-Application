@@ -6,7 +6,7 @@ public class Program {
 
     //Launching program...
     public static void main(String[] args) {
-        Application.launch(HomeScreen.class);
+        Application.launch(MainGUI.class);
     }
 
 }

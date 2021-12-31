@@ -13,7 +13,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import userdata.Course;
 import userdata.Enrollment;
 
 public class EnrollmentsGUI {
@@ -75,13 +74,13 @@ public class EnrollmentsGUI {
         });
         back.setOnAction(event -> {
             HomeScreenGUI hGui = new HomeScreenGUI();
-            Stage window = HomeScreen.getStage();
+            Stage window = MainGUI.getStage();
             window.setScene(hGui.getScene());
             
         });
         info.setOnAction(event -> {
             InfoGUI InfoGUI = new InfoGUI();
-            Stage window = HomeScreen.getStage();
+            Stage window = MainGUI.getStage();
             window.setScene(InfoGUI.getScene());
         });
 

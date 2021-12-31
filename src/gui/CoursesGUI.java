@@ -89,13 +89,18 @@ public class CoursesGUI {
         });
         back.setOnAction(event -> {
             HomeScreenGUI hGui = new HomeScreenGUI();
-            Stage window = HomeScreen.getStage();
+            Stage window = MainGUI.getStage();
             window.setScene(hGui.getScene());
         });
         info.setOnAction(event -> {
             InfoGUI InfoGUI = new InfoGUI();
-            Stage window = HomeScreen.getStage();
+            Stage window = MainGUI.getStage();
             window.setScene(InfoGUI.getScene());
+        });
+        add.setOnAction(actionEvent -> {
+            AddCoursesGUI addCoursesGUI = new AddCoursesGUI();
+            Stage window = MainGUI.getStage();
+            window.setScene(addCoursesGUI.getStage());
         });
 
         //Making the scene...

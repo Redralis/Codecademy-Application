@@ -60,7 +60,7 @@ public class InfoGUI {
         });
         back.setOnAction(event -> {
             HomeScreenGUI hGui = new HomeScreenGUI();
-            Stage window = HomeScreen.getStage();
+            Stage window = MainGUI.getStage();
             window.setScene(hGui.getScene());
 
         });

@@ -1,5 +1,6 @@
 package gui;
 
+import database.DeleteItem;
 import database.GetCourses;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -27,10 +28,10 @@ public class CoursesGUI {
         VBox right = new VBox();
 
         //Making the table for viewing the courses...
-        TableView<Course> table = GetCourses.courses();
+        final TableView<Course>[] table = new TableView[]{GetCourses.courses()};
 
         //Setting colors...
-        table.setStyle("-fx-background-color: #fff0e5");
+        table[0].setStyle("-fx-background-color: #fff0e5");
         right.setStyle("-fx-background-color: #fff0e5");
 
         //Making columns...
@@ -47,7 +48,7 @@ public class CoursesGUI {
         levelColumn.setCellValueFactory(new PropertyValueFactory<>("level"));
 
         //Adding the columns to the table...
-        table.getColumns().addAll(nameColumn, subjectColumn, introductionTextColumn, levelColumn);
+        table[0].getColumns().addAll(nameColumn, subjectColumn, introductionTextColumn, levelColumn);
 
         //Has to be added to selected courses...
         HBox aanbevolen = new HBox();
@@ -80,7 +81,7 @@ public class CoursesGUI {
         layout.setTop(menu);
 
         //Adding the body to the layout...
-        layout.setCenter(table);
+        layout.setCenter(table[0]);
         layout.setRight(right);
 
         //Giving the buttons function...
@@ -101,6 +102,15 @@ public class CoursesGUI {
             AddCoursesGUI addCoursesGUI = new AddCoursesGUI();
             Stage window = MainGUI.getStage();
             window.setScene(addCoursesGUI.getStage());
+        });
+        delete.setOnAction(actionEvent -> {
+            Course course = table[0].getSelectionModel().getSelectedItem();
+            if (course != null) {
+                DeleteItem.deleteItem(course.getName(), "Cursus", "Naam");
+                CoursesGUI mGui = new CoursesGUI();
+                Stage window = MainGUI.getStage();
+                window.setScene(mGui.getScene());
+            }
         });
 
         //Making the scene...

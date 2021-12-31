@@ -1,5 +1,6 @@
 package gui;
 
+import database.DeleteItem;
 import database.GetEnrollments;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import userdata.Course;
 import userdata.Enrollment;
 
 public class EnrollmentsGUI {
@@ -37,8 +39,11 @@ public class EnrollmentsGUI {
         TableColumn<Enrollment, String> dateOfEnrollmentColumn = new TableColumn<Enrollment, String>("Enrollment");
         dateOfEnrollmentColumn.setCellValueFactory(new PropertyValueFactory<>("dateOfEnrollment"));
 
+        TableColumn<Enrollment, String> studentColumn = new TableColumn<Enrollment, String>("Student");
+        studentColumn.setCellValueFactory(new PropertyValueFactory<>("student"));
+
         //Adding the columns to the table...
-        table.getColumns().addAll(dateOfEnrollmentColumn);
+        table.getColumns().addAll(dateOfEnrollmentColumn, studentColumn);
 
         //Creating buttons for the menu...
         Button back = new Button("Back");

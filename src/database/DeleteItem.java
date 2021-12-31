@@ -1,15 +1,13 @@
 package database;
 
 import javafx.scene.control.TableView;
-import userdata.Enrollment;
+import userdata.Course;
+import userdata.Level;
 import java.sql.*;
 
-public class GetEnrollments {
+public class DeleteItem {
 
-    public static TableView<Enrollment> enrollments() {
-
-        TableView<Enrollment> table = new TableView<Enrollment>();
-
+    public static void deleteItem(String item, String object, String condition) {
         // These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
 
@@ -30,19 +28,10 @@ public class GetEnrollments {
             con = DriverManager.getConnection(connectionUrl);
 
             // Making a SQL query.
-            String SQL = "SELECT * FROM Inschrijving";
+            String SQL = "DELETE FROM " + object + " WHERE " + condition + "='" + item + "'";
             stmt = con.createStatement();
             // Executing the query in the database
             rs = stmt.executeQuery(SQL);
-
-            // If there are results in the ResultSet we go through them here and print them.
-            while (rs.next()) {
-                // Getting the columns per row
-                String dateOfEnrollment = rs.getString("InschrijfDatum");
-                String student = rs.getString("FK_Cursist");
-
-                table.getItems().add(new Enrollment(dateOfEnrollment, student));
-            }
 
         }
 
@@ -55,8 +44,6 @@ public class GetEnrollments {
             if (stmt != null) try { stmt.close(); } catch(Exception e) {}
             if (con != null) try { con.close(); } catch(Exception e) {}
         }
-
-        return table;
 
     }
 

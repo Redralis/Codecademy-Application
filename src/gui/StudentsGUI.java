@@ -1,5 +1,6 @@
 package gui;
 
+import database.DeleteItem;
 import database.GetStudents;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import userdata.Course;
 import userdata.Student;
 
 public class StudentsGUI {
@@ -107,6 +109,15 @@ public class StudentsGUI {
             AddStudentsGUI addGUI = new AddStudentsGUI();
             Stage window = MainGUI.getStage();
             window.setScene(addGUI.getStage());
+        });
+        delete.setOnAction(actionEvent -> {
+            Student student = table.getSelectionModel().getSelectedItem();
+            if (student != null) {
+                DeleteItem.deleteItem(student.getName(), "Cursist", "Naam");
+                StudentsGUI mGui = new StudentsGUI();
+                Stage window = MainGUI.getStage();
+                window.setScene(mGui.getScene());
+            }
         });
 
         //Making the scene...

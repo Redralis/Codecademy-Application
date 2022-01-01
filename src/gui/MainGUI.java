@@ -79,7 +79,7 @@ public class MainGUI extends Application {
         certificates.setTranslateX(5);
         certificates.setTranslateY(45);
 
-        Scene scene = new Scene(layout, 700, 200);
+        Scene scene = new Scene(layout, 800, 200);
         window.setScene(scene);
         window.show();
 

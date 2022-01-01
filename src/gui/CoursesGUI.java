@@ -121,7 +121,7 @@ public class CoursesGUI {
         });
 
         //Making the scene...
-        return new Scene(layout, 700, 200);
+        return new Scene(layout, 800, 200);
 
     }
     

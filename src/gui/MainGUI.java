@@ -101,6 +101,10 @@ public class MainGUI extends Application {
             StudentsGUI uGui = new StudentsGUI();
             window.setScene(uGui.getScene());
         });
+        certificates.setOnAction(event -> {
+            CertificatesGUI uGui = new CertificatesGUI();
+            window.setScene(uGui.getScene());
+        });
         info.setOnAction(event -> {
             InfoGUI infoGUI = new InfoGUI();
             window.setScene(infoGUI.getScene());

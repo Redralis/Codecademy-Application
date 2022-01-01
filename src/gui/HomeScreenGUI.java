@@ -96,6 +96,11 @@ public class HomeScreenGUI extends Application {
             Stage window = MainGUI.getStage();
             window.setScene(uGui.getScene());
         });
+        certificates.setOnAction(event -> {
+            CertificatesGUI uGui = new CertificatesGUI();
+            Stage window = MainGUI.getStage();
+            window.setScene(uGui.getScene());
+        });
         info.setOnAction(event -> {
             InfoGUI InfoGUI = new InfoGUI();
             Stage window = MainGUI.getStage();

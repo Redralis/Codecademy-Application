@@ -1,12 +1,12 @@
 package gui;
 
+import database.AddItem;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -41,18 +41,21 @@ public class AddCoursesGUI {
         subjectField.setPromptText("Type the name of the subject for the course: ");
         TextArea introductionField = new TextArea();
         introductionField.setPromptText("Type a introduction: ");
-        TextArea levelField = new TextArea();
-        levelField.setPromptText("What is the level of difficulty? ");
+        ObservableList<String> levels =
+                FXCollections.observableArrayList(
+                        "Beginner",
+                        "Advanced",
+                        "Expert"
+                );
+        final ComboBox comboBox = new ComboBox(levels);
         Button submit = new Button("Submit");
-
-
 
         //adds buttons to body
         body.add(enter, 1, 1);
         body.add(nameField, 1, 2);
         body.add(subjectField, 1, 3);
         body.add(introductionField, 1, 4);
-        body.add(levelField, 1, 5);
+        body.add(comboBox, 1, 5);
         body.add(submit, 1, 6);
 
         body.setStyle("-fx-background-color: #fff0e5");
@@ -79,6 +82,13 @@ public class AddCoursesGUI {
             InfoGUI InfoGUI = new InfoGUI();
             Stage window = MainGUI.getStage();
             window.setScene(InfoGUI.getScene());
+        });
+        submit.setOnAction(event -> {
+            AddItem.addCourse(nameField.getText(), subjectField.getText(), introductionField.getText(),
+                    (String) comboBox.getValue());
+            CoursesGUI mGui = new CoursesGUI();
+            Stage window = MainGUI.getStage();
+            window.setScene(mGui.getScene());
         });
 
         //creates scrollpane

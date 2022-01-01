@@ -56,7 +56,6 @@ public class CertificatesGUI {
         Button back = new Button("Back");
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
-        Button settings = new Button("Settings");
         Button logout = new Button("Logout");
 
         //Creating the buttons for the body...
@@ -68,7 +67,7 @@ public class CertificatesGUI {
         right.getChildren().addAll(add, edit,  delete);
 
         //Adding the buttons to menu...
-        menu.getChildren().addAll(back, nameText, info, settings, logout);
+        menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
         //Adding the menu to the layout...
@@ -110,7 +109,7 @@ public class CertificatesGUI {
         });
 
         //Making the scene...
-        return new Scene(layout, 700, 200);
+        return new Scene(layout, 800, 200);
 
     }
     

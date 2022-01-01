@@ -33,25 +33,29 @@ public class HomeScreenGUI extends Application {
         Button courses = new Button("Cursussen");
         Button enrollments = new Button("Inschrijvingen");
         Button students = new Button("Studenten");
+        Button certificates = new Button("Certificaten");
 
         HBox.setHgrow(courses, Priority.ALWAYS);
         HBox.setHgrow(enrollments, Priority.ALWAYS);
         HBox.setHgrow(students, Priority.ALWAYS);
+        HBox.setHgrow(certificates, Priority.ALWAYS);
 
         courses.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         enrollments.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         students.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        certificates.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 
         courses.setStyle("-fx-font-size:30");
         enrollments.setStyle("-fx-font-size:30");
         students.setStyle("-fx-font-size:30");
+        certificates.setStyle("-fx-font-size:30");
 
         //Adding to the menu...
         menu.getChildren().addAll(nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
         //Adding to the body...
-        body.getChildren().addAll(courses, enrollments, students);
+        body.getChildren().addAll(courses, enrollments, students, certificates);
         body.setStyle("-fx-background-color: #fff0e5");
 
         //Adding menu to layout...
@@ -70,6 +74,8 @@ public class HomeScreenGUI extends Application {
         enrollments.setTranslateY(45);
         students.setTranslateX(5);
         students.setTranslateY(45);
+        certificates.setTranslateX(5);
+        certificates.setTranslateY(45);
 
         //Giving buttons function...
         logout.setOnAction(event -> {

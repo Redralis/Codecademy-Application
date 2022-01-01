@@ -95,7 +95,7 @@ public class CertificatesGUI {
             window.setScene(InfoGUI.getScene());
         });
         add.setOnAction(actionEvent -> {
-            AddCoursesGUI addCoursesGUI = new AddCoursesGUI();
+            AddCertificatesGUI addCoursesGUI = new AddCertificatesGUI();
             Stage window = MainGUI.getStage();
             window.setScene(addCoursesGUI.getStage());
         });

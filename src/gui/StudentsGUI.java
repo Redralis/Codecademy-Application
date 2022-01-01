@@ -106,9 +106,17 @@ public class StudentsGUI {
             window.setScene(InfoGUI.getScene());
         });
         add.setOnAction(event -> {
-            AddStudentsGUI addGUI = new AddStudentsGUI();
+            AddEditStudentsGUI addGUI = new AddEditStudentsGUI();
             Stage window = MainGUI.getStage();
             window.setScene(addGUI.getStage());
+        });
+        edit.setOnAction(actionEvent -> {
+            Student student = table.getSelectionModel().getSelectedItem();
+            AddEditStudentsGUI addStudentsGUI = new AddEditStudentsGUI();
+            Stage window = MainGUI.getStage();
+            window.setScene(addStudentsGUI.editStage(student.getEmail(), student.getName(), student.getDateOfBirth(),
+                    student.getGender().toString(), student.getAddress(), student.getCity(), student.getCountry(),
+                    student.getPostalCode()));
         });
         delete.setOnAction(actionEvent -> {
             Student student = table.getSelectionModel().getSelectedItem();

@@ -1,7 +1,6 @@
 package gui;
 
 import database.AddItem;
-import database.DeleteItem;
 import database.EditItem;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,7 +13,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-public class AddCoursesGUI {
+public class AddEditCoursesGUI {
     public Scene getStage() {
         //creates layout
         BorderPane layout = new BorderPane();

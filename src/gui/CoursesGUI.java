@@ -99,13 +99,13 @@ public class CoursesGUI {
             window.setScene(InfoGUI.getScene());
         });
         add.setOnAction(actionEvent -> {
-            AddCoursesGUI addCoursesGUI = new AddCoursesGUI();
+            AddEditCoursesGUI addCoursesGUI = new AddEditCoursesGUI();
             Stage window = MainGUI.getStage();
             window.setScene(addCoursesGUI.getStage());
         });
         edit.setOnAction(actionEvent -> {
             Course course = table[0].getSelectionModel().getSelectedItem();
-            AddCoursesGUI addCoursesGUI = new AddCoursesGUI();
+            AddEditCoursesGUI addCoursesGUI = new AddEditCoursesGUI();
             Stage window = MainGUI.getStage();
             window.setScene(addCoursesGUI.editStage(course.getName(), course.getSubject(),
                     course.getIntroductionText(), course.getLevel().toString()));

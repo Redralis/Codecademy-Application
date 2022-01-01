@@ -1,6 +1,6 @@
 package gui;
 
-import database.AddItem;
+import database.AddEditItem;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -95,7 +95,7 @@ public class AddStudentsGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
-            AddItem.addStudent(emailField.getText(), nameField.getText(), dateOfBirth.getText(),
+            AddEditItem.addStudent(emailField.getText(), nameField.getText(), dateOfBirth.getText(),
                     (String) comboBox.getValue(), address.getText(), city.getText(), country.getText(), postalCode.getText());
             StudentsGUI mGui = new StudentsGUI();
             Stage window = MainGUI.getStage();

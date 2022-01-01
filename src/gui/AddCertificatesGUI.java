@@ -1,7 +1,8 @@
 package gui;
 
-import database.AddItem;
-import javafx.collections.FXCollections;
+import database.AddEditItem;
+import database.GetCertificates;
+import database.GetEnrollments;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -39,13 +40,18 @@ public class AddCertificatesGUI {
         ratingField.setPromptText("Type the rating of the certificate: ");
         TextArea nameEmployeeField = new TextArea();
         nameEmployeeField.setPromptText("Type the employee's name of the certificate: ");
+        Label enrollmentToPair = new Label("Select student to give the certificate:");
+        ObservableList<String> enrollments = GetEnrollments.enrollmentsList();
+        final ComboBox<String> enrollmentsBox = new ComboBox<String>(enrollments);
         Button submit = new Button("Submit");
 
         //adds buttons to body
         body.add(enter, 1, 1);
         body.add(ratingField, 1, 2);
         body.add(nameEmployeeField, 1, 3);
-        body.add(submit, 1, 4);
+        body.add(enrollmentToPair, 1, 4);
+        body.add(enrollmentsBox, 1, 5);
+        body.add(submit, 1, 6);
 
         body.setStyle("-fx-background-color: #fff0e5");
 
@@ -73,7 +79,9 @@ public class AddCertificatesGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
-            AddItem.addCertificate(Double.parseDouble(ratingField.getText()), nameEmployeeField.getText());
+            AddEditItem.addCertificate(Double.parseDouble(ratingField.getText()), nameEmployeeField.getText());
+            String[] split = enrollmentsBox.getValue().split(", ");
+            AddEditItem.coupleCertificate(GetCertificates.latestId(), split[0], split[1]);
             CertificatesGUI mGui = new CertificatesGUI();
             Stage window = MainGUI.getStage();
             window.setScene(mGui.getScene());

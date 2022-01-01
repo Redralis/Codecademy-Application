@@ -1,6 +1,6 @@
 package gui;
 
-import database.AddItem;
+import database.AddEditItem;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -86,7 +86,7 @@ public class AddCoursesGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
-            AddItem.addCourse(nameField.getText(), subjectField.getText(), introductionField.getText(),
+            AddEditItem.addCourse(nameField.getText(), subjectField.getText(), introductionField.getText(),
                     (String) comboBox.getValue());
             CoursesGUI mGui = new CoursesGUI();
             Stage window = MainGUI.getStage();

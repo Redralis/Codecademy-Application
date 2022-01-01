@@ -1,9 +1,8 @@
 package gui;
 
-import database.AddItem;
+import database.AddEditItem;
 import database.GetCourses;
 import database.GetStudents;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,9 +12,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import userdata.Student;
-
-import java.util.ArrayList;
 
 public class AddEnrollmentsGUI {
     public Scene getStage() {
@@ -41,10 +37,10 @@ public class AddEnrollmentsGUI {
         //creates buttons for body
         Label studentToEnroll = new Label("Student to enroll:");
         ObservableList students = GetStudents.studentsList();
-        final ComboBox studentsBox = new ComboBox((ObservableList) students);
+        final ComboBox studentsBox = new ComboBox(students);
         Label courseToEnroll = new Label("Course to enroll in:");
         ObservableList courses = GetCourses.coursesList();
-        final ComboBox coursesBox = new ComboBox((ObservableList) courses);
+        final ComboBox coursesBox = new ComboBox(courses);
         Button submit = new Button("Submit");
 
 
@@ -81,7 +77,7 @@ public class AddEnrollmentsGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
-            AddItem.addEnrollment((String) studentsBox.getValue(), (String) coursesBox.getValue());
+            AddEditItem.addEnrollment((String) studentsBox.getValue(), (String) coursesBox.getValue());
             EnrollmentsGUI mGui = new EnrollmentsGUI();
             Stage window = MainGUI.getStage();
             window.setScene(mGui.getScene());

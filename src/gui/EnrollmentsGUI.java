@@ -96,6 +96,11 @@ public class EnrollmentsGUI {
             Stage window = MainGUI.getStage();
             window.setScene(InfoGUI.getScene());
         });
+        add.setOnAction(actionEvent -> {
+            AddEnrollmentsGUI addEnrollmentsGUI = new AddEnrollmentsGUI();
+            Stage window = MainGUI.getStage();
+            window.setScene(addEnrollmentsGUI.getStage());
+        });
         delete.setOnAction(actionEvent -> {
             Enrollment enrollment = table.getSelectionModel().getSelectedItem();
             if (enrollment != null) {

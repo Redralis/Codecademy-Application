@@ -1,18 +1,23 @@
 package gui;
 
+import database.AddItem;
+import database.GetCourses;
+import database.GetStudents;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import userdata.Student;
 
-public class AddEntrollmentsGUI {
+import java.util.ArrayList;
+
+public class AddEnrollmentsGUI {
     public Scene getStage() {
         //creates layout
         BorderPane layout = new BorderPane();
@@ -34,16 +39,21 @@ public class AddEntrollmentsGUI {
         menu.setStyle("-fx-background-color: #ffd300;");
 
         //creates buttons for body
-        Label enter = new Label("Enter enrollment information: ");
-        TextArea nameField = new TextArea();
-        nameField.setPromptText("Type the name of the enrollment: ");
+        Label studentToEnroll = new Label("Student to enroll:");
+        ObservableList students = GetStudents.studentsList();
+        final ComboBox studentsBox = new ComboBox((ObservableList) students);
+        Label courseToEnroll = new Label("Course to enroll in:");
+        ObservableList courses = GetCourses.coursesList();
+        final ComboBox coursesBox = new ComboBox((ObservableList) courses);
         Button submit = new Button("Submit");
 
 
         //adds buttons to body
-        body.add(enter, 1, 1);
-        body.add(nameField, 1, 2);
-        body.add(submit, 1, 3);
+        body.add(studentToEnroll, 1, 1);
+        body.add(studentsBox, 1, 2);
+        body.add(courseToEnroll, 1, 3);
+        body.add(coursesBox, 1, 4);
+        body.add(submit, 1, 5);
 
         body.setStyle("-fx-background-color: #fff0e5");
 
@@ -69,6 +79,12 @@ public class AddEntrollmentsGUI {
             InfoGUI InfoGUI = new InfoGUI();
             Stage window = MainGUI.getStage();
             window.setScene(InfoGUI.getScene());
+        });
+        submit.setOnAction(event -> {
+            AddItem.addEnrollment((String) studentsBox.getValue(), (String) coursesBox.getValue());
+            EnrollmentsGUI mGui = new EnrollmentsGUI();
+            Stage window = MainGUI.getStage();
+            window.setScene(mGui.getScene());
         });
 
         //creates scrollpane

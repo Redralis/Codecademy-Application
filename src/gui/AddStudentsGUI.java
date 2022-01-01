@@ -39,6 +39,7 @@ public class AddStudentsGUI {
         emailField.setPromptText("Type your email: ");
         TextArea dateOfBirth = new TextArea();
         dateOfBirth.setPromptText("Type your date of birth: ");
+        Label gendersLabel = new Label("Pick gender: ");
         ObservableList<String> genders =
                 FXCollections.observableArrayList(
                         "M",
@@ -61,12 +62,13 @@ public class AddStudentsGUI {
         body.add(nameField, 1, 2);
         body.add(emailField, 1, 3);
         body.add(dateOfBirth, 1, 4);
-        body.add(comboBox, 1, 5);
-        body.add(address, 1, 6);
-        body.add(city, 1, 7);
-        body.add(country, 1, 8);
-        body.add(postalCode, 1, 9);
-        body.add(submit, 1, 10);
+        body.add(gendersLabel, 1, 5);
+        body.add(comboBox, 1, 6);
+        body.add(address, 1, 7);
+        body.add(city, 1, 8);
+        body.add(country, 1, 9);
+        body.add(postalCode, 1, 10);
+        body.add(submit, 1, 11);
         body.setStyle("-fx-background-color: #fff0e5");
 
         //adds menu and body to layout

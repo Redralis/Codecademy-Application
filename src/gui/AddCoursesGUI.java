@@ -41,6 +41,7 @@ public class AddCoursesGUI {
         subjectField.setPromptText("Type the name of the subject for the course: ");
         TextArea introductionField = new TextArea();
         introductionField.setPromptText("Type a introduction: ");
+        Label levelsLabel = new Label("Pick level of difficulty: ");
         ObservableList<String> levels =
                 FXCollections.observableArrayList(
                         "Beginner",
@@ -55,8 +56,9 @@ public class AddCoursesGUI {
         body.add(nameField, 1, 2);
         body.add(subjectField, 1, 3);
         body.add(introductionField, 1, 4);
-        body.add(comboBox, 1, 5);
-        body.add(submit, 1, 6);
+        body.add(levelsLabel, 1, 5);
+        body.add(comboBox, 1, 6);
+        body.add(submit, 1, 7);
 
         body.setStyle("-fx-background-color: #fff0e5");
 

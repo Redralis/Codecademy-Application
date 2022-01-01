@@ -35,16 +35,16 @@ public class CoursesGUI {
         right.setStyle("-fx-background-color: #fff0e5");
 
         //Making columns...
-        TableColumn<Course, String> nameColumn = new TableColumn<Course, String>("Name");
+        TableColumn<Course, String> nameColumn = new TableColumn<Course, String>("Naam");
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-        TableColumn<Course, String> subjectColumn = new TableColumn<Course, String>("Subject");
+        TableColumn<Course, String> subjectColumn = new TableColumn<Course, String>("Vak");
         subjectColumn.setCellValueFactory(new PropertyValueFactory<>("subject"));
 
-        TableColumn<Course, String> introductionTextColumn = new TableColumn<Course, String>("introductionText");
+        TableColumn<Course, String> introductionTextColumn = new TableColumn<Course, String>("Introductietekst");
         introductionTextColumn.setCellValueFactory(new PropertyValueFactory<>("introductionText"));
 
-        TableColumn<Course, String> levelColumn = new TableColumn<Course, String>("Level");
+        TableColumn<Course, String> levelColumn = new TableColumn<Course, String>("Niveau");
         levelColumn.setCellValueFactory(new PropertyValueFactory<>("level"));
 
         //Adding the columns to the table...

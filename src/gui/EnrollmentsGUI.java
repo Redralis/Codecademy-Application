@@ -37,16 +37,16 @@ public class EnrollmentsGUI {
         right.setStyle("-fx-background-color: #fff0e5");
 
         //Making columns...
-        TableColumn<Enrollment, String> dateOfEnrollmentColumn = new TableColumn<Enrollment, String>("Enrollment");
+        TableColumn<Enrollment, String> dateOfEnrollmentColumn = new TableColumn<Enrollment, String>("Inschrijvingsdatum");
         dateOfEnrollmentColumn.setCellValueFactory(new PropertyValueFactory<>("dateOfEnrollment"));
 
         TableColumn<Enrollment, String> studentColumn = new TableColumn<Enrollment, String>("Student");
         studentColumn.setCellValueFactory(new PropertyValueFactory<>("student"));
 
-        TableColumn<Enrollment, String> courseColumn = new TableColumn<Enrollment, String>("Course");
+        TableColumn<Enrollment, String> courseColumn = new TableColumn<Enrollment, String>("Cursus");
         courseColumn.setCellValueFactory(new PropertyValueFactory<>("course"));
 
-        TableColumn<Enrollment, String> certificateColumn = new TableColumn<Enrollment, String>("Certificate");
+        TableColumn<Enrollment, String> certificateColumn = new TableColumn<Enrollment, String>("Certificaat");
         certificateColumn.setCellValueFactory(new PropertyValueFactory<>("certificate"));
 
 

@@ -39,25 +39,25 @@ public class StudentsGUI {
         TableColumn<Student, String> emailColumn = new TableColumn<Student, String>("Email");
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
 
-        TableColumn<Student, String> nameColumn = new TableColumn<Student, String>("Name");
+        TableColumn<Student, String> nameColumn = new TableColumn<Student, String>("Naam");
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-        TableColumn<Student, String> dateOfBirthColumn = new TableColumn<Student, String>("DateOfBirth");
+        TableColumn<Student, String> dateOfBirthColumn = new TableColumn<Student, String>("Geboortedatum");
         dateOfBirthColumn.setCellValueFactory(new PropertyValueFactory<>("dateOfBirth"));
 
-        TableColumn<Student, String> genderColumn = new TableColumn<Student, String>("Gender");
+        TableColumn<Student, String> genderColumn = new TableColumn<Student, String>("Geslacht");
         genderColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));
 
-        TableColumn<Student, String> addressColumn = new TableColumn<Student, String>("Address");
+        TableColumn<Student, String> addressColumn = new TableColumn<Student, String>("Adres");
         addressColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
 
-        TableColumn<Student, String> cityColumn = new TableColumn<Student, String>("City");
+        TableColumn<Student, String> cityColumn = new TableColumn<Student, String>("Stad");
         cityColumn.setCellValueFactory(new PropertyValueFactory<>("city"));
 
-        TableColumn<Student, String> countryColumn = new TableColumn<Student, String>("Country");
+        TableColumn<Student, String> countryColumn = new TableColumn<Student, String>("Land");
         countryColumn.setCellValueFactory(new PropertyValueFactory<>("country"));
 
-        TableColumn<Student, String> postalCodeColumn = new TableColumn<Student, String>("PostalCode");
+        TableColumn<Student, String> postalCodeColumn = new TableColumn<Student, String>("Postcode");
         postalCodeColumn.setCellValueFactory(new PropertyValueFactory<>("postalCode"));
 
         //Adding the columns to the table...

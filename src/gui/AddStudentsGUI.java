@@ -1,12 +1,12 @@
 package gui;
 
+import database.AddItem;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -39,8 +39,12 @@ public class AddStudentsGUI {
         emailField.setPromptText("Type your email: ");
         TextArea dateOfBirth = new TextArea();
         dateOfBirth.setPromptText("Type your date of birth: ");
-        TextArea gender = new TextArea();
-        gender.setPromptText("Type your gender: ");
+        ObservableList<String> genders =
+                FXCollections.observableArrayList(
+                        "M",
+                        "F"
+                );
+        final ComboBox comboBox = new ComboBox(genders);
         TextArea address = new TextArea();
         address.setPromptText("Type your address: ");
         TextArea city = new TextArea();
@@ -57,7 +61,7 @@ public class AddStudentsGUI {
         body.add(nameField, 1, 2);
         body.add(emailField, 1, 3);
         body.add(dateOfBirth, 1, 4);
-        body.add(gender, 1, 5);
+        body.add(comboBox, 1, 5);
         body.add(address, 1, 6);
         body.add(city, 1, 7);
         body.add(country, 1, 8);
@@ -87,6 +91,13 @@ public class AddStudentsGUI {
             InfoGUI InfoGUI = new InfoGUI();
             Stage window = MainGUI.getStage();
             window.setScene(InfoGUI.getScene());
+        });
+        submit.setOnAction(event -> {
+            AddItem.addStudent(emailField.getText(), nameField.getText(), dateOfBirth.getText(),
+                    (String) comboBox.getValue(), address.getText(), city.getText(), country.getText(), postalCode.getText());
+            StudentsGUI mGui = new StudentsGUI();
+            Stage window = MainGUI.getStage();
+            window.setScene(mGui.getScene());
         });
 
         //creates scrollpane

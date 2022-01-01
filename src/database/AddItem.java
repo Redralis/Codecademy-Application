@@ -49,7 +49,7 @@ public class AddItem {
     }
 
     public static void addStudent(String email, String name, String dateOfBirth, String gender, String address,
-                                  String city, String country) {
+                                  String city, String country, String postalCode) {
         // These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
 
@@ -71,7 +71,7 @@ public class AddItem {
 
             // Making a SQL query.
             String SQL = "INSERT Cursist VALUES ('" + email + "', '" + name + "', '" + dateOfBirth + "', '"
-                    + gender + "', '" + address + "', '" + city + "', '" + country + "')";
+                    + gender + "', '" + address + "', '" + city + "', '" + country + "', '" + postalCode + "')";
             stmt = con.createStatement();
             // Executing the query in the database
             rs = stmt.executeQuery(SQL);

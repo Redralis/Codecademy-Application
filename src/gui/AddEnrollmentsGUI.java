@@ -1,6 +1,6 @@
 package gui;
 
-import database.AddEditItem;
+import database.AddItem;
 import database.GetCourses;
 import database.GetStudents;
 import javafx.collections.ObservableList;
@@ -77,7 +77,7 @@ public class AddEnrollmentsGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
-            AddEditItem.addEnrollment((String) studentsBox.getValue(), (String) coursesBox.getValue());
+            AddItem.addEnrollment((String) studentsBox.getValue(), (String) coursesBox.getValue());
             EnrollmentsGUI mGui = new EnrollmentsGUI();
             Stage window = MainGUI.getStage();
             window.setScene(mGui.getScene());

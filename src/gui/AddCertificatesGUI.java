@@ -1,6 +1,7 @@
 package gui;
 
-import database.AddEditItem;
+import database.AddItem;
+import database.EditItem;
 import database.GetCertificates;
 import database.GetEnrollments;
 import javafx.collections.ObservableList;
@@ -79,9 +80,9 @@ public class AddCertificatesGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
-            AddEditItem.addCertificate(Double.parseDouble(ratingField.getText()), nameEmployeeField.getText());
+            AddItem.addCertificate(Double.parseDouble(ratingField.getText()), nameEmployeeField.getText());
             String[] split = enrollmentsBox.getValue().split(", ");
-            AddEditItem.coupleCertificate(GetCertificates.latestId(), split[0], split[1]);
+            EditItem.coupleCertificate(GetCertificates.latestId(), split[0], split[1]);
             CertificatesGUI mGui = new CertificatesGUI();
             Stage window = MainGUI.getStage();
             window.setScene(mGui.getScene());

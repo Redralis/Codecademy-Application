@@ -2,7 +2,6 @@ package gui;
 
 import database.DeleteItem;
 import database.GetCertificates;
-import database.GetCourses;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -94,9 +93,16 @@ public class CertificatesGUI {
             window.setScene(InfoGUI.getScene());
         });
         add.setOnAction(actionEvent -> {
-            AddCertificatesGUI addCoursesGUI = new AddCertificatesGUI();
+            AddEditCertificatesGUI addCoursesGUI = new AddEditCertificatesGUI();
             Stage window = MainGUI.getStage();
             window.setScene(addCoursesGUI.getStage());
+        });
+        edit.setOnAction(actionEvent -> {
+            Certificate certificate = table[0].getSelectionModel().getSelectedItem();
+            AddEditCertificatesGUI addEditCertificatesGUI = new AddEditCertificatesGUI();
+            Stage window = MainGUI.getStage();
+            window.setScene(addEditCertificatesGUI.editStage(Integer.toString(certificate.getCertificateId()),
+                    Double.toString(certificate.getRating()), certificate.getNameEmployee()));
         });
         delete.setOnAction(actionEvent -> {
             Certificate certificate = table[0].getSelectionModel().getSelectedItem();

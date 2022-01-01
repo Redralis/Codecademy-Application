@@ -95,7 +95,7 @@ public class AddEditEnrollmentsGUI {
     }
 
     //You can't edit certificateId, because the pairing happens automatically. The fact that you have to
-    //delete a certificate to unpair and create on to pair prevents the user from overflowing the database.
+    //delete a certificate to unpair and create one to pair prevents the user from overflowing the database.
     public Scene editStage(String dateOfEnrollment, String student, String course) {
 
         //creates layout

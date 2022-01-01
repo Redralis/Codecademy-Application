@@ -30,7 +30,7 @@ public class CertificatesGUI {
         VBox right = new VBox();
 
         //Making the table for viewing the courses...
-        final TableView[] table = new TableView[]{GetCertificates.certificates()};
+        final TableView<Certificate>[] table = new TableView[]{GetCertificates.certificates()};
 
         //Setting colors...
         table[0].setStyle("-fx-background-color: #fff0e5");
@@ -99,15 +99,15 @@ public class CertificatesGUI {
             Stage window = MainGUI.getStage();
             window.setScene(addCoursesGUI.getStage());
         });
-        /*delete.setOnAction(actionEvent -> {
+        delete.setOnAction(actionEvent -> {
             Certificate certificate = table[0].getSelectionModel().getSelectedItem();
             if (certificate != null) {
-                DeleteItem.deleteItem(course.getName(), "Cursus", "Naam");
+                DeleteItem.deleteItem(Integer.toString(certificate.getCertificateId()), "Certificaat", "CertificaatId");
                 CertificatesGUI mGui = new CertificatesGUI();
                 Stage window = MainGUI.getStage();
                 window.setScene(mGui.getScene());
             }
-        });*/
+        });
 
         //Making the scene...
         return new Scene(layout, 700, 200);

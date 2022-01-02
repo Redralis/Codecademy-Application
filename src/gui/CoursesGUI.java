@@ -57,7 +57,6 @@ public class CoursesGUI {
         Button back = new Button("Back");
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
-        Button settings = new Button("Settings");
         Button logout = new Button("Logout");
 
         //Creating the buttons for the body...
@@ -72,7 +71,7 @@ public class CoursesGUI {
         right.getChildren().addAll(add, edit,  delete, overzicht, top3, percBehaald);
 
         //Adding the buttons to menu...
-        menu.getChildren().addAll(back, nameText, info, settings, logout);
+        menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
         //Adding the menu to the layout...

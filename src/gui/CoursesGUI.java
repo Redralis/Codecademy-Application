@@ -29,6 +29,7 @@ public class CoursesGUI {
 
         //Making the table for viewing the courses...
         final TableView<Course>[] table = new TableView[]{GetCourses.courses()};
+       // String percBehaald2 =
 
         //Setting colors...
         table[0].setStyle("-fx-background-color: #fff0e5");
@@ -59,13 +60,14 @@ public class CoursesGUI {
         Button info = new Button("Info");
         Button logout = new Button("Logout");
 
+
         //Creating the buttons for the body...
         Button add = new Button("Add");
         Button edit = new Button("Edit");
         Button delete = new Button("Delete");
         Button overzicht = new Button("Overzicht");
         Button top3 = new Button("Top 3");
-        Label percBehaald = new Label("...% / 100%");
+        Label percBehaald = new Label(  "% / 100%");
 
         //Adding the buttons to the body...
         right.getChildren().addAll(add, edit,  delete, overzicht, top3, percBehaald);
@@ -120,7 +122,7 @@ public class CoursesGUI {
         });
 
         //Making the scene...
-        return new Scene(layout, 800, 200);
+        return new Scene(layout, 800, 220);
 
     }
     

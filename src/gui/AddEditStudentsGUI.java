@@ -223,7 +223,7 @@ public class AddEditStudentsGUI {
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
         //creates scene
-        return new Scene(sp, 800, 200);
+        return new Scene(sp, 800, 220);
 
     }
 

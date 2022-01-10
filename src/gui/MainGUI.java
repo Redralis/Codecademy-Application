@@ -25,6 +25,7 @@ public class MainGUI extends Application {
 
         //Creating body...
         HBox body = new HBox();
+        HBox body2 = new HBox();
 
         //Creating menu buttons...
         Label nameText = new Label("Codecademy");
@@ -37,6 +38,7 @@ public class MainGUI extends Application {
         Button students = new Button("Studenten");
         Button certificates = new Button("Certificaten");
 
+        //styling body buttons...
         HBox.setHgrow(courses, Priority.ALWAYS);
         HBox.setHgrow(enrollments, Priority.ALWAYS);
         HBox.setHgrow(students, Priority.ALWAYS);
@@ -52,6 +54,12 @@ public class MainGUI extends Application {
         students.setStyle("-fx-font-size:30");
         certificates.setStyle("-fx-font-size:30");
 
+
+        //creating body2 buttons...
+        Button webcast = new Button("Webcasts");
+
+        //styling body2 buttons...
+        webcast.setStyle("-fx-font-size:30");
         //Adding to menu...
         menu.getChildren().addAll(nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
@@ -60,6 +68,10 @@ public class MainGUI extends Application {
         body.getChildren().addAll(courses, enrollments, students, certificates);
         body.setStyle("-fx-background-color: #fff0e5");
 
+        //Adding to body2...
+        body2.getChildren().add(webcast);
+        body2.setStyle("-fx-background-color: #fff0e5");
+
         //Adding menu to layout...
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));
         menu.setAlignment(Pos.BASELINE_CENTER);
@@ -67,6 +79,9 @@ public class MainGUI extends Application {
 
         //Adding body to layout...
         layout.setCenter(body);
+
+        //Adding body2 to layout...
+        layout.setBottom(body2);
 
         //Positioning the body...
         body.setAlignment(Pos.BASELINE_CENTER);
@@ -79,7 +94,13 @@ public class MainGUI extends Application {
         certificates.setTranslateX(5);
         certificates.setTranslateY(45);
 
-        Scene scene = new Scene(layout, 800, 200);
+        //Positioning the body2...
+        body2.setAlignment(Pos.BASELINE_CENTER);
+        webcast.setTranslateX(25);
+        webcast.setTranslateY(1);
+
+
+        Scene scene = new Scene(layout, 800, 220);
         window.setScene(scene);
         window.show();
 
@@ -109,6 +130,7 @@ public class MainGUI extends Application {
             InfoGUI infoGUI = new InfoGUI();
             window.setScene(infoGUI.getScene());
         });
+
         mainStage = window;
 
     }

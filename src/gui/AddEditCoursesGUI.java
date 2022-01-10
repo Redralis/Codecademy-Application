@@ -101,7 +101,7 @@ public class AddEditCoursesGUI {
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
         //creates scene
-        return new Scene(sp, 700, 200);
+        return new Scene(sp, 700, 220);
     }
 
     public Scene editStage(String name, String subject, String introductionText, String level) {

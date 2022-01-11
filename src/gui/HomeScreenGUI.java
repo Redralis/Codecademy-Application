@@ -23,7 +23,7 @@ public class HomeScreenGUI extends Application {
 
         //Creating the body...
         HBox body = new HBox();
-        HBox body2 = new HBox();
+
         //Creating buttons for the menu...
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
@@ -50,11 +50,6 @@ public class HomeScreenGUI extends Application {
         students.setStyle("-fx-font-size:30");
         certificates.setStyle("-fx-font-size:30");
 
-        //creating body2 buttons...
-        Button webcast = new Button("Webcasts");
-
-        //styling body2 buttons...
-        webcast.setStyle("-fx-font-size:30");
         //Adding to the menu...
         menu.getChildren().addAll(nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
@@ -63,10 +58,6 @@ public class HomeScreenGUI extends Application {
         body.getChildren().addAll(courses, enrollments, students, certificates);
         body.setStyle("-fx-background-color: #fff0e5");
 
-        //Adding to body2...
-        body2.getChildren().add(webcast);
-        body2.setStyle("-fx-background-color: #fff0e5");
-
         //Adding menu to layout...
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));
         menu.setAlignment(Pos.BASELINE_CENTER);
@@ -74,10 +65,6 @@ public class HomeScreenGUI extends Application {
 
         //Adding body to layout...
         layout.setCenter(body);
-
-
-        //Adding body2 to layout...
-        layout.setBottom(body2);
 
         //Positioning the buttons...
         body.setAlignment(Pos.BASELINE_CENTER);
@@ -89,11 +76,6 @@ public class HomeScreenGUI extends Application {
         students.setTranslateY(45);
         certificates.setTranslateX(5);
         certificates.setTranslateY(45);
-
-        //Positioning the body2...
-        body2.setAlignment(Pos.BASELINE_CENTER);
-        webcast.setTranslateX(25);
-        webcast.setTranslateY(1);
 
         //Giving buttons function...
         logout.setOnAction(event -> {

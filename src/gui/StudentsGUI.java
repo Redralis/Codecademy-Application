@@ -75,13 +75,14 @@ public class StudentsGUI {
         Button edit = new Button("Edit");
         Button delete = new Button("Delete");
         Button certificatesCompletedPerStudent = new Button("Certificates\ncompleted\nper\nstudent");
+        Button searchOnGender = new Button("Search by \n gender");
 
         //Adding the buttons to the menu...
         menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300");
 
         //Adding the buttons to the body...
-        right.getChildren().addAll(add, edit, delete, certificatesCompletedPerStudent);
+        right.getChildren().addAll(add, edit, delete, certificatesCompletedPerStudent, searchOnGender);
 
         //Adding the menu to the layout...
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));
@@ -128,16 +129,19 @@ public class StudentsGUI {
                 window.setScene(mGui.getScene());
             }
         });
-
+        searchOnGender.setOnAction(actionEvent -> {
+            CertificateCompletionPercByGenderGUI cGui = new CertificateCompletionPercByGenderGUI();
+            Stage window = MainGUI.getStage();
+            window.setScene(cGui.getStage());
+        });
         certificatesCompletedPerStudent.setOnAction(actionEvent -> {
             CertificatesBySelectedAccountGUI certBySelectedAccount = new CertificatesBySelectedAccountGUI();
             Stage window = MainGUI.getStage();
             window.setScene(certBySelectedAccount.getStage());
 
         });
-
         //Making the scene...
-        return new Scene(layout, 800, 220);
+        return new Scene(layout, 800, 240);
 
     }
 

@@ -67,7 +67,7 @@ public class CoursesGUI {
         Button delete = new Button("Delete");
         Button overzicht = new Button("Overzicht");
         Button top3 = new Button("Top 3");
-        Label percBehaald = new Label(  "% / 100%");
+        Button percBehaald = new Button("Voortgang");
 
         //Adding the buttons to the body...
         right.getChildren().addAll(add, edit,  delete, overzicht, top3, percBehaald);
@@ -120,6 +120,12 @@ public class CoursesGUI {
                 window.setScene(mGui.getScene());
             }
         });
+        percBehaald.setOnAction(actionEvent -> {
+            ProgressCoursesGUI progressCoursesGUI = new ProgressCoursesGUI();
+            Stage window = MainGUI.getStage();
+            window.setScene(progressCoursesGUI.getStage());
+        });
+
 
         //Making the scene...
         return new Scene(layout, 800, 220);

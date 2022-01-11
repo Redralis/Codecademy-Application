@@ -25,7 +25,7 @@ public class MainGUI extends Application {
 
         //Creating body...
         HBox body = new HBox();
-        HBox body2 = new HBox();
+
 
         //Creating menu buttons...
         Label nameText = new Label("Codecademy");
@@ -68,9 +68,6 @@ public class MainGUI extends Application {
         body.getChildren().addAll(courses, enrollments, students, certificates);
         body.setStyle("-fx-background-color: #fff0e5");
 
-        //Adding to body2...
-        body2.getChildren().add(webcast);
-        body2.setStyle("-fx-background-color: #fff0e5");
 
         //Adding menu to layout...
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));
@@ -79,9 +76,6 @@ public class MainGUI extends Application {
 
         //Adding body to layout...
         layout.setCenter(body);
-
-        //Adding body2 to layout...
-        layout.setBottom(body2);
 
         //Positioning the body...
         body.setAlignment(Pos.BASELINE_CENTER);
@@ -94,11 +88,7 @@ public class MainGUI extends Application {
         certificates.setTranslateX(5);
         certificates.setTranslateY(45);
 
-        //Positioning the body2...
-        body2.setAlignment(Pos.BASELINE_CENTER);
-        webcast.setTranslateX(25);
-        webcast.setTranslateY(1);
-
+        //Makes scene
 
         Scene scene = new Scene(layout, 800, 220);
         window.setScene(scene);

@@ -1,6 +1,8 @@
 package gui;
 
 import database.AddItem;
+import database.GetCertificatesBySelectedAccount;
+import database.GetPercentageByGender;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -23,6 +25,14 @@ public class CertificateCompletionPercByGenderGUI {
         //creates body
         GridPane body = new GridPane();
 
+        // Creates resultfield in the GUI
+        HBox resultBox = new HBox();
+        Label result = new Label();
+        resultBox.getChildren().add(result);
+        resultBox.setStyle("-fx-background-color: #7fb7d4");
+        resultBox.setAlignment(Pos.BASELINE_CENTER);
+        layout.setBottom(resultBox);
+
         //creates buttons for menu
         Button back = new Button("Back");
         Label nameText = new Label("Codecademy");
@@ -35,20 +45,16 @@ public class CertificateCompletionPercByGenderGUI {
 
         //creates buttons for body
         Label gendersLabel = new Label("Pick gender: ");
-        ObservableList<String> genders =
-                FXCollections.observableArrayList(
-                        "M",
-                        "F"
-                );
-        final ComboBox comboBox = new ComboBox(genders);
-        Button submit = new Button("Submit");
+        ObservableList<String> genders = FXCollections.observableArrayList("Male", "Female");
+        final ComboBox genderBox = new ComboBox(genders);
+        Button show = new Button("Show");
         Label percCompleted= new Label();
 
 
         //adds buttons to body
         body.add(gendersLabel, 1, 1);
-        body.add(comboBox, 1, 2);
-        body.add(submit, 1, 3);
+        body.add(genderBox, 1, 2);
+        body.add(show, 1, 3);
         body.setStyle("-fx-background-color: #fff0e5");
 
         //adds menu and body to layout
@@ -74,8 +80,13 @@ public class CertificateCompletionPercByGenderGUI {
             Stage window = MainGUI.getStage();
             window.setScene(InfoGUI.getScene());
         });
-        submit.setOnAction(event -> {
-        percCompleted.setText("The percentage completed courses for this gender is: ");
+        show.setOnAction(event -> {
+
+            // Calling the function that makes and executes a query and returns the results in a String.
+            String percentage = GetPercentageByGender.percentageByGender((String) genderBox.getValue());
+
+            // Shows the result on the screen, when clicked on show
+            result.setText("The percentage completed courses for this gender is: " + percentage);
 
         });
 

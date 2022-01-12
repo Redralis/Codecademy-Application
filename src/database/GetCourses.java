@@ -71,7 +71,6 @@ public class GetCourses {
     public static ObservableList<String> coursesList() {
 
         ObservableList<String> courses = FXCollections.observableArrayList();
-        ObservableList<String> percBehaald3 = FXCollections.observableArrayList();
 
         // These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
@@ -96,13 +95,9 @@ public class GetCourses {
             // Making a SQL query.
             String SQL = "SELECT * FROM Cursus";
 
-            String SQL2 = "SELECT COUNT(FK_Certificaat) * 100 / COUNT(*) FROM Inschrijving AS I JOIN Cursist AS C ON I.FK_Cursist = C.Email ";
-
             stmt = con.createStatement();
             // Executing the query in the database
             rs = stmt.executeQuery(SQL);
-            rs2 = stmt.executeQuery(SQL2);
-
 
             // If there are results in the ResultSet we go through them here and print them.
             while (rs.next()) {
@@ -111,10 +106,6 @@ public class GetCourses {
 
                 // Adding each individual row into the table.
                 courses.add(name);
-            }
-            while (rs2.next()) {
-                String percBehaald2 = rs2.getString("Percentage");
-                percBehaald3.add(percBehaald2);
             }
 
         }

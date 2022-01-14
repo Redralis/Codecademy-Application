@@ -124,10 +124,26 @@ public class AddEditEnrollmentsGUI {
         ObservableList<String> coursesList = FXCollections.observableList(GetCourses.listOfCourseNames());
         ObservableList<String> studentsList = FXCollections.observableList(GetStudents.listOfStudentEmails());
 
+        //Separating date of enrollment into day, month and year...
+        String[] splitDate = dateOfEnrollment.split("-");
+        String year = splitDate[0];
+        String month = splitDate[1];
+        String day = splitDate[2];
+
+
         //Creating buttons for the body...
-        Label dateLabel = new Label("Date of enrollment: ");
-        TextArea dateOfEnrollmentField = new TextArea();
-        dateOfEnrollmentField.setText(dateOfEnrollment);
+        Label dateOfEnrollmentDayLabel = new Label("Day of enrollment:  ");
+        TextArea dateOfEnrollmentDayField = new TextArea();
+        dateOfEnrollmentDayField.setText(day);
+        dateOfEnrollmentDayField.setMaxHeight(40);
+        Label dateOfEnrollmentMonthLabel = new Label("Month of enrollment:  ");
+        TextArea dateOfEnrollmentMonthField = new TextArea();
+        dateOfEnrollmentMonthField.setText(month);
+        dateOfEnrollmentMonthField.setMaxHeight(40);
+        Label dateOfEnrollmentYearLabel = new Label("Year of enrollment:  ");
+        TextArea dateOfEnrollmentYearField = new TextArea();
+        dateOfEnrollmentYearField.setText(year);
+        dateOfEnrollmentYearField.setMaxHeight(40);
         Label studentToEnroll = new Label("Student to enroll:");
         final ComboBox studentsBox = new ComboBox(studentsList);
         studentsBox.setValue(student);
@@ -138,13 +154,17 @@ public class AddEditEnrollmentsGUI {
 
 
         //Adding buttons to the body...
-        body.add(dateLabel, 1, 1);
-        body.add(dateOfEnrollmentField, 1, 2);
-        body.add(studentToEnroll, 1, 3);
-        body.add(studentsBox, 1, 4);
-        body.add(courseToEnroll, 1, 5);
-        body.add(coursesBox, 1, 6);
-        body.add(submit, 1, 7);
+        body.add(dateOfEnrollmentDayLabel, 1, 1);
+        body.add(dateOfEnrollmentDayField, 1, 2);
+        body.add(dateOfEnrollmentMonthLabel, 1, 3);
+        body.add(dateOfEnrollmentMonthField, 1, 4);
+        body.add(dateOfEnrollmentYearLabel, 1, 5);
+        body.add(dateOfEnrollmentYearField, 1, 6);
+        body.add(studentToEnroll, 1, 7);
+        body.add(studentsBox, 1, 8);
+        body.add(courseToEnroll, 1, 9);
+        body.add(coursesBox, 1, 10);
+        body.add(submit, 1, 11);
 
         body.setStyle("-fx-background-color: #fff0e5");
 
@@ -172,7 +192,9 @@ public class AddEditEnrollmentsGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
-            EditItem.editEnrollment(dateOfEnrollment, student, course, dateOfEnrollmentField.getText(),
+            String newDateOfEnrollment = dateOfEnrollmentYearField.getText() + "-" + dateOfEnrollmentMonthField.getText() + "-" +
+                    dateOfEnrollmentDayField.getText();
+            EditItem.editEnrollment(dateOfEnrollment, student, course, newDateOfEnrollment,
                     studentsBox.getValue().toString(), coursesBox.getValue().toString());
             EnrollmentsGUI mGui = new EnrollmentsGUI();
             Stage window = MainGUI.getStage();

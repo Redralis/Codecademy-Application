@@ -2,6 +2,7 @@ package gui;
 
 import database.DeleteItem;
 import database.GetCourses;
+import database.Overviews;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -15,11 +16,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import userdata.Course;
 
 public class CoursesGUI {
-    
+
     public Scene getScene() {
 
         //Creating the layout...
@@ -71,9 +73,10 @@ public class CoursesGUI {
         Button overzicht = new Button("Overzicht");
         Button top3 = new Button("Top 3");
         Button percBehaald = new Button("Voortgang");
+        Button buttonInfo = new Button("Show\namount of\ncertificates\nby selected\ncourse");
 
         //Adding the buttons to the body...
-        right.getChildren().addAll(add, edit,  delete, overzicht, top3, percBehaald);
+        right.getChildren().addAll(add, edit,  delete, overzicht, top3, percBehaald, buttonInfo);
 
         //Adding the buttons to menu...
         menu.getChildren().addAll(back, nameText, info, logout);
@@ -87,6 +90,15 @@ public class CoursesGUI {
         //Adding the body to the layout...
         layout.setCenter(table);
         layout.setRight(right);
+
+        // Creates resultfield in the GUI
+        HBox resultBox = new HBox();
+        Label result = new Label();
+        result.setTextFill(Color.web("#fff"));
+        resultBox.getChildren().add(result);
+        resultBox.setStyle("-fx-background-color: #7fb7d4");
+        resultBox.setAlignment(Pos.BASELINE_CENTER);
+        layout.setBottom(resultBox);
 
         //Giving the buttons function...
         logout.setOnAction((event) -> {
@@ -129,10 +141,21 @@ public class CoursesGUI {
             window.setScene(progressCoursesGUI.getStage());
         });
 
+        buttonInfo.setOnAction(actionEvent -> {
+            Course course = table.getSelectionModel().getSelectedItem();
+            System.out.println(course.getName());
+
+
+            String amountOfCompletionsBySelectedCourse = Overviews.amountOfCompletions(course.getName());
+
+            result.setText("Aantal cursisten die de behaalde cursus hebben behaald: " + amountOfCompletionsBySelectedCourse);
+
+        });
+
 
         //Making the scene...
         return new Scene(layout, 800, 220);
 
     }
-    
+
 }

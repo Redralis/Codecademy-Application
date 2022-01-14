@@ -36,17 +36,11 @@ public class Overviews {
             // Executing the query in the database
             rs = stmt.executeQuery(SQL);
 
-//            System.out.println("Test1");
-
             while (rs.next()) {
 
                 amountOfCertificatedBySelectedStudent = rs.getString("Aantal");
 
             }
-
-//            System.out.println(amountOfCertificatedBySelectedStudent);
-//            System.out.println("Test2");
-
 
         }
 

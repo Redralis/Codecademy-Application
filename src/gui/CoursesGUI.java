@@ -142,16 +142,16 @@ public class CoursesGUI {
         });
 
         buttonInfo.setOnAction(actionEvent -> {
+            //Selects the current course
             Course course = table.getSelectionModel().getSelectedItem();
-            System.out.println(course.getName());
 
-
+            // Calling the function what makes and executes a query and returns the results in a string
             String amountOfCompletionsBySelectedCourse = Overviews.amountOfCompletions(course.getName());
 
+            // Displays the result on the screen
             result.setText("Aantal cursisten die de behaalde cursus hebben behaald: " + amountOfCompletionsBySelectedCourse);
 
         });
-
 
         //Making the scene...
         return new Scene(layout, 800, 220);

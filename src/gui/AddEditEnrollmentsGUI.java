@@ -45,8 +45,7 @@ public class AddEditEnrollmentsGUI {
         ObservableList students = GetStudents.studentsList();
         final ComboBox studentsBox = new ComboBox(students);
         Label courseToEnroll = new Label("Course to enroll in:");
-        ObservableList courses = coursesList;
-        final ComboBox coursesBox = new ComboBox(courses);
+        final ComboBox coursesBox = new ComboBox(coursesList);
         Button submit = new Button("Submit");
 
 

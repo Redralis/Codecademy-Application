@@ -1,7 +1,5 @@
 package database;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import userdata.Course;
 import userdata.Level;
 import java.sql.*;

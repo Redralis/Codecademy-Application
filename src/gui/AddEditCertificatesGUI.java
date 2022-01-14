@@ -34,23 +34,27 @@ public class AddEditCertificatesGUI {
         menu.setStyle("-fx-background-color: #ffd300;");
 
         //Creating buttons for the menu...
-        Label enter = new Label("Enter certificate information: ");
+        Label ratingLabel = new Label("Enter certificate rating: ");
         TextArea ratingField = new TextArea();
         ratingField.setPromptText("Type the rating of the certificate: ");
+        ratingField.setMaxHeight(40);
+        Label nameEmployeeLabel = new Label("Enter the name of the employee who issued the certificate: ");
         TextArea nameEmployeeField = new TextArea();
-        nameEmployeeField.setPromptText("Type the employee's name of the certificate: ");
+        nameEmployeeField.setPromptText("Type the name of the employee who issued the certificate: ");
+        nameEmployeeField.setMaxHeight(40);
         Label enrollmentToPair = new Label("Select student to give the certificate:");
         ObservableList<String> enrollmentsList = FXCollections.observableList(GetEnrollments.enrollmentsStudentAndCourseList());
         final ComboBox<String> enrollmentsBox = new ComboBox<String>(enrollmentsList);
         Button submit = new Button("Submit");
 
         //Adding buttons to the body...
-        body.add(enter, 1, 1);
+        body.add(ratingLabel, 1, 1);
         body.add(ratingField, 1, 2);
-        body.add(nameEmployeeField, 1, 3);
-        body.add(enrollmentToPair, 1, 4);
-        body.add(enrollmentsBox, 1, 5);
-        body.add(submit, 1, 6);
+        body.add(nameEmployeeLabel, 1, 3);
+        body.add(nameEmployeeField, 1, 4);
+        body.add(enrollmentToPair, 1, 5);
+        body.add(enrollmentsBox, 1, 6);
+        body.add(submit, 1, 7);
 
         body.setStyle("-fx-background-color: #fff0e5");
 
@@ -94,7 +98,7 @@ public class AddEditCertificatesGUI {
         sp.setFitToWidth(true);
 
         //Creating the scene...
-        return new Scene(sp, 800, 220);
+        return new Scene(sp, 800, 400);
     }
 
     public Scene editStage(String id, String rating, String nameEmployee) {
@@ -118,20 +122,24 @@ public class AddEditCertificatesGUI {
         menu.setStyle("-fx-background-color: #ffd300;");
 
         //Creating buttons for the menu...
-        Label enter = new Label("Enter certificate information: ");
+        Label ratingLabel = new Label("Enter certificate rating: ");
         TextArea ratingField = new TextArea();
         ratingField.setPromptText("Type the rating of the certificate: ");
         ratingField.setText(rating);
+        ratingField.setMaxHeight(40);
+        Label nameEmployeeLabel = new Label("Enter the name of the employee who issued the certificate: ");
         TextArea nameEmployeeField = new TextArea();
         nameEmployeeField.setPromptText("Type the employee's name of the certificate: ");
         nameEmployeeField.setText(nameEmployee);
+        nameEmployeeField.setMaxHeight(40);
         Button submit = new Button("Submit");
 
         //Adding buttons to the body...
-        body.add(enter, 1, 1);
+        body.add(ratingLabel, 1, 1);
         body.add(ratingField, 1, 2);
-        body.add(nameEmployeeField, 1, 3);
-        body.add(submit, 1, 4);
+        body.add(nameEmployeeLabel, 1, 3);
+        body.add(nameEmployeeField, 1, 4);
+        body.add(submit, 1, 5);
 
         body.setStyle("-fx-background-color: #fff0e5");
 

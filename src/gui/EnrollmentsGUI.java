@@ -68,14 +68,13 @@ public class EnrollmentsGUI {
         Button add = new Button("Add");
         Button edit = new Button("Edit");
         Button delete = new Button("Delete");
-        Button top3 = new Button("Top 3");
 
         //Adding buttons to the menu...
         menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
         //Adding buttons to the body...
-        right.getChildren().addAll(add, edit, delete, top3);
+        right.getChildren().addAll(add, edit, delete);
 
         //Adding menu to the layout...
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));

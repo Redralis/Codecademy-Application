@@ -123,8 +123,9 @@ public class MainGUI extends Application {
             window.setScene(infoGUI.getScene());
         });
 
-        window.setTitle("Hans Gerard Karremans(2188909),\t \t \t  Lucas de Kleijn(2191372),\t \t \t  Joost van Dam(2182303)");
+
         mainStage = window;
+        window.setTitle("Hans Gerard Karremans(2188909),\t \t \t  Lucas de Kleijn(2191372),\t \t \t  Joost van Dam(2182303)");
 
     }
 

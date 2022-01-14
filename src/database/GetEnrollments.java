@@ -1,16 +1,15 @@
 package database;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.TableView;
 import userdata.Enrollment;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GetEnrollments {
 
-    public static TableView<Enrollment> enrollments() {
+    public static List<Enrollment> enrollmentsList() {
 
-        TableView<Enrollment> table = new TableView<Enrollment>();
+        List<Enrollment> listOfEnrollments = new ArrayList<Enrollment>();
 
         // These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
@@ -45,7 +44,7 @@ public class GetEnrollments {
                 String course = rs.getString("FK_Cursus");
                 String certificate = rs.getString("FK_Certificaat");
 
-                table.getItems().add(new Enrollment(dateOfEnrollment, student, course, certificate));
+                listOfEnrollments.add(new Enrollment(dateOfEnrollment, student, course, certificate));
             }
 
         }
@@ -60,13 +59,13 @@ public class GetEnrollments {
             if (con != null) try { con.close(); } catch(Exception e) {}
         }
 
-        return table;
+        return listOfEnrollments;
 
     }
 
-    public static ObservableList<String> enrollmentsList() {
+    public static List<String> enrollmentsStudentAndCourseList() {
 
-        ObservableList<String> enrollments = FXCollections.observableArrayList();
+        List<String> enrollments = new ArrayList<String>();
 
         // These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";

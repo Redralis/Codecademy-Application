@@ -1,7 +1,10 @@
 package gui;
 
 import database.DeleteItem;
+import database.GetCourses;
 import database.GetEnrollments;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -29,7 +32,12 @@ public class EnrollmentsGUI {
         VBox right = new VBox();
 
         //Making the table for viewing the enrollments...
-        TableView<Enrollment> table = GetEnrollments.enrollments();
+        TableView<Enrollment> table = new TableView<Enrollment>();
+
+        //Converting list of enrollments to an observablelist...
+        ObservableList<Enrollment> enrollmentsList = FXCollections.observableList(GetEnrollments.enrollmentsList());
+
+        table.setItems(enrollmentsList);
 
         //Setting colors...
         table.setStyle("-fx-background-color: #fff0e5");

@@ -1,9 +1,7 @@
 package gui;
 
-import database.AddItem;
-import database.EditItem;
-import database.GetCertificates;
-import database.GetEnrollments;
+import database.*;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,6 +11,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import userdata.Course;
+import userdata.Enrollment;
 
 public class AddEditCertificatesGUI {
     public Scene getStage() {
@@ -42,8 +42,8 @@ public class AddEditCertificatesGUI {
         TextArea nameEmployeeField = new TextArea();
         nameEmployeeField.setPromptText("Type the employee's name of the certificate: ");
         Label enrollmentToPair = new Label("Select student to give the certificate:");
-        ObservableList<String> enrollments = GetEnrollments.enrollmentsList();
-        final ComboBox<String> enrollmentsBox = new ComboBox<String>(enrollments);
+        ObservableList<String> enrollmentsList = FXCollections.observableList(GetEnrollments.enrollmentsStudentAndCourseList());
+        final ComboBox<String> enrollmentsBox = new ComboBox<String>(enrollmentsList);
         Button submit = new Button("Submit");
 
         //adds buttons to body

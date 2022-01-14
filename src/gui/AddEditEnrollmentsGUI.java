@@ -71,9 +71,9 @@ public class AddEditEnrollmentsGUI {
             System.exit(1);
         });
         back.setOnAction(event -> {
-            HomeScreenGUI hGui = new HomeScreenGUI();
+            EnrollmentsGUI eGui = new EnrollmentsGUI();
             Stage window = MainGUI.getStage();
-            window.setScene(hGui.getScene());
+            window.setScene(eGui.getScene());
         });
         info.setOnAction(event -> {
             InfoGUI InfoGUI = new InfoGUI();
@@ -182,9 +182,9 @@ public class AddEditEnrollmentsGUI {
             System.exit(1);
         });
         back.setOnAction(event -> {
-            HomeScreenGUI hGui = new HomeScreenGUI();
+            EnrollmentsGUI eGui = new EnrollmentsGUI();
             Stage window = MainGUI.getStage();
-            window.setScene(hGui.getScene());
+            window.setScene(eGui.getScene());
         });
         info.setOnAction(event -> {
             InfoGUI InfoGUI = new InfoGUI();

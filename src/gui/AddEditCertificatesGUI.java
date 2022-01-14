@@ -72,9 +72,9 @@ public class AddEditCertificatesGUI {
             System.exit(1);
         });
         back.setOnAction(event -> {
-            HomeScreenGUI hGui = new HomeScreenGUI();
+            CertificatesGUI cGui = new CertificatesGUI();
             Stage window = MainGUI.getStage();
-            window.setScene(hGui.getScene());
+            window.setScene(cGui.getScene());
         });
         info.setOnAction(event -> {
             InfoGUI InfoGUI = new InfoGUI();
@@ -157,9 +157,9 @@ public class AddEditCertificatesGUI {
             System.exit(1);
         });
         back.setOnAction(event -> {
-            HomeScreenGUI hGui = new HomeScreenGUI();
+            CertificatesGUI cGui = new CertificatesGUI();
             Stage window = MainGUI.getStage();
-            window.setScene(hGui.getScene());
+            window.setScene(cGui.getScene());
         });
         info.setOnAction(event -> {
             InfoGUI InfoGUI = new InfoGUI();

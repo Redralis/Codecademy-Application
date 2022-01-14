@@ -108,9 +108,9 @@ public class AddEditStudentsGUI {
             System.exit(1);
         });
         back.setOnAction(event -> {
-            HomeScreenGUI hGui = new HomeScreenGUI();
+            StudentsGUI studentsGUI = new StudentsGUI();
             Stage window = MainGUI.getStage();
-            window.setScene(hGui.getScene());
+            window.setScene(studentsGUI.getScene());
         });
         info.setOnAction(event -> {
             InfoGUI InfoGUI = new InfoGUI();
@@ -252,9 +252,9 @@ public class AddEditStudentsGUI {
             System.exit(1);
         });
         back.setOnAction(event -> {
-            HomeScreenGUI hGui = new HomeScreenGUI();
+            StudentsGUI studentsGUI = new StudentsGUI();
             Stage window = MainGUI.getStage();
-            window.setScene(hGui.getScene());
+            window.setScene(studentsGUI.getScene());
         });
         info.setOnAction(event -> {
             InfoGUI InfoGUI = new InfoGUI();

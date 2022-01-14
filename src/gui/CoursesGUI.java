@@ -20,6 +20,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import userdata.Course;
 
+import java.util.List;
+
 public class CoursesGUI {
 
     public Scene getScene() {
@@ -135,6 +137,17 @@ public class CoursesGUI {
                 window.setScene(mGui.getScene());
             }
         });
+
+        top3.setOnAction(actionEvent -> {
+
+            //Calling the function what executes a query and returns the top 3 most viewed webcasts
+            List<String> top3MostViewedWebcasts = Overviews.mostViewedWebcasts();
+
+            //Displays the result on the screen
+            result.setText("Meest bekeken webcasts\n" + "1: " + top3MostViewedWebcasts.get(0) + "\n2: " + top3MostViewedWebcasts.get(1) + "\n3: " + top3MostViewedWebcasts.get(2));
+
+        });
+
         percBehaald.setOnAction(actionEvent -> {
             ProgressCoursesGUI progressCoursesGUI = new ProgressCoursesGUI();
             Stage window = MainGUI.getStage();

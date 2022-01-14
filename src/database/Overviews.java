@@ -400,4 +400,172 @@ public class Overviews {
 
     }
 
+    public static List<String> unlinkedModules() {
+
+        //Creates a list for the result of the query.
+        List<String> unlinkedModules = new ArrayList<String>();
+
+        //These are the settings for the connection.
+        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
+
+        //Connection controls information about the connection to the database.
+        Connection con = null;
+
+        //Statement lets us use SQL query's.
+        Statement stmt = null;
+
+        //ResultSet is the table we get from the database.
+        //We can iterate through the rows.
+        ResultSet rs = null;
+
+        try {
+            //Importing driver...
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            //Connecting to the database...
+            con = DriverManager.getConnection(connectionUrl);
+
+            //Making a SQL query.
+            String SQL = "SELECT Titel FROM ContentItem RIGHT JOIN Module ON ContentItem.ContentItemId = " +
+                    "Module.FK_ContentItem WHERE Module.FK_Cursus " + "IS NULL";
+
+            stmt = con.createStatement();
+            //Executing the query in the database
+            rs = stmt.executeQuery(SQL);
+
+            //Adds the 4 result values to the result list.
+            while (rs.next()) {
+
+                String module = rs.getString("Titel");
+
+                unlinkedModules.add(module);
+            }
+
+        }
+
+        //Handle any errors that may have occurred.
+        catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) try {
+                rs.close();
+            } catch (Exception e) {
+            }
+            if (stmt != null) try {
+                stmt.close();
+            } catch (Exception e) {
+            }
+            if (con != null) try {
+                con.close();
+            } catch (Exception e) {
+            }
+        }
+
+        return unlinkedModules;
+
+    }
+
+    public static void linkModule(String course, String moduleId) {
+        //These are the settings for the connection.
+        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
+
+        //Connection controls information about the connection to the database.
+        Connection con = null;
+
+        //Statement lets us use SQL query's.
+        Statement stmt = null;
+
+        //ResultSet is the table we get from the database.
+        //We can iterate through the rows.
+        ResultSet rs = null;
+
+        try {
+            //Importing driver...
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            //Connecting to the database...
+            con = DriverManager.getConnection(connectionUrl);
+
+            //Making a SQL query.
+            String SQL = "UPDATE Module SET FK_Cursus = '" + course + "' WHERE Module.FK_ContentItem = " + moduleId;
+
+            stmt = con.createStatement();
+            //Executing the query in the database
+            rs = stmt.executeQuery(SQL);
+        }
+
+        //Handle any errors that may have occurred.
+        catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) try {
+                rs.close();
+            } catch (Exception e) {
+            }
+            if (stmt != null) try {
+                stmt.close();
+            } catch (Exception e) {
+            }
+            if (con != null) try {
+                con.close();
+            } catch (Exception e) {
+            }
+        }
+
+    }
+
+    public static String getModuleId(String module) {
+        String moduleId = "";
+
+        //These are the settings for the connection.
+        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
+
+        //Connection controls information about the connection to the database.
+        Connection con = null;
+
+        //Statement lets us use SQL query's.
+        Statement stmt = null;
+
+        //ResultSet is the table we get from the database.
+        //We can iterate through the rows.
+        ResultSet rs = null;
+
+        try {
+            //Importing driver...
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            //Connecting to the database...
+            con = DriverManager.getConnection(connectionUrl);
+
+            //Making a SQL query.
+            String SQL = "SELECT ContentItemId FROM ContentItem WHERE Titel = '" + module + "'";
+
+            stmt = con.createStatement();
+            //Executing the query in the database
+            rs = stmt.executeQuery(SQL);
+
+            while (rs.next()) {
+                moduleId = rs.getString("ContentItemId");
+            }
+        }
+
+        //Handle any errors that may have occurred.
+        catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) try {
+                rs.close();
+            } catch (Exception e) {
+            }
+            if (stmt != null) try {
+                stmt.close();
+            } catch (Exception e) {
+            }
+            if (con != null) try {
+                con.close();
+            } catch (Exception e) {
+            }
+        }
+
+        return moduleId;
+
+    }
+
 }

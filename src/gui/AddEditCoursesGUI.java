@@ -2,6 +2,8 @@ package gui;
 
 import database.AddItem;
 import database.EditItem;
+import database.GetStudents;
+import database.Overviews;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -47,6 +49,8 @@ public class AddEditCoursesGUI {
         TextArea introductionField = new TextArea();
         introductionField.setPromptText("Type a introduction: ");
         introductionField.setMaxHeight(40);
+        Label moduleLabel = new Label("Choose a module to pair: ");
+        final ComboBox moduleBox = new ComboBox(FXCollections.observableList(Overviews.unlinkedModules()));
         Label levelsLabel = new Label("Pick level of difficulty: ");
         ObservableList<String> levels =
                 FXCollections.observableArrayList(
@@ -64,9 +68,11 @@ public class AddEditCoursesGUI {
         body.add(subjectField, 1, 4);
         body.add(introductionLabel, 1, 5);
         body.add(introductionField, 1, 6);
-        body.add(levelsLabel, 1, 7);
-        body.add(comboBox, 1, 8);
-        body.add(submit, 1, 9);
+        body.add(moduleLabel, 1, 7);
+        body.add(moduleBox, 1, 8);
+        body.add(levelsLabel, 1, 9);
+        body.add(comboBox, 1, 10);
+        body.add(submit, 1, 11);
 
         body.setStyle("-fx-background-color: #fff0e5");
 
@@ -94,8 +100,10 @@ public class AddEditCoursesGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
+            String module = (String) moduleBox.getValue();
             AddItem.addCourse(nameField.getText(), subjectField.getText(), introductionField.getText(),
                     (String) comboBox.getValue());
+            Overviews.linkModule(nameField.getText(), Overviews.getModuleId(module));
             CoursesGUI mGui = new CoursesGUI();
             Stage window = MainGUI.getStage();
             window.setScene(mGui.getScene());

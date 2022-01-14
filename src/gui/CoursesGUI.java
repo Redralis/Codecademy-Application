@@ -72,14 +72,13 @@ public class CoursesGUI {
         Button add = new Button("Add");
         Button edit = new Button("Edit");
         Button delete = new Button("Delete");
-        Button overview = new Button("Overview");
         Button top3 = new Button("Top 3");
         Button progressByAccAndCourse = new Button("Progress\nby account\nand course");
         Button averageProgressPerModule = new Button("Average\nprogress\nper module");
         Button buttonInfo = new Button("Show amount\nof students\nthat passed");
 
         //Adding the buttons to the body...
-        right.getChildren().addAll(add, edit,  delete, overview, top3, progressByAccAndCourse, averageProgressPerModule, buttonInfo);
+        right.getChildren().addAll(add, edit,  delete, top3, progressByAccAndCourse, averageProgressPerModule, buttonInfo);
 
         //Adding the buttons to menu...
         menu.getChildren().addAll(back, nameText, info, logout);

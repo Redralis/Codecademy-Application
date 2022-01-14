@@ -1,12 +1,7 @@
 package database;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 import userdata.Certificate;
-import userdata.Course;
-import userdata.Level;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

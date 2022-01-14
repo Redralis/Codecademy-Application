@@ -1,8 +1,5 @@
 package database;
 
-import javafx.scene.control.TableView;
-import userdata.Course;
-import userdata.Level;
 import java.sql.*;
 
 public class DeleteItem {

@@ -97,13 +97,12 @@ public class ProgressByAccountAndCourseGUI {
             List<String> results = Overviews.percentageByStudentAndCourse((String) studentsBox.getValue(), (String) coursesBox.getValue());
 
             StringBuilder sb = new StringBuilder();
-            results.stream().forEach(i -> System.out.println(i));
             for (String s : results) {
-                sb.append(s);
+                sb.append(s + "\n");
             }
 
             //Shows the result on the screen, when clicked on show
-            result.setText("Module en voortgang:\n " + sb.toString());
+            result.setText("Module en voortgang\n" + sb.toString());
 
 
         });

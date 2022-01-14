@@ -605,7 +605,7 @@ public class Overviews {
                 String titel = rs.getString("Titel");
                 String voortgang = rs.getString("Voortgang");
 
-                listOfStudentsAndCourses.add("Titel: " + titel + "\t\t" + "Voortgang: " + voortgang );
+                listOfStudentsAndCourses.add("Titel: " + titel + "\t\t" + "Voortgang: " + voortgang + "%");
             }
         }
 

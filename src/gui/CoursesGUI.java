@@ -20,6 +20,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import userdata.Course;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CoursesGUI {
@@ -156,7 +157,21 @@ public class CoursesGUI {
         });
 
         averageProgressPerModule.setOnAction(actionEvent -> {
-            //To be implemented
+            //Selects the current course
+            Course course = table.getSelectionModel().getSelectedItem();
+
+            //Calling the function that makes and executes a query and returns the results in a string
+            List<String> modulesList = Overviews.averageProgressionInCourse(course.getName());
+
+            //Turning result into a string...
+            StringBuilder modules = new StringBuilder();
+            for (String s : modulesList) {
+                modules.append(s).append("%\n");
+            }
+
+            //Displays the result on the screen
+            result.setText(String.valueOf(modules));
+
         });
 
         buttonInfo.setOnAction(actionEvent -> {

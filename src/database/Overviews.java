@@ -632,4 +632,72 @@ public class Overviews {
 
     }
 
+    public static List<String> averageProgressionInCourse(String course) {
+
+        //Creates a list for the result of the query.
+        List<String> listOfAverageProgress = new ArrayList<String>();
+
+        //These are the settings for the connection.
+        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
+
+        //Connection controls information about the connection to the database.
+        Connection con = null;
+
+        //Statement lets us use SQL query's.
+        Statement stmt = null;
+
+        //ResultSet is the table we get from the database.
+        //We can iterate through the rows.
+        ResultSet rs = null;
+
+        try {
+            //Importing driver...
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            //Connecting to the database...
+            con = DriverManager.getConnection(connectionUrl);
+
+            //Making a SQL query.
+            String SQL = "SELECT ContentItem.Titel, SUM(Koppel.Voortgang) / COUNT(Koppel.Voortgang) AS " +
+                    "GemiddeldePercentagePerModule FROM ContentItem JOIN Koppeltabel_ContentItem_Cursist AS Koppel ON " +
+                    "ContentItem.ContentItemId = Koppel.FK_ContentItem JOIN Module ON ContentItem.ContentItemId = " +
+                    "Module.FK_ContentItem JOIN Cursus ON Module.FK_Cursus = Cursus.Naam WHERE Cursus.Naam = '" + course
+                    + "' " + "GROUP BY ContentItem.Titel";
+
+            stmt = con.createStatement();
+            //Executing the query in the database
+            rs = stmt.executeQuery(SQL);
+
+            //Adds the result values to the result list.
+            while (rs.next()) {
+
+                String title = rs.getString("Titel");
+                String averageProgress = rs.getString("GemiddeldePercentagePerModule");
+
+                listOfAverageProgress.add(title + " " + averageProgress);
+            }
+        }
+
+        //Handle any errors that may have occurred.
+        catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) try {
+                rs.close();
+            } catch (Exception e) {
+            }
+            if (stmt != null) try {
+                stmt.close();
+            } catch (Exception e) {
+            }
+            if (con != null) try {
+                con.close();
+            } catch (Exception e) {
+            }
+        }
+
+        // Returns the results in a list
+        return listOfAverageProgress;
+
+    }
+
 }

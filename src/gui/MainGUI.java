@@ -84,7 +84,7 @@ public class MainGUI extends Application {
 
         //Makes scene
 
-        Scene scene = new Scene(layout, 800, 400);
+        Scene scene = new Scene(layout, 800, 600);
         window.setScene(scene);
         window.show();
 

@@ -94,7 +94,7 @@ public class AddEditEnrollmentsGUI {
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
         //Creating the scene...
-        return new Scene(sp, 800, 400);
+        return new Scene(sp, 800, 600);
     }
 
     //You can't edit certificateId, because the pairing happens automatically. The fact that you have to
@@ -208,7 +208,7 @@ public class AddEditEnrollmentsGUI {
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
         //Creating the scene...
-        return new Scene(layout, 800, 400);
+        return new Scene(layout, 800, 600);
     }
 
 }

@@ -95,7 +95,7 @@ public class CertificateCompletionPercByGenderGUI {
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
         //Creating the scene...
-        return new Scene(layout, 800, 400);
+        return new Scene(layout, 800, 600);
 
     }
 }

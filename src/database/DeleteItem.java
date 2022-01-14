@@ -44,7 +44,8 @@ public class DeleteItem {
 
     }
 
-    public static void deleteItem(String item, String item2, String object, String condition, String condition2) {
+    public static void deleteItem(String item, String item2, String item3, String object, String condition,
+                                  String condition2, String condition3) {
         //These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
 
@@ -65,8 +66,8 @@ public class DeleteItem {
             con = DriverManager.getConnection(connectionUrl);
 
             //Making a SQL query.
-            String SQL = "DELETE FROM " + object + " WHERE " + condition + "='" + item + "'" + " AND "
-                    + condition2 + "='" + item2 + "'";
+            String SQL = "DELETE FROM " + object + " WHERE " + condition + "='" + item + "' AND "
+                    + condition2 + "='" + item2 + "' AND " + condition3 + "='" + item3 + "'";
             stmt = con.createStatement();
             //Executing the query in the database
             rs = stmt.executeQuery(SQL);

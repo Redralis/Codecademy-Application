@@ -1,9 +1,6 @@
 package gui;
 
-import database.AddItem;
-import database.EditItem;
 import database.GetCourses;
-import database.GetStudents;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -14,7 +11,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import userdata.Course;
 
 public class ProgressCoursesGUI {
     public Scene getStage() {

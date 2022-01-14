@@ -2,7 +2,6 @@ package gui;
 
 import database.DeleteItem;
 import database.GetCertificates;
-import database.GetCourses;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -18,7 +17,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import userdata.Certificate;
-import userdata.Course;
 
 public class CertificatesGUI {
     

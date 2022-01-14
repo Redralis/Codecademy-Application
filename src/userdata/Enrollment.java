@@ -1,7 +1,5 @@
 package userdata;
 
-import java.time.LocalDate;
-
 public class Enrollment {
     private final String dateOfEnrollment;
     private String certificate;

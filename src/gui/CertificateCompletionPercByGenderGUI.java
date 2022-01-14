@@ -1,7 +1,5 @@
 package gui;
 
-import database.AddItem;
-import database.GetCertificatesBySelectedAccount;
 import database.GetPercentageByGender;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

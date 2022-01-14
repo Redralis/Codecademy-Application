@@ -14,7 +14,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import userdata.Course;
 
 public class AddEditEnrollmentsGUI {
     public Scene getStage() {

@@ -11,8 +11,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 
-import java.awt.*;
-
 public class MainGUI extends Application {
     public static Stage mainStage;
 

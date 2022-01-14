@@ -91,7 +91,7 @@ public class CertificatesBySelectedAccountGUI {
         show.setOnAction(event -> {
 
             //Calling the function what makes and executes a query and returns the results in a List.
-            List certificatesByStudent = GetCertificatesBySelectedAccount.certificatesBySelectedAccount((String) studentsBox.getValue());
+            List certificatesByStudent = Overviews.getCertificatesBySelectedAccount((String) studentsBox.getValue());
 
             //Transforming the list to a string
             StringBuilder sb = new StringBuilder();

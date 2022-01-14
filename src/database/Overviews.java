@@ -1,7 +1,5 @@
 package database;
 
-import userdata.CertificateAndStudent;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -264,10 +262,10 @@ public class Overviews {
         return listOfStartedModules;
     }
 
-    public static List<CertificateAndStudent> getCertificatesBySelectedAccount(String student) {
+    public static List<String> getCertificatesBySelectedAccount(String student) {
 
         //Creates a list for the result of the query.
-        List<CertificateAndStudent> listOfCertificatesByStudent = new ArrayList<>();
+        List<String> listOfCertificatesByStudent = new ArrayList<String>();
 
         //These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
@@ -303,7 +301,8 @@ public class Overviews {
                 double rating = Double.parseDouble(rs.getString("Beoordeling"));
                 String nameEmployee = rs.getString("NaamMedewerker");
 
-                listOfCertificatesByStudent.add(new CertificateAndStudent(fk_cursus, fk_cursist, rating, nameEmployee));
+                listOfCertificatesByStudent.add("Cursist: " + fk_cursist + "\t\t" + "Cursus: " + fk_cursus +
+                        "\t\t" + "Rating: " + rating + "\t\t" + "Medewerker: " + nameEmployee + ".");
 
             }
 

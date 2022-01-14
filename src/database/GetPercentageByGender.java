@@ -1,9 +1,6 @@
 package database;
 
-import userdata.CertificateAndStudent;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class GetPercentageByGender {
 
@@ -17,9 +14,6 @@ public class GetPercentageByGender {
             if (gender.equals("Female")) {
                 gender2 = "Vrouw";
             }
-
-            //Creates a list for the result of the query.
-            List<CertificateAndStudent> listOfCertificatesByStudent = new ArrayList<>();
 
             //These are the settings for the connection.
             String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
@@ -52,7 +46,6 @@ public class GetPercentageByGender {
 
                 //Putting the result of the SQL query in the return string
                 while (rs.next()) {
-
                     percentage = rs.getString("PercentageOfCompletion");
 
                 }

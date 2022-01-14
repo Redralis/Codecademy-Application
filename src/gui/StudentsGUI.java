@@ -154,9 +154,19 @@ public class StudentsGUI {
             window.setScene(cGui.getStage());
         });
         certificatesCompletedPerStudent.setOnAction(actionEvent -> {
-            CertificatesBySelectedAccountGUI certBySelectedAccount = new CertificatesBySelectedAccountGUI();
-            Stage window = MainGUI.getStage();
-            window.setScene(certBySelectedAccount.getStage());
+            String student = table.getSelectionModel().getSelectedItem().getEmail();
+
+            //Calling the function that executes a query to show all of a student's certificates.
+            List<String> certificates1 = Overviews.getCertificatesBySelectedAccount(student);
+
+            //Turning result into a string...
+            StringBuilder certificates = new StringBuilder();
+            for (String s : certificates1) {
+                certificates.append(s).append("\n");
+            }
+
+            //Adding result to the resultbox...
+            result.setText(String.valueOf(certificates));
 
         });
         percentageWatched.setOnAction(actionEvent -> {

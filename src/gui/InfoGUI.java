@@ -41,7 +41,7 @@ public class InfoGUI {
 
         //Creating buttons for the body...
         Label infoBody = new Label("- This application is made by Hans Gerard Karremans, Joost van Dam," +
-                " Rick Wijkmans en Lucas de Kleijn");
+                " en Lucas de Kleijn");
         Label infoMore = new Label("- If there are any problems regarding this application please mail " +
                 "them to: \n  hg.karremans@student.avans.nl");
 

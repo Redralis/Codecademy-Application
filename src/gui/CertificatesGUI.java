@@ -47,10 +47,10 @@ public class CertificatesGUI {
         TableColumn<Certificate, String> idColumn = new TableColumn<Certificate, String>("Id");
         idColumn.setCellValueFactory(new PropertyValueFactory<>("certificateId"));
 
-        TableColumn<Certificate, String> ratingColumn = new TableColumn<Certificate, String>("Beoordeling");
+        TableColumn<Certificate, String> ratingColumn = new TableColumn<Certificate, String>("Rating");
         ratingColumn.setCellValueFactory(new PropertyValueFactory<>("rating"));
 
-        TableColumn<Certificate, String> nameEmployeeColumn = new TableColumn<Certificate, String>("Naam Medewerker");
+        TableColumn<Certificate, String> nameEmployeeColumn = new TableColumn<Certificate, String>("Name Employee");
         nameEmployeeColumn.setCellValueFactory(new PropertyValueFactory<>("nameEmployee"));
 
         //Adding the columns to the table...

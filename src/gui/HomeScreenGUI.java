@@ -30,10 +30,10 @@ public class HomeScreenGUI extends Application {
         Button logout = new Button("Logout");
 
         //Creating buttons for the body...
-        Button courses = new Button("Cursussen");
-        Button enrollments = new Button("Inschrijvingen");
-        Button students = new Button("Studenten");
-        Button certificates = new Button("Certificaten");
+        Button courses = new Button("Courses");
+        Button enrollments = new Button("Enrollments");
+        Button students = new Button("Students");
+        Button certificates = new Button("Certificates");
 
         HBox.setHgrow(courses, Priority.ALWAYS);
         HBox.setHgrow(enrollments, Priority.ALWAYS);

@@ -1,7 +1,6 @@
 package gui;
 
 import database.DeleteItem;
-import database.GetCourses;
 import database.GetStudents;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,7 +13,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import userdata.Course;
 import userdata.Student;
 
 public class StudentsGUI {
@@ -44,25 +42,25 @@ public class StudentsGUI {
         TableColumn<Student, String> emailColumn = new TableColumn<Student, String>("Email");
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
 
-        TableColumn<Student, String> nameColumn = new TableColumn<Student, String>("Naam");
+        TableColumn<Student, String> nameColumn = new TableColumn<Student, String>("Name");
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-        TableColumn<Student, String> dateOfBirthColumn = new TableColumn<Student, String>("Geboortedatum");
+        TableColumn<Student, String> dateOfBirthColumn = new TableColumn<Student, String>("Date of Birth");
         dateOfBirthColumn.setCellValueFactory(new PropertyValueFactory<>("dateOfBirth"));
 
-        TableColumn<Student, String> genderColumn = new TableColumn<Student, String>("Geslacht");
+        TableColumn<Student, String> genderColumn = new TableColumn<Student, String>("Gender");
         genderColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));
 
-        TableColumn<Student, String> addressColumn = new TableColumn<Student, String>("Adres");
+        TableColumn<Student, String> addressColumn = new TableColumn<Student, String>("Address");
         addressColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
 
-        TableColumn<Student, String> cityColumn = new TableColumn<Student, String>("Stad");
+        TableColumn<Student, String> cityColumn = new TableColumn<Student, String>("City");
         cityColumn.setCellValueFactory(new PropertyValueFactory<>("city"));
 
-        TableColumn<Student, String> countryColumn = new TableColumn<Student, String>("Land");
+        TableColumn<Student, String> countryColumn = new TableColumn<Student, String>("Country");
         countryColumn.setCellValueFactory(new PropertyValueFactory<>("country"));
 
-        TableColumn<Student, String> postalCodeColumn = new TableColumn<Student, String>("Postcode");
+        TableColumn<Student, String> postalCodeColumn = new TableColumn<Student, String>("Postal Code");
         postalCodeColumn.setCellValueFactory(new PropertyValueFactory<>("postalCode"));
 
         //Adding the columns to the table...

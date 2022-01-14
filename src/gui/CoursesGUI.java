@@ -44,16 +44,16 @@ public class CoursesGUI {
         right.setStyle("-fx-background-color: #fff0e5");
 
         //Making columns...
-        TableColumn<Course, String> nameColumn = new TableColumn<Course, String>("Naam");
+        TableColumn<Course, String> nameColumn = new TableColumn<Course, String>("Name");
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-        TableColumn<Course, String> subjectColumn = new TableColumn<Course, String>("Vak");
+        TableColumn<Course, String> subjectColumn = new TableColumn<Course, String>("Subject");
         subjectColumn.setCellValueFactory(new PropertyValueFactory<>("subject"));
 
-        TableColumn<Course, String> introductionTextColumn = new TableColumn<Course, String>("Introductietekst");
+        TableColumn<Course, String> introductionTextColumn = new TableColumn<Course, String>("IntroductionText");
         introductionTextColumn.setCellValueFactory(new PropertyValueFactory<>("introductionText"));
 
-        TableColumn<Course, String> levelColumn = new TableColumn<Course, String>("Niveau");
+        TableColumn<Course, String> levelColumn = new TableColumn<Course, String>("Level");
         levelColumn.setCellValueFactory(new PropertyValueFactory<>("level"));
 
         //Adding the columns to the table...
@@ -70,9 +70,9 @@ public class CoursesGUI {
         Button add = new Button("Add");
         Button edit = new Button("Edit");
         Button delete = new Button("Delete");
-        Button overzicht = new Button("Overzicht");
+        Button overzicht = new Button("Overview");
         Button top3 = new Button("Top 3");
-        Button percBehaald = new Button("Voortgang");
+        Button percBehaald = new Button("Progress");
         Button buttonInfo = new Button("Show\namount of\ncertificates\nby selected\ncourse");
 
         //Adding the buttons to the body...
@@ -149,7 +149,7 @@ public class CoursesGUI {
             String amountOfCompletionsBySelectedCourse = Overviews.amountOfCompletions(course.getName());
 
             //Displays the result on the screen
-            result.setText("Aantal cursisten die de behaalde cursus hebben behaald: " + amountOfCompletionsBySelectedCourse);
+            result.setText("Amount of students who passed this course: " + amountOfCompletionsBySelectedCourse);
 
         });
 

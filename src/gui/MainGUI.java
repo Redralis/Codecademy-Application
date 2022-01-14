@@ -35,10 +35,10 @@ public class MainGUI extends Application {
         Button logout = new Button("Logout");
 
         //Creating body buttons...
-        Button courses = new Button("Cursussen");
-        Button enrollments = new Button("Inschrijvingen");
-        Button students = new Button("Studenten");
-        Button certificates = new Button("Certificaten");
+        Button courses = new Button("Courses");
+        Button enrollments = new Button("Enrollments");
+        Button students = new Button("Students");
+        Button certificates = new Button("Certificates");
 
         //styling body buttons...
         HBox.setHgrow(courses, Priority.ALWAYS);
@@ -56,12 +56,6 @@ public class MainGUI extends Application {
         students.setStyle("-fx-font-size:30");
         certificates.setStyle("-fx-font-size:30");
 
-
-        //creating body2 buttons...
-        Button webcast = new Button("Webcasts");
-
-        //styling body2 buttons...
-        webcast.setStyle("-fx-font-size:30");
         //Adding to menu...
         menu.getChildren().addAll(nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");

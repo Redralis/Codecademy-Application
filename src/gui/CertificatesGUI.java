@@ -115,7 +115,7 @@ public class CertificatesGUI {
         });
 
         //Making the scene...
-        return new Scene(layout, 800, 220);
+        return new Scene(layout, 800, 400);
 
     }
     

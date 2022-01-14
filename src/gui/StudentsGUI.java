@@ -144,7 +144,7 @@ public class StudentsGUI {
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
         //creates scene
-        return new Scene(sp, 800, 240);
+        return new Scene(sp, 800, 400);
     }
 
 }

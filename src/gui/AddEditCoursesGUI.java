@@ -195,6 +195,7 @@ public class AddEditCoursesGUI {
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
         //creates scene
-        return new Scene(sp, 800, 220);
+        return new Scene(layout, 800, 400);
+
     }
 }

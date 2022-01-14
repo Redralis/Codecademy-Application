@@ -108,7 +108,7 @@ public class HomeScreenGUI extends Application {
         });
 
         //Making scene...
-        return new Scene(layout, 800, 220);
+        return new Scene(layout, 800, 400);
     }
 
     @Override

@@ -67,7 +67,7 @@ public class InfoGUI {
 
 
         //Making scene...
-        return new Scene(layout, 800, 400);
+        return new Scene(layout, 800, 600);
 
     }
 

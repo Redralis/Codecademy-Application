@@ -98,7 +98,7 @@ public class AddEditCertificatesGUI {
         sp.setFitToWidth(true);
 
         //Creating the scene...
-        return new Scene(sp, 800, 400);
+        return new Scene(sp, 800, 600);
     }
 
     public Scene editStage(String id, String rating, String nameEmployee) {
@@ -181,6 +181,6 @@ public class AddEditCertificatesGUI {
         sp.setFitToWidth(true);
 
         //Creating the scene...
-        return new Scene(layout, 800, 400);
+        return new Scene(layout, 800, 600);
     }
 }

@@ -11,6 +11,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 
+import java.awt.*;
+
 public class MainGUI extends Application {
     public static Stage mainStage;
 
@@ -121,6 +123,7 @@ public class MainGUI extends Application {
             window.setScene(infoGUI.getScene());
         });
 
+        window.setTitle("Hans Gerard Karremans(2188909),\t \t \t  Lucas de Kleijn(2191372),\t \t \t  Joost van Dam(2182303)");
         mainStage = window;
 
     }

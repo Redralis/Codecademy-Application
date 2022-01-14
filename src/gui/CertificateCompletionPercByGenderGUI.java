@@ -1,6 +1,6 @@
 package gui;
 
-import database.GetPercentageByGender;
+import database.Overviews;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -81,7 +81,7 @@ public class CertificateCompletionPercByGenderGUI {
         show.setOnAction(event -> {
 
             //Calling the function that makes and executes a query and returns the results in a String.
-            String percentage = GetPercentageByGender.percentageByGender((String) genderBox.getValue());
+            String percentage = Overviews.percentageByGender((String) genderBox.getValue());
 
             //Shows the result on the screen, when clicked on show
             result.setText("The percentage completed courses for this gender is: " + percentage);

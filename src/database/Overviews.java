@@ -160,7 +160,7 @@ public class Overviews {
                     "LEFT JOIN Koppeltabel_ContentItem_Cursist ON Cursist.Email = " +
                     "Koppeltabel_ContentItem_Cursist.FK_Cursist LEFT JOIN ContentItem ON " +
                     "Koppeltabel_ContentItem_Cursist.FK_ContentItem = ContentItem.ContentItemId LEFT JOIN Webcast ON " +
-                    "ContentItem.ContentItemId = Webcast.FK_ContentItem WHERE Cursist.Email = '" + student + "'";
+                    "ContentItem.ContentItemId = Webcast.FK_ContentItem WHERE Cursist.Email = '" + student + "' AND ContentItem.ContentItemId = Webcast.FK_ContentItem";
 
             stmt = con.createStatement();
             //Executing the query in the database
@@ -171,7 +171,7 @@ public class Overviews {
                 String percent = rs.getString("Voortgang");
 
                 //Adding webcast and percentage to the list...
-                listOfViewedWebcasts.add("Webcast name: " + webcast + ", percentage viewed: " + percent + ".");
+                listOfViewedWebcasts.add(webcast + ": " + percent + "%");
             }
         }
 

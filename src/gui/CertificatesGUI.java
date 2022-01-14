@@ -2,6 +2,9 @@ package gui;
 
 import database.DeleteItem;
 import database.GetCertificates;
+import database.GetCourses;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -28,11 +31,16 @@ public class CertificatesGUI {
         HBox menu = new HBox();
         VBox right = new VBox();
 
-        //Making the table for viewing the courses...
-        final TableView<Certificate>[] table = new TableView[]{GetCertificates.certificates()};
+        //Making the table for viewing the certificates...
+        final TableView<Certificate> table = new TableView<Certificate>();
+
+        //Converting list of certificates to an observablelist...
+        ObservableList<Certificate> certificatesList = FXCollections.observableList(GetCertificates.certificatesList());
+
+        table.setItems(certificatesList);
 
         //Setting colors...
-        table[0].setStyle("-fx-background-color: #fff0e5");
+        table.setStyle("-fx-background-color: #fff0e5");
         right.setStyle("-fx-background-color: #fff0e5");
 
         //Making columns...
@@ -46,10 +54,7 @@ public class CertificatesGUI {
         nameEmployeeColumn.setCellValueFactory(new PropertyValueFactory<>("nameEmployee"));
 
         //Adding the columns to the table...
-        table[0].getColumns().addAll(idColumn, ratingColumn, nameEmployeeColumn);
-
-        //Has to be added to selected courses...
-        HBox aanbevolen = new HBox();
+        table.getColumns().addAll(idColumn, ratingColumn, nameEmployeeColumn);
 
         //Creating the buttons for the menu...
         Button back = new Button("Back");
@@ -75,7 +80,7 @@ public class CertificatesGUI {
         layout.setTop(menu);
 
         //Adding the body to the layout...
-        layout.setCenter(table[0]);
+        layout.setCenter(table);
         layout.setRight(right);
 
         //Giving the buttons function...
@@ -98,14 +103,14 @@ public class CertificatesGUI {
             window.setScene(addCoursesGUI.getStage());
         });
         edit.setOnAction(actionEvent -> {
-            Certificate certificate = table[0].getSelectionModel().getSelectedItem();
+            Certificate certificate = table.getSelectionModel().getSelectedItem();
             AddEditCertificatesGUI addEditCertificatesGUI = new AddEditCertificatesGUI();
             Stage window = MainGUI.getStage();
             window.setScene(addEditCertificatesGUI.editStage(Integer.toString(certificate.getCertificateId()),
                     Double.toString(certificate.getRating()), certificate.getNameEmployee()));
         });
         delete.setOnAction(actionEvent -> {
-            Certificate certificate = table[0].getSelectionModel().getSelectedItem();
+            Certificate certificate = table.getSelectionModel().getSelectedItem();
             if (certificate != null) {
                 DeleteItem.deleteItem(Integer.toString(certificate.getCertificateId()), "Certificaat", "CertificaatId");
                 CertificatesGUI mGui = new CertificatesGUI();

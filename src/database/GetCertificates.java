@@ -1,17 +1,15 @@
 package database;
 
-import javafx.scene.control.TableView;
 import userdata.Certificate;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GetCertificates {
 
-    public static TableView<Certificate> certificates() {
+    public static List<Certificate> certificatesList() {
 
-        TableView<Certificate> table = new TableView<Certificate>();
+        List<Certificate> certificates = new ArrayList<Certificate>();
 
         // These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
@@ -45,7 +43,7 @@ public class GetCertificates {
                 double rating = Double.parseDouble(rs.getString("Beoordeling"));
                 String nameEmployee = rs.getString("NaamMedewerker");
 
-                table.getItems().add(new Certificate(id, rating, nameEmployee));
+                certificates.add(new Certificate(id, rating, nameEmployee));
             }
 
         }
@@ -60,7 +58,7 @@ public class GetCertificates {
             if (con != null) try { con.close(); } catch(Exception e) {}
         }
 
-        return table;
+        return certificates;
 
     }
 

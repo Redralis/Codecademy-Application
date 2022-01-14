@@ -81,7 +81,8 @@ public class StudentsGUI {
         Button add = new Button("Add");
         Button edit = new Button("Edit");
         Button delete = new Button("Delete");
-        Button percentageWatched = new Button("Percentage\nWatched");
+        Button percentageWatched = new Button("Webcast\nWatched");
+        Button percentageComplete = new Button("Module\nProgress");
         Button certificatesCompletedPerStudent = new Button("Certificates\ncompleted\nper\nstudent");
         Button searchOnGender = new Button("Search by \n gender");
 
@@ -90,7 +91,7 @@ public class StudentsGUI {
         menu.setStyle("-fx-background-color: #ffd300");
 
         //Adding the buttons to the body...
-        right.getChildren().addAll(add, edit, delete, percentageWatched, certificatesCompletedPerStudent, searchOnGender);
+        right.getChildren().addAll(add, edit, delete, percentageWatched, percentageComplete, certificatesCompletedPerStudent, searchOnGender);
 
         //Adding the menu to the layout...
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));
@@ -167,6 +168,22 @@ public class StudentsGUI {
             //Turning result into a string...
             StringBuilder percentages = new StringBuilder();
             for (String s : percentageWatched1) {
+                percentages.append(s).append("\n");
+            }
+
+            //Adding result to the resultbox...
+            result.setText(String.valueOf(percentages));
+
+        });
+        percentageComplete.setOnAction(actionEvent -> {
+            String student = table.getSelectionModel().getSelectedItem().getEmail();
+
+            //Calling the function that executes a query to find out the percentage watched of a student.
+            List<String> percentageComplete1 = Overviews.PercentageComplete(student);
+
+            //Turning result into a string...
+            StringBuilder percentages = new StringBuilder();
+            for (String s : percentageComplete1) {
                 percentages.append(s).append("\n");
             }
 

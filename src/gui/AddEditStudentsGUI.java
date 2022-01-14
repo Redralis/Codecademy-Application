@@ -33,16 +33,20 @@ public class AddEditStudentsGUI {
         menu.setStyle("-fx-background-color: #ffd300;");
 
         //Creating buttons for the body...
-        Label enter = new Label("Enter Student information: ");
+        Label nameLabel = new Label("Enter Student name: ");
         TextArea nameField = new TextArea();
         nameField.setPromptText("Type your name: ");
+        Label emailLabel = new Label("Enter Student email: ");
         TextArea emailField = new TextArea();
         emailField.setPromptText("Type your email: ");
+        Label dayLabel = new Label("Enter the day you were born: ");
         TextArea dateOfBirthDayField = new TextArea();
         dateOfBirthDayField.setPromptText("Type the day of your birth: ");
+        Label monthLabel = new Label("Enter the month you were born: ");
         TextArea dateOfBirthMonthField = new TextArea();
         dateOfBirthMonthField.setPromptText("Type the month of your birth:  ");
         TextArea dateOfBirthYearField = new TextArea();
+        Label yearLabel = new Label("Enter the year you were born: ");
         dateOfBirthYearField.setPromptText("Type the year of your birth: ");
         Label gendersLabel = new Label("Pick gender: ");
         ObservableList<String> genders =
@@ -51,31 +55,43 @@ public class AddEditStudentsGUI {
                         "F"
                 );
         final ComboBox comboBox = new ComboBox(genders);
+        Label addressLabel = new Label("Enter Student's current address: ");
         TextArea addressField = new TextArea();
         addressField.setPromptText("Type your address: ");
+        Label cityLabel = new Label("Enter Student's current city: ");
         TextArea cityField = new TextArea();
         cityField.setPromptText("Type your city: ");
+        Label countryLabel = new Label("Enter Student's current country: ");
         TextArea countryField = new TextArea();
         countryField.setPromptText("Type your country: ");
+        Label postalCodeLabel = new Label("Enter Student's current postal code: ");
         TextArea postalCodeField = new TextArea();
         postalCodeField.setPromptText("Type your postalcode: ");
         Button submit = new Button("Submit");
 
 
         //Adding buttons to the body...
-        body.add(enter, 1, 1);
+        body.add(nameLabel, 1, 1);
         body.add(nameField, 1, 2);
-        body.add(emailField, 1, 3);
-        body.add(dateOfBirthDayField, 1, 4);
-        body.add(dateOfBirthMonthField, 1, 5);
-        body.add(dateOfBirthYearField, 1, 6);
-        body.add(gendersLabel, 1, 7);
-        body.add(comboBox, 1, 8);
-        body.add(addressField, 1, 9);
-        body.add(cityField, 1, 10);
-        body.add(countryField, 1, 11);
-        body.add(postalCodeField, 1, 12);
-        body.add(submit, 1, 13);
+        body.add(emailLabel, 1, 3);
+        body.add(emailField, 1, 4);
+        body.add(dayLabel, 1, 5);
+        body.add(dateOfBirthDayField, 1, 6);
+        body.add(monthLabel, 1, 7);
+        body.add(dateOfBirthMonthField, 1, 8);
+        body.add(yearLabel, 1, 9);
+        body.add(dateOfBirthYearField, 1, 10);
+        body.add(gendersLabel, 1, 11);
+        body.add(comboBox, 1, 12);
+        body.add(addressLabel, 1, 13);
+        body.add(addressField, 1, 14);
+        body.add(cityLabel, 1, 15);
+        body.add(cityField, 1, 16);
+        body.add(countryLabel, 1, 17);
+        body.add(countryField, 1, 18);
+        body.add(postalCodeLabel, 1, 19);
+        body.add(postalCodeField, 1, 20);
+        body.add(submit, 1, 21);
         body.setStyle("-fx-background-color: #fff0e5");
 
         //Adding menu and body to the layout...
@@ -119,7 +135,7 @@ public class AddEditStudentsGUI {
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
         //Creating the scene...
-        return new Scene(layout, 800, 500);
+        return new Scene(sp, 800, 400);
 
     }
 
@@ -151,19 +167,23 @@ public class AddEditStudentsGUI {
         String day = splitDate[2];
 
         //Creating buttons for the body...
-        Label enter = new Label("Enter Student information: ");
+        Label nameLabel = new Label("Enter Student name: ");
         TextArea nameField = new TextArea();
         nameField.setPromptText("Type your name: ");
         nameField.setText(name);
+        Label emailLabel = new Label("Enter Student email: ");
         TextArea emailField = new TextArea();
         emailField.setPromptText("Type your email: ");
         emailField.setText(email);
+        Label dayLabel = new Label("Enter the day you were born: ");
         TextArea dateOfBirthDayField = new TextArea();
         dateOfBirthDayField.setPromptText("Type your date of birth: ");
         dateOfBirthDayField.setText(day);
+        Label monthLabel = new Label("Enter the month you were born: ");
         TextArea dateOfBirthMonthField = new TextArea();
         dateOfBirthMonthField.setPromptText("Type your date of birth: ");
         dateOfBirthMonthField.setText(month);
+        Label yearLabel = new Label("Enter the year you were born: ");
         TextArea dateOfBirthYearField = new TextArea();
         dateOfBirthYearField.setPromptText("Type your date of birth: ");
         dateOfBirthYearField.setText(year);
@@ -175,15 +195,19 @@ public class AddEditStudentsGUI {
                 );
         final ComboBox comboBox = new ComboBox(genders);
         comboBox.setValue(gender);
+        Label addressLabel = new Label("Enter Student's current address: ");
         TextArea addressField = new TextArea();
         addressField.setPromptText("Type your address: ");
         addressField.setText(address);
+        Label cityLabel = new Label("Enter Student's current city: ");
         TextArea cityField = new TextArea();
         cityField.setPromptText("Type your city: ");
         cityField.setText(city);
+        Label countryLabel = new Label("Enter Student's current country: ");
         TextArea countryField = new TextArea();
         countryField.setPromptText("Type your country: ");
         countryField.setText(country);
+        Label postalCodeLabel = new Label("Enter Student's current postal code: ");
         TextArea postalCodeField = new TextArea();
         postalCodeField.setPromptText("Type your postalcode: ");
         postalCodeField.setText(postalCode);
@@ -191,19 +215,27 @@ public class AddEditStudentsGUI {
 
 
         //Adding buttons to the body...
-        body.add(enter, 1, 1);
+        body.add(nameLabel, 1, 1);
         body.add(nameField, 1, 2);
-        body.add(emailField, 1, 3);
-        body.add(dateOfBirthDayField, 1, 4);
-        body.add(dateOfBirthMonthField, 1, 5);
-        body.add(dateOfBirthYearField, 1, 6);
-        body.add(gendersLabel, 1, 7);
-        body.add(comboBox, 1, 8);
-        body.add(addressField, 1, 9);
-        body.add(cityField, 1, 10);
-        body.add(countryField, 1, 11);
-        body.add(postalCodeField, 1, 12);
-        body.add(submit, 1, 13);
+        body.add(emailLabel, 1, 3);
+        body.add(emailField, 1, 4);
+        body.add(dayLabel, 1, 5);
+        body.add(dateOfBirthDayField, 1, 6);
+        body.add(monthLabel, 1, 7);
+        body.add(dateOfBirthMonthField, 1, 8);
+        body.add(yearLabel, 1, 9);
+        body.add(dateOfBirthYearField, 1, 10);
+        body.add(gendersLabel, 1, 11);
+        body.add(comboBox, 1, 12);
+        body.add(addressLabel, 1, 13);
+        body.add(addressField, 1, 14);
+        body.add(cityLabel, 1, 15);
+        body.add(cityField, 1, 16);
+        body.add(countryLabel, 1, 17);
+        body.add(countryField, 1, 18);
+        body.add(postalCodeLabel, 1, 19);
+        body.add(postalCodeField, 1, 20);
+        body.add(submit, 1, 21);
         body.setStyle("-fx-background-color: #fff0e5");
 
         //Adding menu and body to the layout...
@@ -247,7 +279,7 @@ public class AddEditStudentsGUI {
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
         //Creating the scene...
-        return new Scene(sp, 800, 220);
+        return new Scene(sp, 800, 400);
 
     }
 

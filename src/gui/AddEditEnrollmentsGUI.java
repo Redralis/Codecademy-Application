@@ -4,6 +4,7 @@ import database.AddItem;
 import database.EditItem;
 import database.GetCourses;
 import database.GetStudents;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import userdata.Course;
 
 public class AddEditEnrollmentsGUI {
     public Scene getStage() {
@@ -35,12 +37,15 @@ public class AddEditEnrollmentsGUI {
         menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
+        //Converting lists to observablelists for usage within comboboxes
+        ObservableList<String> coursesList = FXCollections.observableList(GetCourses.listOfCourseNames());
+
         //creates buttons for body
         Label studentToEnroll = new Label("Student to enroll:");
         ObservableList students = GetStudents.studentsList();
         final ComboBox studentsBox = new ComboBox(students);
         Label courseToEnroll = new Label("Course to enroll in:");
-        ObservableList courses = GetCourses.coursesList();
+        ObservableList courses = coursesList;
         final ComboBox coursesBox = new ComboBox(courses);
         Button submit = new Button("Submit");
 
@@ -117,6 +122,9 @@ public class AddEditEnrollmentsGUI {
         menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
+        //Converting lists to observablelists for usage within comboboxes
+        ObservableList<String> coursesList = FXCollections.observableList(GetCourses.listOfCourseNames());
+
         //creates buttons for body
         Label dateLabel = new Label("Date of enrollment: ");
         TextArea dateOfEnrollmentField = new TextArea();
@@ -126,7 +134,7 @@ public class AddEditEnrollmentsGUI {
         final ComboBox studentsBox = new ComboBox(students);
         studentsBox.setValue(student);
         Label courseToEnroll = new Label("Course to enroll in:");
-        ObservableList courses = GetCourses.coursesList();
+        ObservableList courses = coursesList;
         final ComboBox coursesBox = new ComboBox(courses);
         coursesBox.setValue(course);
         Button submit = new Button("Submit");

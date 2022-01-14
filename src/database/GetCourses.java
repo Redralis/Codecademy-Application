@@ -2,16 +2,17 @@ package database;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TableView;
 import userdata.Course;
 import userdata.Level;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GetCourses {
 
-    public static TableView<Course> courses() {
+    public static List<Course> coursesList() {
 
-        TableView<Course> table = new TableView<Course>();
+        List<Course> listOfCourses = new ArrayList<Course>();
 
         // These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
@@ -49,7 +50,7 @@ public class GetCourses {
                 // Converting level to an enum value.
                 Level level1 = Level.valueOf(level);
 
-                table.getItems().add(new Course(name, subject, introductionText, level1));
+                listOfCourses.add(new Course(name, subject, introductionText, level1));
             }
 
         }
@@ -64,13 +65,13 @@ public class GetCourses {
             if (con != null) try { con.close(); } catch(Exception e) {}
         }
 
-        return table;
+        return listOfCourses;
 
     }
 
-    public static ObservableList<String> coursesList() {
+    public static List<String> listOfCourseNames() {
 
-        ObservableList<String> courses = FXCollections.observableArrayList();
+        List<String> courses = new ArrayList<String>();
 
         // These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
@@ -84,7 +85,6 @@ public class GetCourses {
         // ResultSet is the table we get from the database.
         // We can iterate through the rows.
         ResultSet rs = null;
-        ResultSet rs2 = null;
 
         try {
             // Importing driver...
@@ -121,7 +121,7 @@ public class GetCourses {
         }
 
         // Returning the table.
-        return courses ;
+        return courses;
 
     }
 

@@ -2,6 +2,8 @@ package gui;
 
 import database.DeleteItem;
 import database.GetCourses;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -28,11 +30,15 @@ public class CoursesGUI {
         VBox right = new VBox();
 
         //Making the table for viewing the courses...
-        final TableView<Course>[] table = new TableView[]{GetCourses.courses()};
-       // String percBehaald2 =
+        final TableView<Course> table = new TableView<Course>();
+
+        //Converting list of courses to an observablelist...
+        ObservableList<Course> coursesList = FXCollections.observableList(GetCourses.coursesList());
+
+        table.setItems(coursesList);
 
         //Setting colors...
-        table[0].setStyle("-fx-background-color: #fff0e5");
+        table.setStyle("-fx-background-color: #fff0e5");
         right.setStyle("-fx-background-color: #fff0e5");
 
         //Making columns...
@@ -49,7 +55,7 @@ public class CoursesGUI {
         levelColumn.setCellValueFactory(new PropertyValueFactory<>("level"));
 
         //Adding the columns to the table...
-        table[0].getColumns().addAll(nameColumn, subjectColumn, introductionTextColumn, levelColumn);
+        table.getColumns().addAll(nameColumn, subjectColumn, introductionTextColumn, levelColumn);
 
         //Has to be added to selected courses...
         HBox aanbevolen = new HBox();
@@ -82,7 +88,7 @@ public class CoursesGUI {
         layout.setTop(menu);
 
         //Adding the body to the layout...
-        layout.setCenter(table[0]);
+        layout.setCenter(table);
         layout.setRight(right);
 
         //Giving the buttons function...
@@ -105,14 +111,14 @@ public class CoursesGUI {
             window.setScene(addCoursesGUI.getStage());
         });
         edit.setOnAction(actionEvent -> {
-            Course course = table[0].getSelectionModel().getSelectedItem();
+            Course course = table.getSelectionModel().getSelectedItem();
             AddEditCoursesGUI addCoursesGUI = new AddEditCoursesGUI();
             Stage window = MainGUI.getStage();
             window.setScene(addCoursesGUI.editStage(course.getName(), course.getSubject(),
                     course.getIntroductionText(), course.getLevel().toString()));
         });
         delete.setOnAction(actionEvent -> {
-            Course course = table[0].getSelectionModel().getSelectedItem();
+            Course course = table.getSelectionModel().getSelectedItem();
             if (course != null) {
                 DeleteItem.deleteItem(course.getName(), "Cursus", "Naam");
                 CoursesGUI mGui = new CoursesGUI();

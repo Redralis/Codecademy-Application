@@ -4,6 +4,7 @@ import database.AddItem;
 import database.EditItem;
 import database.GetCourses;
 import database.GetStudents;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import userdata.Course;
 
 public class ProgressCoursesGUI {
     public Scene getStage() {
@@ -35,10 +37,13 @@ public class ProgressCoursesGUI {
         menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
+        //Converting list of courses to an observablelist...
+        ObservableList<Course> coursesList = FXCollections.observableList(GetCourses.coursesList());
+
         //creates buttons for body
         Label studentToEnroll = new Label("Choose the course: ");
-        ObservableList courseToChose = GetCourses.coursesList();
-        final ComboBox studentsBox = new ComboBox(courseToChose);
+        ObservableList courseToChoose = coursesList;
+        final ComboBox studentsBox = new ComboBox(courseToChoose);
 
         Button submit = new Button("Submit");
         Label averageProgression = new Label();

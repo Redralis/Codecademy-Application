@@ -74,11 +74,12 @@ public class CoursesGUI {
         Button delete = new Button("Delete");
         Button overview = new Button("Overview");
         Button top3 = new Button("Top 3");
+        Button progressByAccAndCourse = new Button("Progress\nby account\nand course");
         Button averageProgressPerModule = new Button("Average\nprogress\nper module");
         Button buttonInfo = new Button("Show amount\nof students\nthat passed");
 
         //Adding the buttons to the body...
-        right.getChildren().addAll(add, edit,  delete, overview, top3, averageProgressPerModule, buttonInfo);
+        right.getChildren().addAll(add, edit,  delete, overview, top3, progressByAccAndCourse, averageProgressPerModule, buttonInfo);
 
         //Adding the buttons to menu...
         menu.getChildren().addAll(back, nameText, info, logout);
@@ -144,7 +145,14 @@ public class CoursesGUI {
             List<String> top3MostViewedWebcasts = Overviews.mostViewedWebcasts();
 
             //Displays the result on the screen
-            result.setText("Meest bekeken webcasts\n" + "1: " + top3MostViewedWebcasts.get(0) + "\n2: " + top3MostViewedWebcasts.get(1) + "\n3: " + top3MostViewedWebcasts.get(2));
+            result.setText("Most viewed webcasts\n" + "1: " + top3MostViewedWebcasts.get(0) + "\n2: " + top3MostViewedWebcasts.get(1) + "\n3: " + top3MostViewedWebcasts.get(2));
+
+        });
+
+        progressByAccAndCourse.setOnAction(actionEvent -> {
+            ProgressByAccountAndCourseGUI gui = new ProgressByAccountAndCourseGUI();
+            Stage window = MainGUI.getStage();
+            window.setScene(gui.getScene());
 
         });
 

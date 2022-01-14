@@ -568,4 +568,68 @@ public class Overviews {
 
     }
 
+    public static List<String> percentageByStudentAndCourse(String student, String course) {
+
+        //Creates a list for the result of the query.
+        List<String> listOfStudentsAndCourses = new ArrayList<String>();
+
+        //These are the settings for the connection.
+        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
+
+        //Connection controls information about the connection to the database.
+        Connection con = null;
+
+        //Statement lets us use SQL query's.
+        Statement stmt = null;
+
+        //ResultSet is the table we get from the database.
+        //We can iterate through the rows.
+        ResultSet rs = null;
+
+        try {
+            //Importing driver...
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            //Connecting to the database...
+            con = DriverManager.getConnection(connectionUrl);
+
+            //Making a SQL query.
+            String SQL = "SELECT ContentItem.Titel AS Titel, Koppel.Voortgang AS Voortgang FROM Cursist JOIN Koppeltabel_ContentItem_Cursist AS Koppel ON Cursist.Email = Koppel.FK_Cursist JOIN ContentItem ON Koppel.FK_ContentItem = ContentItem.ContentItemId JOIN Module ON ContentItem.ContentItemId = Module.FK_ContentItem JOIN Cursus ON Module.FK_Cursus = Cursus.Naam WHERE Cursist.Email = '" + student + "' AND Cursus.Naam = '" + course + "'";
+
+            stmt = con.createStatement();
+            //Executing the query in the database
+            rs = stmt.executeQuery(SQL);
+
+            //Adds the result values to the result list.
+            while (rs.next()) {
+
+                String titel = rs.getString("Titel");
+                String voortgang = rs.getString("Voortgang");
+
+                listOfStudentsAndCourses.add("Titel: " + titel + "\t\t" + "Voortgang: " + voortgang );
+            }
+        }
+
+        //Handle any errors that may have occurred.
+        catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) try {
+                rs.close();
+            } catch (Exception e) {
+            }
+            if (stmt != null) try {
+                stmt.close();
+            } catch (Exception e) {
+            }
+            if (con != null) try {
+                con.close();
+            } catch (Exception e) {
+            }
+        }
+
+        // Returns the results in a list
+        return listOfStudentsAndCourses;
+
+    }
+
 }

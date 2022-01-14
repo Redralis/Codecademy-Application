@@ -9,36 +9,36 @@ public class GetCertificatesBySelectedAccount {
 
     public static List<CertificateAndStudent> certificatesBySelectedAccount(String student) {
 
-        // Creates a list for the result of the query.
+        //Creates a list for the result of the query.
         List<CertificateAndStudent> listOfCertificatesByStudent = new ArrayList<>();
 
-        // These are the settings for the connection.
+        //These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
 
-        // Connection controls information about the connection to the database.
+        //Connection controls information about the connection to the database.
         Connection con = null;
 
-        // Statement lets us use SQL query's.
+        //Statement lets us use SQL query's.
         Statement stmt = null;
 
-        // ResultSet is the table we get from the database.
-        // We can iterate through the rows.
+        //ResultSet is the table we get from the database.
+        //We can iterate through the rows.
         ResultSet rs = null;
 
         try {
-            // Importing driver...
+            //Importing driver...
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            // Connecting to the database...
+            //Connecting to the database...
             con = DriverManager.getConnection(connectionUrl);
 
-            // Making a SQL query.
+            //Making a SQL query.
             String SQL = "SELECT FK_Cursus, FK_Cursist, Beoordeling, NaamMedewerker FROM Certificaat AS C JOIN Inschrijving AS I ON C.CertificaatId = I.FK_Certificaat JOIN Cursus ON I.FK_Cursus = Cursus.Naam WHERE FK_Cursist = '" + student + "'";
 
             stmt = con.createStatement();
-            // Executing the query in the database
+            //Executing the query in the database
             rs = stmt.executeQuery(SQL);
 
-            // Adds the 4 result values to the result list.
+            //Adds the 4 result values to the result list.
             while (rs.next()) {
 
                 String fk_cursus = rs.getString("FK_Cursus");
@@ -52,7 +52,7 @@ public class GetCertificatesBySelectedAccount {
 
         }
 
-        // Handle any errors that may have occurred.
+        //Handle any errors that may have occurred.
         catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -73,8 +73,5 @@ public class GetCertificatesBySelectedAccount {
         return listOfCertificatesByStudent;
 
     }
-
-
-
 
 }

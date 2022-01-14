@@ -16,16 +16,16 @@ import javafx.stage.Stage;
 
 public class CertificateCompletionPercByGenderGUI {
     public Scene getStage() {
-        //creates layout
+        //Creating the layout...
         BorderPane layout = new BorderPane();
 
-        //creates menu
+        //Creating the menu...
         HBox menu = new HBox();
 
-        //creates body
+        //Creating the body...
         GridPane body = new GridPane();
 
-        // Creates resultfield in the GUI
+        //Creates resultfield in the GUI
         HBox resultBox = new HBox();
         Label result = new Label();
         resultBox.getChildren().add(result);
@@ -33,17 +33,17 @@ public class CertificateCompletionPercByGenderGUI {
         resultBox.setAlignment(Pos.BASELINE_CENTER);
         layout.setBottom(resultBox);
 
-        //creates buttons for menu
+        //Creating buttons for the menu...
         Button back = new Button("Back");
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
         Button logout = new Button("Logout");
 
-        //adds buttons to menu
+        //Adding buttons to the menu...
         menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
-        //creates buttons for body
+        //Creating buttons for the body...
         Label gendersLabel = new Label("Pick gender: ");
         ObservableList<String> genders = FXCollections.observableArrayList("Male", "Female");
         final ComboBox genderBox = new ComboBox(genders);
@@ -51,19 +51,19 @@ public class CertificateCompletionPercByGenderGUI {
         Label percCompleted= new Label();
 
 
-        //adds buttons to body
+        //Adding buttons to the body...
         body.add(gendersLabel, 1, 1);
         body.add(genderBox, 1, 2);
         body.add(show, 1, 3);
         body.setStyle("-fx-background-color: #fff0e5");
 
-        //adds menu and body to layout
+        //Adding menu and body to the layout...
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));
         menu.setAlignment(Pos.BASELINE_CENTER);
         layout.setTop(menu);
         layout.setCenter(body);
 
-        //gives positioning to the buttons
+        //Positioning the buttons...
         body.setAlignment(Pos.BASELINE_CENTER);
 
         //Giving the buttons function...
@@ -82,21 +82,21 @@ public class CertificateCompletionPercByGenderGUI {
         });
         show.setOnAction(event -> {
 
-            // Calling the function that makes and executes a query and returns the results in a String.
+            //Calling the function that makes and executes a query and returns the results in a String.
             String percentage = GetPercentageByGender.percentageByGender((String) genderBox.getValue());
 
-            // Shows the result on the screen, when clicked on show
+            //Shows the result on the screen, when clicked on show
             result.setText("The percentage completed courses for this gender is: " + percentage);
 
         });
 
-        //creates scrollpane
+        //Creating the scrollpane...
         ScrollPane sp = new ScrollPane();
 
         sp.setContent(layout);
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
-        //creates scene
+        //Creating the scene...
         return new Scene(layout, 800, 400);
 
     }

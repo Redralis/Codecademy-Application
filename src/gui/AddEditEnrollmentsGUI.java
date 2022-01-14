@@ -18,22 +18,22 @@ import userdata.Course;
 
 public class AddEditEnrollmentsGUI {
     public Scene getStage() {
-        //creates layout
+        //Creating the layout...
         BorderPane layout = new BorderPane();
 
-        //creates menu
+        //Creating the menu...
         HBox menu = new HBox();
 
-        //creates body
+        //Creating the body...
         GridPane body = new GridPane();
 
-        //creates buttons for menu
+        //Creating buttons for the menu...
         Button back = new Button("Back");
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
         Button logout = new Button("Logout");
 
-        //adds buttons to menu
+        //Adding buttons to the menu...
         menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
@@ -41,7 +41,7 @@ public class AddEditEnrollmentsGUI {
         ObservableList<String> coursesList = FXCollections.observableList(GetCourses.listOfCourseNames());
         ObservableList<String> studentsList = FXCollections.observableList(GetStudents.listOfStudentEmails());
 
-        //creates buttons for body
+        //Creating buttons for the body...
         Label studentToEnroll = new Label("Student to enroll:");
         final ComboBox studentsBox = new ComboBox(studentsList);
         Label courseToEnroll = new Label("Course to enroll in:");
@@ -49,7 +49,7 @@ public class AddEditEnrollmentsGUI {
         Button submit = new Button("Submit");
 
 
-        //adds buttons to body
+        //Adding buttons to the body...
         body.add(studentToEnroll, 1, 1);
         body.add(studentsBox, 1, 2);
         body.add(courseToEnroll, 1, 3);
@@ -58,13 +58,13 @@ public class AddEditEnrollmentsGUI {
 
         body.setStyle("-fx-background-color: #fff0e5");
 
-        //adds menu and body to layout
+        //Adding menu and body to the layout...
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));
         menu.setAlignment(Pos.BASELINE_CENTER);
         layout.setTop(menu);
         layout.setCenter(body);
 
-        //gives positioning to the buttons
+        //Positioning the buttons...
         body.setAlignment(Pos.BASELINE_CENTER);
 
         //Giving the buttons function...
@@ -88,13 +88,13 @@ public class AddEditEnrollmentsGUI {
             window.setScene(mGui.getScene());
         });
 
-        //creates scrollpane
+        //Creating the scrollpane...
         ScrollPane sp = new ScrollPane();
 
         sp.setContent(layout);
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
-        //creates scene
+        //Creating the scene...
         return new Scene(sp, 800, 200);
     }
 
@@ -102,22 +102,22 @@ public class AddEditEnrollmentsGUI {
     //delete a certificate to unpair and create one to pair prevents the user from overflowing the database.
     public Scene editStage(String dateOfEnrollment, String student, String course) {
 
-        //creates layout
+        //Creating the layout...
         BorderPane layout = new BorderPane();
 
-        //creates menu
+        //Creating the menu...
         HBox menu = new HBox();
 
-        //creates body
+        //Creating the body...
         GridPane body = new GridPane();
 
-        //creates buttons for menu
+        //Creating buttons for the menu...
         Button back = new Button("Back");
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
         Button logout = new Button("Logout");
 
-        //adds buttons to menu
+        //Adding buttons to the menu...
         menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
@@ -125,7 +125,7 @@ public class AddEditEnrollmentsGUI {
         ObservableList<String> coursesList = FXCollections.observableList(GetCourses.listOfCourseNames());
         ObservableList<String> studentsList = FXCollections.observableList(GetStudents.listOfStudentEmails());
 
-        //creates buttons for body
+        //Creating buttons for the body...
         Label dateLabel = new Label("Date of enrollment: ");
         TextArea dateOfEnrollmentField = new TextArea();
         dateOfEnrollmentField.setText(dateOfEnrollment);
@@ -138,7 +138,7 @@ public class AddEditEnrollmentsGUI {
         Button submit = new Button("Submit");
 
 
-        //adds buttons to body
+        //Adding buttons to the body...
         body.add(dateLabel, 1, 1);
         body.add(dateOfEnrollmentField, 1, 2);
         body.add(studentToEnroll, 1, 3);
@@ -149,13 +149,13 @@ public class AddEditEnrollmentsGUI {
 
         body.setStyle("-fx-background-color: #fff0e5");
 
-        //adds menu and body to layout
+        //Adding menu and body to the layout...
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));
         menu.setAlignment(Pos.BASELINE_CENTER);
         layout.setTop(menu);
         layout.setCenter(body);
 
-        //gives positioning to the buttons
+        //Positioning the buttons...
         body.setAlignment(Pos.BASELINE_CENTER);
 
         //Giving the buttons function...
@@ -180,13 +180,13 @@ public class AddEditEnrollmentsGUI {
             window.setScene(mGui.getScene());
         });
 
-        //creates scrollpane
+        //Creating the scrollpane...
         ScrollPane sp = new ScrollPane();
 
         sp.setContent(layout);
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
-        //creates scene
+        //Creating the scene...
         return new Scene(layout, 800, 400);
     }
 

@@ -91,7 +91,7 @@ public class CoursesGUI {
         layout.setCenter(table);
         layout.setRight(right);
 
-        // Creates resultfield in the GUI
+        //Creates resultfield in the GUI
         HBox resultBox = new HBox();
         Label result = new Label();
         result.setTextFill(Color.web("#fff"));
@@ -145,10 +145,10 @@ public class CoursesGUI {
             //Selects the current course
             Course course = table.getSelectionModel().getSelectedItem();
 
-            // Calling the function what makes and executes a query and returns the results in a string
+            //Calling the function what makes and executes a query and returns the results in a string
             String amountOfCompletionsBySelectedCourse = Overviews.amountOfCompletions(course.getName());
 
-            // Displays the result on the screen
+            //Displays the result on the screen
             result.setText("Aantal cursisten die de behaalde cursus hebben behaald: " + amountOfCompletionsBySelectedCourse);
 
         });

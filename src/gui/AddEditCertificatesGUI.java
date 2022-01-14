@@ -11,31 +11,29 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import userdata.Course;
-import userdata.Enrollment;
 
 public class AddEditCertificatesGUI {
     public Scene getStage() {
-        //creates layout
+        //Creating the layout...
         BorderPane layout = new BorderPane();
 
-        //creates menu
+        //Creating the menu...
         HBox menu = new HBox();
 
-        //creates body
+        //Creating the body...
         GridPane body = new GridPane();
 
-        //creates buttons for menu
+        //Creating the menu...
         Button back = new Button("Back");
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
         Button logout = new Button("Logout");
 
-        //adds buttons to menu
+        //Adding buttons to the menu...
         menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
-        //creates buttons for body
+        //Creating buttons for the menu...
         Label enter = new Label("Enter certificate information: ");
         TextArea ratingField = new TextArea();
         ratingField.setPromptText("Type the rating of the certificate: ");
@@ -46,7 +44,7 @@ public class AddEditCertificatesGUI {
         final ComboBox<String> enrollmentsBox = new ComboBox<String>(enrollmentsList);
         Button submit = new Button("Submit");
 
-        //adds buttons to body
+        //Adding buttons to the body...
         body.add(enter, 1, 1);
         body.add(ratingField, 1, 2);
         body.add(nameEmployeeField, 1, 3);
@@ -56,13 +54,13 @@ public class AddEditCertificatesGUI {
 
         body.setStyle("-fx-background-color: #fff0e5");
 
-        //adds menu and body to layout
+        //Adding menu and body to the layout...
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));
         menu.setAlignment(Pos.BASELINE_CENTER);
         layout.setTop(menu);
         layout.setCenter(body);
 
-        //gives positioning to the buttons
+        //Positioning the buttons...
         body.setAlignment(Pos.BASELINE_CENTER);
 
         //Giving the buttons function...
@@ -88,37 +86,38 @@ public class AddEditCertificatesGUI {
             window.setScene(mGui.getScene());
         });
 
-        //creates scrollpane
+        //Creating scrollpane...
         ScrollPane sp = new ScrollPane();
 
         sp.setContent(layout);
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
-        //creates scene
+
+        //Creating the scene...
         return new Scene(sp, 800, 220);
     }
 
     public Scene editStage(String id, String rating, String nameEmployee) {
-        //creates layout
+        //Creating the layout...
         BorderPane layout = new BorderPane();
 
-        //creates menu
+        //Creating the menu...
         HBox menu = new HBox();
 
-        //creates body
+        //Creating the body...
         GridPane body = new GridPane();
 
-        //creates buttons for menu
+        //Creating buttons for the menu...
         Button back = new Button("Back");
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
         Button logout = new Button("Logout");
 
-        //adds buttons to menu
+        //Adding buttons to the menu...
         menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
-        //creates buttons for body
+        //Creating buttons for the menu...
         Label enter = new Label("Enter certificate information: ");
         TextArea ratingField = new TextArea();
         ratingField.setPromptText("Type the rating of the certificate: ");
@@ -128,7 +127,7 @@ public class AddEditCertificatesGUI {
         nameEmployeeField.setText(nameEmployee);
         Button submit = new Button("Submit");
 
-        //adds buttons to body
+        //Adding buttons to the body...
         body.add(enter, 1, 1);
         body.add(ratingField, 1, 2);
         body.add(nameEmployeeField, 1, 3);
@@ -136,13 +135,13 @@ public class AddEditCertificatesGUI {
 
         body.setStyle("-fx-background-color: #fff0e5");
 
-        //adds menu and body to layout
+        //Adding menu and body the layout...
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));
         menu.setAlignment(Pos.BASELINE_CENTER);
         layout.setTop(menu);
         layout.setCenter(body);
 
-        //gives positioning to the buttons
+        //Gives positioning to the body...
         body.setAlignment(Pos.BASELINE_CENTER);
 
         //Giving the buttons function...
@@ -166,13 +165,14 @@ public class AddEditCertificatesGUI {
             window.setScene(mGui.getScene());
         });
 
-        //creates scrollpane
+        //Creating the scrollpane...
         ScrollPane sp = new ScrollPane();
 
         sp.setContent(layout);
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
-        //creates scene
+
+        //Creating the scene...
         return new Scene(layout, 800, 400);
     }
 }

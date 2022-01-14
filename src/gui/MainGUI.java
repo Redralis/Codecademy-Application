@@ -103,7 +103,7 @@ public class MainGUI extends Application {
         courses.setOnAction(event -> {
             CoursesGUI mGui = new CoursesGUI();
             window.setScene(mGui.getScene());
-            // window.setScene(mGui.getScene());
+            //window.setScene(mGui.getScene());
         });
         enrollments.setOnAction(event -> {
             EnrollmentsGUI wGUI = new EnrollmentsGUI();

@@ -13,26 +13,26 @@ import javafx.stage.Stage;
 
 public class AddEditStudentsGUI {
     public Scene getStage() {
-        //creates layout
+        //Creating the layout...
         BorderPane layout = new BorderPane();
 
-        //creates menu
+        //Creating the menu...
         HBox menu = new HBox();
 
-        //creates body
+        //Creating the body...
         GridPane body = new GridPane();
 
-        //creates buttons for menu
+        //Creating buttons for the menu...
         Button back = new Button("Back");
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
         Button logout = new Button("Logout");
 
-        //adds buttons to menu
+        //Adding buttons to the menu...
         menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
-        //creates buttons for body
+        //Creating buttons for the body...
         Label enter = new Label("Enter Student information: ");
         TextArea nameField = new TextArea();
         nameField.setPromptText("Type your name: ");
@@ -58,7 +58,7 @@ public class AddEditStudentsGUI {
         Button submit = new Button("Submit");
 
 
-        //adds buttons to body
+        //Adding buttons to the body...
         body.add(enter, 1, 1);
         body.add(nameField, 1, 2);
         body.add(emailField, 1, 3);
@@ -72,13 +72,13 @@ public class AddEditStudentsGUI {
         body.add(submit, 1, 11);
         body.setStyle("-fx-background-color: #fff0e5");
 
-        //adds menu and body to layout
+        //Adding menu and body to the layout...
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));
         menu.setAlignment(Pos.BASELINE_CENTER);
         layout.setTop(menu);
         layout.setCenter(body);
 
-        //gives positioning to the buttons
+        //Positioning the buttons...
         body.setAlignment(Pos.BASELINE_CENTER);
 
         //Giving the buttons function...
@@ -104,39 +104,39 @@ public class AddEditStudentsGUI {
             window.setScene(mGui.getScene());
         });
 
-        //creates scrollpane
+        //Creating the scrollpane...
         ScrollPane sp = new ScrollPane();
 
         sp.setContent(layout);
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
-        //creates scene
+        //Creating the scene...
         return new Scene(layout, 800, 400);
 
     }
 
     public Scene editStage(String email, String name, String dateOfBirth, String gender, String address, String city,
                            String country, String postalCode) {
-        //creates layout
+        //Creating the layout...
         BorderPane layout = new BorderPane();
 
-        //creates menu
+        //Creating the menu...
         HBox menu = new HBox();
 
-        //creates body
+        //Creating the body...
         GridPane body = new GridPane();
 
-        //creates buttons for menu
+        //Creating buttons for the menu...
         Button back = new Button("Back");
         Label nameText = new Label("Codecademy");
         Button info = new Button("Info");
         Button logout = new Button("Logout");
 
-        //adds buttons to menu
+        //Adding buttons to the menu...
         menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
-        //creates buttons for body
+        //Creating buttons for the body...
         Label enter = new Label("Enter Student information: ");
         TextArea nameField = new TextArea();
         nameField.setPromptText("Type your name: ");
@@ -170,7 +170,7 @@ public class AddEditStudentsGUI {
         Button submit = new Button("Submit");
 
 
-        //adds buttons to body
+        //Adding buttons to the body...
         body.add(enter, 1, 1);
         body.add(nameField, 1, 2);
         body.add(emailField, 1, 3);
@@ -184,13 +184,13 @@ public class AddEditStudentsGUI {
         body.add(submit, 1, 11);
         body.setStyle("-fx-background-color: #fff0e5");
 
-        //adds menu and body to layout
+        //Adding menu and body to the layout...
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));
         menu.setAlignment(Pos.BASELINE_CENTER);
         layout.setTop(menu);
         layout.setCenter(body);
 
-        //gives positioning to the buttons
+        //Positioning the buttons...
         body.setAlignment(Pos.BASELINE_CENTER);
 
         //Giving the buttons function...
@@ -216,13 +216,13 @@ public class AddEditStudentsGUI {
             window.setScene(mGui.getScene());
         });
 
-        //creates scrollpane
+        //Creating the scrollpane...
         ScrollPane sp = new ScrollPane();
 
         sp.setContent(layout);
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
-        //creates scene
+        //Creating the scene...
         return new Scene(sp, 800, 220);
 
     }

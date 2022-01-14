@@ -97,7 +97,7 @@ public class StudentsGUI {
         //Adding the body to the layout...
         layout.setCenter(table);
         layout.setRight(right);
-        // giving the buttons function
+        //giving the buttons function
         logout.setOnAction((event) -> {
             System.exit(1);
         });
@@ -145,13 +145,13 @@ public class StudentsGUI {
             window.setScene(certBySelectedAccount.getStage());
 
         });
-        //creates scrollpane
+        //Creating the scrollpane...
         ScrollPane sp = new ScrollPane();
 
         sp.setContent(layout);
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
-        //creates scene
+        //Creating the scene...
         return new Scene(sp, 800, 400);
     }
 

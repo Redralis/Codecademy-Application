@@ -9,35 +9,35 @@ public class EditItem {
 
         LocalDate date = LocalDate.now();
 
-        // These are the settings for the connection.
+        //These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
 
-        // Connection controls information about the connection to the database.
+        //Connection controls information about the connection to the database.
         Connection con = null;
 
-        // Statement lets us use SQL query's.
+        //Statement lets us use SQL query's.
         Statement stmt = null;
 
-        // ResultSet is the table we get from the database.
-        // We can iterate through the rows.
+        //ResultSet is the table we get from the database.
+        //We can iterate through the rows.
         ResultSet rs = null;
 
         try {
-            // Importing driver...
+            //Importing driver...
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            // Connecting to the database...
+            //Connecting to the database...
             con = DriverManager.getConnection(connectionUrl);
 
-            // Making a SQL query.
+            //Making a SQL query.
             String SQL = "UPDATE Inschrijving SET FK_Certificaat = " + id + " WHERE FK_Cursist = '" + student + "' AND " +
                     "FK_Cursus = '" + course + "';";
             stmt = con.createStatement();
-            // Executing the query in the database
+            //Executing the query in the database
             rs = stmt.executeQuery(SQL);
 
         }
 
-        // Handle any errors that may have occurred.
+        //Handle any errors that may have occurred.
         catch (Exception e) {
             e.printStackTrace();
         }
@@ -52,35 +52,35 @@ public class EditItem {
 
         LocalDate date = LocalDate.now();
 
-        // These are the settings for the connection.
+        //These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
 
-        // Connection controls information about the connection to the database.
+        //Connection controls information about the connection to the database.
         Connection con = null;
 
-        // Statement lets us use SQL query's.
+        //Statement lets us use SQL query's.
         Statement stmt = null;
 
-        // ResultSet is the table we get from the database.
-        // We can iterate through the rows.
+        //ResultSet is the table we get from the database.
+        //We can iterate through the rows.
         ResultSet rs = null;
 
         try {
-            // Importing driver...
+            //Importing driver...
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            // Connecting to the database...
+            //Connecting to the database...
             con = DriverManager.getConnection(connectionUrl);
 
-            // Making a SQL query.
+            //Making a SQL query.
             String SQL = "UPDATE Cursus SET Naam = '" + name + "', Onderwerp = '" + subject + "', IntroductieTekst = '"
                     + introductionText + "', Niveau = '" + level + "' WHERE Naam = '" + previousName + "'";
             stmt = con.createStatement();
-            // Executing the query in the database
+            //Executing the query in the database
             rs = stmt.executeQuery(SQL);
 
         }
 
-        // Handle any errors that may have occurred.
+        //Handle any errors that may have occurred.
         catch (Exception e) {
             e.printStackTrace();
         }
@@ -96,23 +96,23 @@ public class EditItem {
 
         LocalDate date = LocalDate.now();
 
-        // These are the settings for the connection.
+        //These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
 
-        // Connection controls information about the connection to the database.
+        //Connection controls information about the connection to the database.
         Connection con = null;
 
-        // Statement lets us use SQL query's.
+        //Statement lets us use SQL query's.
         Statement stmt = null;
 
-        // ResultSet is the table we get from the database.
-        // We can iterate through the rows.
+        //ResultSet is the table we get from the database.
+        //We can iterate through the rows.
         ResultSet rs = null;
 
         try {
-            // Importing driver...
+            //Importing driver...
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            // Connecting to the database...
+            //Connecting to the database...
             con = DriverManager.getConnection(connectionUrl);
 
             //Formatting gender...
@@ -122,18 +122,18 @@ public class EditItem {
                 gender = "Vrouw";
             }
 
-            // Making a SQL query.
+            //Making a SQL query.
             String SQL = "UPDATE Cursist SET Email = '" + email + "', Naam = '" + name + "', GeboorteDatum = '"
                     + dateOfBirth + "', Geslacht = '" + gender + "', Adres = '" + address + "', Woonplaats = '" + city +
                      "', Land = '" + country + "', PostCode = '" + postalCode + "' WHERE email = '" + previousEmail
                     + "'";
             stmt = con.createStatement();
-            // Executing the query in the database
+            //Executing the query in the database
             rs = stmt.executeQuery(SQL);
 
         }
 
-        // Handle any errors that may have occurred.
+        //Handle any errors that may have occurred.
         catch (Exception e) {
             e.printStackTrace();
         }
@@ -149,36 +149,36 @@ public class EditItem {
 
         LocalDate date = LocalDate.now();
 
-        // These are the settings for the connection.
+        //These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
 
-        // Connection controls information about the connection to the database.
+        //Connection controls information about the connection to the database.
         Connection con = null;
 
-        // Statement lets us use SQL query's.
+        //Statement lets us use SQL query's.
         Statement stmt = null;
 
-        // ResultSet is the table we get from the database.
-        // We can iterate through the rows.
+        //ResultSet is the table we get from the database.
+        //We can iterate through the rows.
         ResultSet rs = null;
 
         try {
-            // Importing driver...
+            //Importing driver...
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            // Connecting to the database...
+            //Connecting to the database...
             con = DriverManager.getConnection(connectionUrl);
 
-            // Making a SQL query.
+            //Making a SQL query.
             String SQL = "UPDATE Inschrijving SET InschrijfDatum = '" + dateOfEnrollment + "', FK_Cursist = '"
                     + student + "', FK_Cursus = '" + course + "' WHERE InschrijfDatum = '" + previousDateOfEnrollment +
                     "' AND FK_Cursist = '" + previousStudent + "' AND FK_Cursus = '" + previousCourse + "'";
             stmt = con.createStatement();
-            // Executing the query in the database
+            //Executing the query in the database
             rs = stmt.executeQuery(SQL);
 
         }
 
-        // Handle any errors that may have occurred.
+        //Handle any errors that may have occurred.
         catch (Exception e) {
             e.printStackTrace();
         }
@@ -193,35 +193,35 @@ public class EditItem {
 
         LocalDate date = LocalDate.now();
 
-        // These are the settings for the connection.
+        //These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
 
-        // Connection controls information about the connection to the database.
+        //Connection controls information about the connection to the database.
         Connection con = null;
 
-        // Statement lets us use SQL query's.
+        //Statement lets us use SQL query's.
         Statement stmt = null;
 
-        // ResultSet is the table we get from the database.
-        // We can iterate through the rows.
+        //ResultSet is the table we get from the database.
+        //We can iterate through the rows.
         ResultSet rs = null;
 
         try {
-            // Importing driver...
+            //Importing driver...
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            // Connecting to the database...
+            //Connecting to the database...
             con = DriverManager.getConnection(connectionUrl);
 
-            // Making a SQL query.
+            //Making a SQL query.
             String SQL = "UPDATE Certificaat SET Beoordeling = '" + rating + "', NaamMedewerker = '" + nameEmployee +
                     "' WHERE CertificaatId = '" + id + "'";
             stmt = con.createStatement();
-            // Executing the query in the database
+            //Executing the query in the database
             rs = stmt.executeQuery(SQL);
 
         }
 
-        // Handle any errors that may have occurred.
+        //Handle any errors that may have occurred.
         catch (Exception e) {
             e.printStackTrace();
         }

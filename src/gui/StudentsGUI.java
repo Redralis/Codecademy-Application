@@ -5,10 +5,7 @@ import database.GetStudents;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -140,9 +137,14 @@ public class StudentsGUI {
             window.setScene(certBySelectedAccount.getStage());
 
         });
-        //Making the scene...
-        return new Scene(layout, 800, 240);
+        //creates scrollpane
+        ScrollPane sp = new ScrollPane();
 
+        sp.setContent(layout);
+        sp.setFitToHeight(true);
+        sp.setFitToWidth(true);
+        //creates scene
+        return new Scene(sp, 800, 240);
     }
 
 }

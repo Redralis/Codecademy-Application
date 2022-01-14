@@ -115,8 +115,8 @@ public class EnrollmentsGUI {
         delete.setOnAction(actionEvent -> {
             Enrollment enrollment = table.getSelectionModel().getSelectedItem();
             if (enrollment != null) {
-                DeleteItem.deleteItem(enrollment.getStudent(), enrollment.getDateOfEnrollment(), "Inschrijving",
-                "FK_Cursist", "InschrijfDatum");
+                DeleteItem.deleteItem(enrollment.getStudent(), enrollment.getDateOfEnrollment(), enrollment.getCourse(),
+                        "Inschrijving", "FK_Cursist", "InschrijfDatum", "FK_Cursus");
                 EnrollmentsGUI mGui = new EnrollmentsGUI();
                 Stage window = MainGUI.getStage();
                 window.setScene(mGui.getScene());

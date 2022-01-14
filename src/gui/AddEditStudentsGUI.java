@@ -38,8 +38,12 @@ public class AddEditStudentsGUI {
         nameField.setPromptText("Type your name: ");
         TextArea emailField = new TextArea();
         emailField.setPromptText("Type your email: ");
-        TextArea dateOfBirthField = new TextArea();
-        dateOfBirthField.setPromptText("Type your date of birth: ");
+        TextArea dateOfBirthDayField = new TextArea();
+        dateOfBirthDayField.setPromptText("Type the day of your birth: ");
+        TextArea dateOfBirthMonthField = new TextArea();
+        dateOfBirthMonthField.setPromptText("Type the month of your birth:  ");
+        TextArea dateOfBirthYearField = new TextArea();
+        dateOfBirthYearField.setPromptText("Type the year of your birth: ");
         Label gendersLabel = new Label("Pick gender: ");
         ObservableList<String> genders =
                 FXCollections.observableArrayList(
@@ -62,14 +66,16 @@ public class AddEditStudentsGUI {
         body.add(enter, 1, 1);
         body.add(nameField, 1, 2);
         body.add(emailField, 1, 3);
-        body.add(dateOfBirthField, 1, 4);
-        body.add(gendersLabel, 1, 5);
-        body.add(comboBox, 1, 6);
-        body.add(addressField, 1, 7);
-        body.add(cityField, 1, 8);
-        body.add(countryField, 1, 9);
-        body.add(postalCodeField, 1, 10);
-        body.add(submit, 1, 11);
+        body.add(dateOfBirthDayField, 1, 4);
+        body.add(dateOfBirthMonthField, 1, 5);
+        body.add(dateOfBirthYearField, 1, 6);
+        body.add(gendersLabel, 1, 7);
+        body.add(comboBox, 1, 8);
+        body.add(addressField, 1, 9);
+        body.add(cityField, 1, 10);
+        body.add(countryField, 1, 11);
+        body.add(postalCodeField, 1, 12);
+        body.add(submit, 1, 13);
         body.setStyle("-fx-background-color: #fff0e5");
 
         //Adding menu and body to the layout...
@@ -96,7 +102,9 @@ public class AddEditStudentsGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
-            AddItem.addStudent(emailField.getText(), nameField.getText(), dateOfBirthField.getText(),
+            String dateOfBirth = dateOfBirthYearField.getText() + "-" + dateOfBirthMonthField.getText() + "-" +
+                    dateOfBirthDayField.getText();
+            AddItem.addStudent(emailField.getText(), nameField.getText(), dateOfBirth,
                     (String) comboBox.getValue(), addressField.getText(), cityField.getText(), countryField.getText(),
                     postalCodeField.getText());
             StudentsGUI mGui = new StudentsGUI();
@@ -111,7 +119,7 @@ public class AddEditStudentsGUI {
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
         //Creating the scene...
-        return new Scene(layout, 800, 400);
+        return new Scene(layout, 800, 500);
 
     }
 
@@ -136,6 +144,12 @@ public class AddEditStudentsGUI {
         menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
+        //Separating date of birth into day, month and year...
+        String[] splitDate = dateOfBirth.split("-");
+        String year = splitDate[0];
+        String month = splitDate[1];
+        String day = splitDate[2];
+
         //Creating buttons for the body...
         Label enter = new Label("Enter Student information: ");
         TextArea nameField = new TextArea();
@@ -144,9 +158,15 @@ public class AddEditStudentsGUI {
         TextArea emailField = new TextArea();
         emailField.setPromptText("Type your email: ");
         emailField.setText(email);
-        TextArea dateOfBirthField = new TextArea();
-        dateOfBirthField.setPromptText("Type your date of birth: ");
-        dateOfBirthField.setText(dateOfBirth);
+        TextArea dateOfBirthDayField = new TextArea();
+        dateOfBirthDayField.setPromptText("Type your date of birth: ");
+        dateOfBirthDayField.setText(day);
+        TextArea dateOfBirthMonthField = new TextArea();
+        dateOfBirthMonthField.setPromptText("Type your date of birth: ");
+        dateOfBirthMonthField.setText(month);
+        TextArea dateOfBirthYearField = new TextArea();
+        dateOfBirthYearField.setPromptText("Type your date of birth: ");
+        dateOfBirthYearField.setText(year);
         Label gendersLabel = new Label("Pick gender: ");
         ObservableList<String> genders =
                 FXCollections.observableArrayList(
@@ -174,14 +194,16 @@ public class AddEditStudentsGUI {
         body.add(enter, 1, 1);
         body.add(nameField, 1, 2);
         body.add(emailField, 1, 3);
-        body.add(dateOfBirthField, 1, 4);
-        body.add(gendersLabel, 1, 5);
-        body.add(comboBox, 1, 6);
-        body.add(addressField, 1, 7);
-        body.add(cityField, 1, 8);
-        body.add(countryField, 1, 9);
-        body.add(postalCodeField, 1, 10);
-        body.add(submit, 1, 11);
+        body.add(dateOfBirthDayField, 1, 4);
+        body.add(dateOfBirthMonthField, 1, 5);
+        body.add(dateOfBirthYearField, 1, 6);
+        body.add(gendersLabel, 1, 7);
+        body.add(comboBox, 1, 8);
+        body.add(addressField, 1, 9);
+        body.add(cityField, 1, 10);
+        body.add(countryField, 1, 11);
+        body.add(postalCodeField, 1, 12);
+        body.add(submit, 1, 13);
         body.setStyle("-fx-background-color: #fff0e5");
 
         //Adding menu and body to the layout...
@@ -208,7 +230,9 @@ public class AddEditStudentsGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
-            EditItem.editStudent(email, emailField.getText(), nameField.getText(), dateOfBirthField.getText(),
+            String newDateOfBirth = dateOfBirthYearField.getText() + "-" + dateOfBirthMonthField.getText() + "-" +
+                    dateOfBirthDayField.getText();
+            EditItem.editStudent(email, emailField.getText(), nameField.getText(), newDateOfBirth,
                     (String) comboBox.getValue(), addressField.getText(), cityField.getText(), countryField.getText(),
                     postalCodeField.getText());
             StudentsGUI mGui = new StudentsGUI();

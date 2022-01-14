@@ -176,13 +176,13 @@ public class StudentsGUI {
             List<String> percentageWatched1 = Overviews.PercentageWatched(student);
 
             //Turning result into a string...
-            StringBuilder percentages = new StringBuilder();
+            StringBuilder resultData = new StringBuilder();
             for (String s : percentageWatched1) {
-                percentages.append(s).append("\n");
+                resultData.append(s).append("\n");
             }
 
             //Adding result to the resultbox...
-            result.setText(String.valueOf(percentages));
+            result.setText("Percentage per webcast for the selected student\n" + resultData.toString());
 
         });
         percentageComplete.setOnAction(actionEvent -> {

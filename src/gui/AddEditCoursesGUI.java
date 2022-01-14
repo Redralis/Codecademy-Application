@@ -35,13 +35,18 @@ public class AddEditCoursesGUI {
         menu.setStyle("-fx-background-color: #ffd300;");
 
         //Creating buttons for the body...
-        Label enter = new Label("Enter course information: ");
+        Label nameLabel = new Label("Enter the course's name: ");
         TextArea nameField = new TextArea();
         nameField.setPromptText("Type the name of the course: ");
+        nameField.setMaxHeight(40);
+        Label subjectLabel = new Label("Enter the course's subject: ");
         TextArea subjectField = new TextArea();
         subjectField.setPromptText("Type the name of the subject for the course: ");
+        subjectField.setMaxHeight(40);
+        Label introductionLabel = new Label("Enter the course's introduction text: ");
         TextArea introductionField = new TextArea();
         introductionField.setPromptText("Type a introduction: ");
+        introductionField.setMaxHeight(40);
         Label levelsLabel = new Label("Pick level of difficulty: ");
         ObservableList<String> levels =
                 FXCollections.observableArrayList(
@@ -53,13 +58,15 @@ public class AddEditCoursesGUI {
         Button submit = new Button("Submit");
 
         //Adding buttons to the body...
-        body.add(enter, 1, 1);
+        body.add(nameLabel, 1, 1);
         body.add(nameField, 1, 2);
-        body.add(subjectField, 1, 3);
-        body.add(introductionField, 1, 4);
-        body.add(levelsLabel, 1, 5);
-        body.add(comboBox, 1, 6);
-        body.add(submit, 1, 7);
+        body.add(subjectLabel, 1, 3);
+        body.add(subjectField, 1, 4);
+        body.add(introductionLabel, 1, 5);
+        body.add(introductionField, 1, 6);
+        body.add(levelsLabel, 1, 7);
+        body.add(comboBox, 1, 8);
+        body.add(submit, 1, 9);
 
         body.setStyle("-fx-background-color: #fff0e5");
 
@@ -101,7 +108,7 @@ public class AddEditCoursesGUI {
         sp.setFitToHeight(true);
         sp.setFitToWidth(true);
         //Creating the scene...
-        return new Scene(sp, 700, 220);
+        return new Scene(sp, 800, 400);
     }
 
     public Scene editStage(String name, String subject, String introductionText, String level) {
@@ -125,16 +132,21 @@ public class AddEditCoursesGUI {
         menu.setStyle("-fx-background-color: #ffd300;");
 
         //Creating buttons for the body...
-        Label enter = new Label("Enter course information: ");
+        Label nameLabel = new Label("Enter the course's name: ");
         TextArea nameField = new TextArea();
         nameField.setPromptText("Type the name of the course: ");
         nameField.setText(name);
+        nameField.setMaxHeight(40);
+        Label subjectLabel = new Label("Enter the course's subject: ");
         TextArea subjectField = new TextArea();
         subjectField.setPromptText("Type the name of the subject for the course: ");
         subjectField.setText(subject);
+        subjectField.setMaxHeight(40);
+        Label introductionLabel = new Label("Enter the course's introduction text: ");
         TextArea introductionField = new TextArea();
         introductionField.setPromptText("Type a introduction: ");
         introductionField.setText(introductionText);
+        introductionField.setMaxHeight(40);
         Label levelsLabel = new Label("Pick level of difficulty: ");
         ObservableList<String> levels =
                 FXCollections.observableArrayList(
@@ -147,13 +159,15 @@ public class AddEditCoursesGUI {
         Button submit = new Button("Submit");
 
         //Adding buttons to the body...
-        body.add(enter, 1, 1);
+        body.add(nameLabel, 1, 1);
         body.add(nameField, 1, 2);
-        body.add(subjectField, 1, 3);
-        body.add(introductionField, 1, 4);
-        body.add(levelsLabel, 1, 5);
-        body.add(comboBox, 1, 6);
-        body.add(submit, 1, 7);
+        body.add(subjectLabel, 1, 3);
+        body.add(subjectField, 1, 4);
+        body.add(introductionLabel, 1, 5);
+        body.add(introductionField, 1, 6);
+        body.add(levelsLabel, 1, 7);
+        body.add(comboBox, 1, 8);
+        body.add(submit, 1, 9);
 
         body.setStyle("-fx-background-color: #fff0e5");
 

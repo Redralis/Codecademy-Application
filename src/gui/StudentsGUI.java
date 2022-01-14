@@ -1,7 +1,10 @@
 package gui;
 
 import database.DeleteItem;
+import database.GetCourses;
 import database.GetStudents;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -26,7 +29,12 @@ public class StudentsGUI {
         VBox right = new VBox();
 
         //Creating the table for viewing the students...
-        TableView<Student> table = GetStudents.students();
+        TableView<Student> table = new TableView<Student>();
+
+        //Converting list of students to an observablelist...
+        ObservableList<Student> studentsList = FXCollections.observableList(GetStudents.studentsList());
+
+        table.setItems(studentsList);
 
         //Setting colors...
         table.setStyle("-fx-background-color: #fff0e5");

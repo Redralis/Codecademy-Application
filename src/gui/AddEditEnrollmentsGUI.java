@@ -39,11 +39,11 @@ public class AddEditEnrollmentsGUI {
 
         //Converting lists to observablelists for usage within comboboxes
         ObservableList<String> coursesList = FXCollections.observableList(GetCourses.listOfCourseNames());
+        ObservableList<String> studentsList = FXCollections.observableList(GetStudents.listOfStudentEmails());
 
         //creates buttons for body
         Label studentToEnroll = new Label("Student to enroll:");
-        ObservableList students = GetStudents.studentsList();
-        final ComboBox studentsBox = new ComboBox(students);
+        final ComboBox studentsBox = new ComboBox(studentsList);
         Label courseToEnroll = new Label("Course to enroll in:");
         final ComboBox coursesBox = new ComboBox(coursesList);
         Button submit = new Button("Submit");
@@ -123,18 +123,17 @@ public class AddEditEnrollmentsGUI {
 
         //Converting lists to observablelists for usage within comboboxes
         ObservableList<String> coursesList = FXCollections.observableList(GetCourses.listOfCourseNames());
+        ObservableList<String> studentsList = FXCollections.observableList(GetStudents.listOfStudentEmails());
 
         //creates buttons for body
         Label dateLabel = new Label("Date of enrollment: ");
         TextArea dateOfEnrollmentField = new TextArea();
         dateOfEnrollmentField.setText(dateOfEnrollment);
         Label studentToEnroll = new Label("Student to enroll:");
-        ObservableList students = GetStudents.studentsList();
-        final ComboBox studentsBox = new ComboBox(students);
+        final ComboBox studentsBox = new ComboBox(studentsList);
         studentsBox.setValue(student);
         Label courseToEnroll = new Label("Course to enroll in:");
-        ObservableList courses = coursesList;
-        final ComboBox coursesBox = new ComboBox(courses);
+        final ComboBox coursesBox = new ComboBox(coursesList);
         coursesBox.setValue(course);
         Button submit = new Button("Submit");
 

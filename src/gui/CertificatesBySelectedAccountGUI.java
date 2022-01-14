@@ -1,6 +1,7 @@
 package gui;
 
 import database.*;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -43,10 +44,12 @@ public class CertificatesBySelectedAccountGUI {
         menu.getChildren().addAll(back, nameText, info, logout);
         menu.setStyle("-fx-background-color: #ffd300;");
 
+        //Converting lists to observablelists for usage within comboboxes
+        ObservableList<String> studentsList = FXCollections.observableList(GetStudents.listOfStudentEmails());
+
         //creates buttons for body
         Label selectedStudent = new Label("Select student:");
-        ObservableList students = GetStudents.studentsList();
-        final ComboBox studentsBox = new ComboBox(students);
+        final ComboBox studentsBox = new ComboBox(studentsList);
         Button show = new Button("Show");
 
         //creates resultlabel were the results will be stored in

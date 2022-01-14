@@ -1,17 +1,16 @@
 package database;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.TableView;
 import userdata.Gender;
 import userdata.Student;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GetStudents {
 
-    public static TableView<Student> students() {
+    public static List<Student> studentsList() {
 
-        TableView<Student> table = new TableView<Student>();
+        List<Student> students = new ArrayList<Student>();
 
         // These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
@@ -59,7 +58,7 @@ public class GetStudents {
                 }
 
                 // Adding each individual row into the table.
-                table.getItems().add(new Student(email, name, dateOfBirth, gender1, address, city,
+                students.add(new Student(email, name, dateOfBirth, gender1, address, city,
                         country, postalCode));
             }
 
@@ -76,13 +75,13 @@ public class GetStudents {
         }
 
         // Returning the table.
-        return table;
+        return students;
 
     }
 
-    public static ObservableList<String> studentsList() {
+    public static List<String> listOfStudentEmails() {
 
-        ObservableList<String> students = FXCollections.observableArrayList();
+        List<String> students = new ArrayList<String>();
 
         // These are the settings for the connection.
         String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";

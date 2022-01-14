@@ -38,19 +38,18 @@ public class ProgressCoursesGUI {
         menu.setStyle("-fx-background-color: #ffd300;");
 
         //Converting list of courses to an observablelist...
-        ObservableList<Course> coursesList = FXCollections.observableList(GetCourses.coursesList());
+        ObservableList<String> coursesList = FXCollections.observableList(GetCourses.listOfCourseNames());
 
         //creates buttons for body
         Label studentToEnroll = new Label("Choose the course: ");
-        ObservableList courseToChoose = coursesList;
-        final ComboBox studentsBox = new ComboBox(courseToChoose);
+        final ComboBox coursesBox = new ComboBox(coursesList);
 
         Button submit = new Button("Submit");
         Label averageProgression = new Label();
 
         //adds buttons to body
         body.add(studentToEnroll, 1, 1);
-        body.add(studentsBox, 1, 2);
+        body.add(coursesBox, 1, 2);
         body.add(submit, 1, 3);
         body.add(averageProgression, 1,4);
 

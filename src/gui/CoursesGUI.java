@@ -57,9 +57,6 @@ public class CoursesGUI {
         //Adding the columns to the table...
         table.getColumns().addAll(nameColumn, subjectColumn, introductionTextColumn, levelColumn);
 
-        //Has to be added to selected courses...
-        HBox aanbevolen = new HBox();
-
         //Creating the buttons for the menu...
         Button back = new Button("Back");
         Label nameText = new Label("Codecademy");

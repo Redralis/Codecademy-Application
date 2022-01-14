@@ -72,13 +72,13 @@ public class CoursesGUI {
         Button add = new Button("Add");
         Button edit = new Button("Edit");
         Button delete = new Button("Delete");
-        Button overzicht = new Button("Overview");
+        Button overview = new Button("Overview");
         Button top3 = new Button("Top 3");
-        Button percBehaald = new Button("Progress");
-        Button buttonInfo = new Button("Show\namount of\ncertificates\nby selected\ncourse");
+        Button averageProgressPerModule = new Button("Average\nprogress\nper module");
+        Button buttonInfo = new Button("Show amount\nof students\nthat passed");
 
         //Adding the buttons to the body...
-        right.getChildren().addAll(add, edit,  delete, overzicht, top3, percBehaald, buttonInfo);
+        right.getChildren().addAll(add, edit,  delete, overview, top3, averageProgressPerModule, buttonInfo);
 
         //Adding the buttons to menu...
         menu.getChildren().addAll(back, nameText, info, logout);
@@ -148,10 +148,8 @@ public class CoursesGUI {
 
         });
 
-        percBehaald.setOnAction(actionEvent -> {
-            ProgressCoursesGUI progressCoursesGUI = new ProgressCoursesGUI();
-            Stage window = MainGUI.getStage();
-            window.setScene(progressCoursesGUI.getStage());
+        averageProgressPerModule.setOnAction(actionEvent -> {
+            //To be implemented
         });
 
         buttonInfo.setOnAction(actionEvent -> {

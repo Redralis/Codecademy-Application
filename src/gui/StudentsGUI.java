@@ -2,6 +2,7 @@ package gui;
 
 import database.DeleteItem;
 import database.GetStudents;
+import database.Overviews;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -12,8 +13,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import userdata.Student;
+
+import java.util.List;
 
 public class StudentsGUI {
 
@@ -77,6 +81,7 @@ public class StudentsGUI {
         Button add = new Button("Add");
         Button edit = new Button("Edit");
         Button delete = new Button("Delete");
+        Button percentageWatched = new Button("Percentage\nWatched");
         Button certificatesCompletedPerStudent = new Button("Certificates\ncompleted\nper\nstudent");
         Button searchOnGender = new Button("Search by \n gender");
 
@@ -85,7 +90,7 @@ public class StudentsGUI {
         menu.setStyle("-fx-background-color: #ffd300");
 
         //Adding the buttons to the body...
-        right.getChildren().addAll(add, edit, delete, certificatesCompletedPerStudent, searchOnGender);
+        right.getChildren().addAll(add, edit, delete, percentageWatched, certificatesCompletedPerStudent, searchOnGender);
 
         //Adding the menu to the layout...
         HBox.setMargin(nameText, new Insets(10, 10, 10, 10));
@@ -99,6 +104,16 @@ public class StudentsGUI {
         logout.setOnAction((event) -> {
             System.exit(1);
         });
+
+        //Creates resultfield in the GUI
+        HBox resultBox = new HBox();
+        Label result = new Label();
+        result.setTextFill(Color.web("#fff"));
+        resultBox.getChildren().add(result);
+        resultBox.setStyle("-fx-background-color: #7fb7d4");
+        resultBox.setAlignment(Pos.BASELINE_CENTER);
+        layout.setBottom(resultBox);
+
         back.setOnAction(event -> {
             HomeScreenGUI hGui = new HomeScreenGUI();
             Stage window = MainGUI.getStage();
@@ -143,6 +158,23 @@ public class StudentsGUI {
             window.setScene(certBySelectedAccount.getStage());
 
         });
+        percentageWatched.setOnAction(actionEvent -> {
+            String student = table.getSelectionModel().getSelectedItem().getEmail();
+
+            //Calling the function that executes a query to find out the percentage watched of a student.
+            List<String> percentageWatched1 = Overviews.PercentageWatched(student);
+
+            //Turning result into a string...
+            StringBuilder percentages = new StringBuilder();
+            for (String s : percentageWatched1) {
+                percentages.append(s).append("\n");
+            }
+
+            //Adding result to the resultbox...
+            result.setText(String.valueOf(percentages));
+
+        });
+
         //Creating the scrollpane...
         ScrollPane sp = new ScrollPane();
 

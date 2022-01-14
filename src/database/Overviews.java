@@ -129,4 +129,70 @@ public class Overviews {
 
         return listOfMostViewedWebcasts;
     }
+
+    public static List<String> PercentageWatched(String student) {
+
+        //These are the settings for the connection.
+        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
+
+        //Connection controls information about the connection to the database.
+        Connection con = null;
+
+        //Statement lets us use SQL query's.
+        Statement stmt = null;
+
+        //ResultSet is the table we get from the database.
+        //We can iterate through the rows.
+        ResultSet rs = null;
+
+        // In this list the webcasts the student has watched will be stored.
+        List<String> listOfViewedWebcasts = new ArrayList<>();
+
+
+        try {
+            //Importing driver...
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            //Connecting to the database...
+            con = DriverManager.getConnection(connectionUrl);
+
+            // The query which requests the top 3 most viewed webcasts
+            String SQL = "SELECT ContentItem.Titel, Koppeltabel_ContentItem_Cursist.Voortgang FROM Cursist " +
+                    "LEFT JOIN Koppeltabel_ContentItem_Cursist ON Cursist.Email = " +
+                    "Koppeltabel_ContentItem_Cursist.FK_Cursist LEFT JOIN ContentItem ON " +
+                    "Koppeltabel_ContentItem_Cursist.FK_ContentItem = ContentItem.ContentItemId LEFT JOIN Webcast ON " +
+                    "ContentItem.ContentItemId = Webcast.FK_ContentItem WHERE Cursist.Email = '" + student + "'";
+
+            stmt = con.createStatement();
+            //Executing the query in the database
+            rs = stmt.executeQuery(SQL);
+
+            while (rs.next()) {
+                String webcast = rs.getString("Titel");
+                String percent = rs.getString("Voortgang");
+
+                //Adding webcast and percentage to the list...
+                listOfViewedWebcasts.add("Webcast name: " + webcast + ", percentage viewed: " + percent + ".");
+            }
+        }
+
+        //Handle any errors that may have occurred.
+        catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) try {
+                rs.close();
+            } catch (Exception e) {
+            }
+            if (stmt != null) try {
+                stmt.close();
+            } catch (Exception e) {
+            }
+            if (con != null) try {
+                con.close();
+            } catch (Exception e) {
+            }
+        }
+
+        return listOfViewedWebcasts;
+    }
 }

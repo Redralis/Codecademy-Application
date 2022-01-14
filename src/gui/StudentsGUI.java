@@ -81,10 +81,10 @@ public class StudentsGUI {
         Button add = new Button("Add");
         Button edit = new Button("Edit");
         Button delete = new Button("Delete");
-        Button percentageWatched = new Button("Webcast\nWatched");
-        Button percentageComplete = new Button("Module\nProgress");
-        Button certificatesCompletedPerStudent = new Button("Certificates\ncompleted\nper\nstudent");
-        Button searchOnGender = new Button("Search by \n gender");
+        Button percentageWatched = new Button("Webcast\nwatched");
+        Button percentageComplete = new Button("Module\nprogress");
+        Button certificatesCompletedPerStudent = new Button("Show\ncertificates");
+        Button searchOnGender = new Button("Search by\ngender");
 
         //Adding the buttons to the menu...
         menu.getChildren().addAll(back, nameText, info, logout);

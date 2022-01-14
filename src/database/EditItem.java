@@ -115,6 +115,13 @@ public class EditItem {
             // Connecting to the database...
             con = DriverManager.getConnection(connectionUrl);
 
+            //Formatting gender...
+            if (gender.equals("M")) {
+                gender = "Man";
+            } else {
+                gender = "Vrouw";
+            }
+
             // Making a SQL query.
             String SQL = "UPDATE Cursist SET Email = '" + email + "', Naam = '" + name + "', GeboorteDatum = '"
                     + dateOfBirth + "', Geslacht = '" + gender + "', Adres = '" + address + "', Woonplaats = '" + city +

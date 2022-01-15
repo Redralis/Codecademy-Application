@@ -9,14 +9,10 @@ import java.util.List;
 public class GetCourses {
 
     public static List<Course> coursesList() {
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         List<Course> listOfCourses = new ArrayList<Course>();
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -26,10 +22,6 @@ public class GetCourses {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
 
             //Making a SQL query.
             String SQL = "SELECT * FROM Cursus";
@@ -68,14 +60,10 @@ public class GetCourses {
     }
 
     public static List<String> listOfCourseNames() {
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         List<String> courses = new ArrayList<String>();
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -85,11 +73,6 @@ public class GetCourses {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
-
             //Making a SQL query.
             String SQL = "SELECT * FROM Cursus";
 
@@ -113,11 +96,19 @@ public class GetCourses {
             e.printStackTrace();
         }
         finally {
-            if (rs != null) try { rs.close(); } catch(Exception e) {}
-            if (stmt != null) try { stmt.close(); } catch(Exception e) {}
-            if (con != null) try { con.close(); } catch(Exception e) {}
+            if (rs != null) try {
+                rs.close();
+            } catch (Exception e) {
+            }
+            if (stmt != null) try {
+                stmt.close();
+            } catch (Exception e) {
+            }
+            if (con != null) try {
+                con.close();
+            } catch (Exception e) {
+            }
         }
-
         //Returning the table.
         return courses;
 

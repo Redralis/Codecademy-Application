@@ -6,14 +6,10 @@ import java.time.LocalDate;
 public class EditItem {
 
     public static void coupleCertificate(int id, String student, String course) {
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         LocalDate date = LocalDate.now();
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -23,11 +19,6 @@ public class EditItem {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
-
             //Making a SQL query.
             String SQL = "UPDATE Inschrijving SET FK_Certificaat = " + id + " WHERE FK_Cursist = '" + student + "' AND " +
                     "FK_Cursus = '" + course + "';";
@@ -49,14 +40,10 @@ public class EditItem {
     }
 
     public static void editCourse(String previousName, String name, String subject, String introductionText, String level) {
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         LocalDate date = LocalDate.now();
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -66,11 +53,6 @@ public class EditItem {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
-
             //Making a SQL query.
             String SQL = "UPDATE Cursus SET Naam = '" + name + "', Onderwerp = '" + subject + "', IntroductieTekst = '"
                     + introductionText + "', Niveau = '" + level + "' WHERE Naam = '" + previousName + "'";
@@ -93,14 +75,10 @@ public class EditItem {
 
     public static void editStudent(String previousEmail, String email, String name, String dateOfBirth, String gender,
                                    String address, String city, String country, String postalCode) {
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         LocalDate date = LocalDate.now();
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -110,11 +88,6 @@ public class EditItem {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
-
             //Formatting gender...
             if (gender.equals("M")) {
                 gender = "Man";
@@ -146,14 +119,10 @@ public class EditItem {
 
     public static void editEnrollment(String previousDateOfEnrollment, String previousStudent, String previousCourse,
                                       String dateOfEnrollment, String student, String course) {
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         LocalDate date = LocalDate.now();
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -163,11 +132,6 @@ public class EditItem {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
-
             //Making a SQL query.
             String SQL = "UPDATE Inschrijving SET InschrijfDatum = '" + dateOfEnrollment + "', FK_Cursist = '"
                     + student + "', FK_Cursus = '" + course + "' WHERE InschrijfDatum = '" + previousDateOfEnrollment +
@@ -190,14 +154,10 @@ public class EditItem {
     }
 
     public static void editCertificate(String id, String rating, String nameEmployee) {
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         LocalDate date = LocalDate.now();
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -207,10 +167,6 @@ public class EditItem {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
 
             //Making a SQL query.
             String SQL = "UPDATE Certificaat SET Beoordeling = '" + rating + "', NaamMedewerker = '" + nameEmployee +

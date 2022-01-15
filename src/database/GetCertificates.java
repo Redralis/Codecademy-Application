@@ -8,14 +8,10 @@ import java.util.List;
 public class GetCertificates {
 
     public static List<Certificate> certificatesList() {
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         List<Certificate> certificates = new ArrayList<Certificate>();
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -25,11 +21,6 @@ public class GetCertificates {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
-
             //Making a SQL query.
             String SQL = "SELECT * FROM Certificaat";
             stmt = con.createStatement();
@@ -63,14 +54,10 @@ public class GetCertificates {
     }
 
     public static int latestId() {
-
+        //Connecting to the database... //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         int biggestId = 0;
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -80,10 +67,6 @@ public class GetCertificates {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
 
             //Making a SQL query.
             String SQL = "SELECT * FROM Certificaat";

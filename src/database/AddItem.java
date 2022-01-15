@@ -6,12 +6,10 @@ import java.time.LocalDate;
 public class AddItem {
 
     public static void addCourse(String name, String subject, String introductionText, String level) {
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
+        
         //Statement lets us use SQL query's.
         Statement stmt = null;
 
@@ -20,11 +18,6 @@ public class AddItem {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
-
             //Making a SQL query.
             String SQL = "INSERT Cursus VALUES ('" + name + "', '" + subject + "', '" + introductionText + "', '"
                     + level + "', NULL)";
@@ -48,12 +41,9 @@ public class AddItem {
 
     public static void addStudent(String email, String name, String dateOfBirth, String gender, String address,
                                   String city, String country, String postalCode) {
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         //Statement lets us use SQL query's.
         Statement stmt = null;
 
@@ -62,11 +52,6 @@ public class AddItem {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
-
             //Making a SQL query.
             String SQL = "INSERT Cursist VALUES ('" + email + "', '" + name + "', '" + dateOfBirth + "', '"
                     + gender + "', '" + address + "', '" + city + "', '" + country + "', '" + postalCode + "')";
@@ -89,14 +74,10 @@ public class AddItem {
     }
 
     public static void addEnrollment(String student, String course) {
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         LocalDate date = LocalDate.now();
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -106,11 +87,6 @@ public class AddItem {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
-
             //Making a SQL query.
             String SQL = "INSERT Inschrijving VALUES ('" + date + "', '" + student + "', NULL, '" + course + "')";
             stmt = con.createStatement();
@@ -131,14 +107,10 @@ public class AddItem {
     }
 
     public static void addCertificate(double rating, String nameEmployee) {
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         LocalDate date = LocalDate.now();
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -148,11 +120,6 @@ public class AddItem {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
-
             //Making a SQL query.
             String SQL = "INSERT Certificaat VALUES ('" + rating + "', '" + nameEmployee + "')";
             stmt = con.createStatement();

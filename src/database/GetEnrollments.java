@@ -8,14 +8,10 @@ import java.util.List;
 public class GetEnrollments {
 
     public static List<Enrollment> enrollmentsList() {
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         List<Enrollment> listOfEnrollments = new ArrayList<Enrollment>();
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -25,10 +21,6 @@ public class GetEnrollments {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
 
             //Making a SQL query.
             String SQL = "SELECT * FROM Inschrijving";
@@ -64,14 +56,10 @@ public class GetEnrollments {
     }
 
     public static List<String> enrollmentsStudentAndCourseList() {
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         List<String> enrollments = new ArrayList<String>();
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -81,10 +69,6 @@ public class GetEnrollments {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
 
             //Making a SQL query.
             String SQL = "SELECT * FROM Inschrijving";

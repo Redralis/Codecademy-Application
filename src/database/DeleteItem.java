@@ -5,11 +5,9 @@ import java.sql.*;
 public class DeleteItem {
 
     public static void deleteItem(String item, String object, String condition) {
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -19,11 +17,6 @@ public class DeleteItem {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
-
             //Making a SQL query.
             String SQL = "DELETE FROM " + object + " WHERE " + condition + "='" + item + "'";
             stmt = con.createStatement();
@@ -46,12 +39,9 @@ public class DeleteItem {
 
     public static void deleteItem(String item, String item2, String item3, String object, String condition,
                                   String condition2, String condition3) {
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         //Statement lets us use SQL query's.
         Statement stmt = null;
 
@@ -60,11 +50,6 @@ public class DeleteItem {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
-
             //Making a SQL query.
             String SQL = "DELETE FROM " + object + " WHERE " + condition + "='" + item + "' AND "
                     + condition2 + "='" + item2 + "' AND " + condition3 + "='" + item3 + "'";

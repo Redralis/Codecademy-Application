@@ -7,13 +7,9 @@ import java.util.List;
 public class Overviews {
 
     public static String amountOfCompletions(String course) {
-
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -26,10 +22,6 @@ public class Overviews {
 
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
 
             //Making a SQL query.
             String SQL = "SELECT Count(*) AS Aantal FROM Certificaat AS C JOIN Inschrijving AS I ON C.CertificaatId = I.FK_Certificaat JOIN Cursus ON I.FK_Cursus = Cursus.Naam WHERE Cursus.Naam = '" + course + "'";
@@ -68,12 +60,9 @@ public class Overviews {
     }
 
     public static List<String> mostViewedWebcasts() {
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -87,10 +76,6 @@ public class Overviews {
 
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
 
             // The query which requests the top 3 most viewed webcasts
             String SQL = "SELECT Titel FROM ContentItem WHERE ContentItemId IN (SELECT TOP 3 FK_ContentItem FROM Webcast ORDER BY Aantal_weergaven DESC)";
@@ -129,12 +114,9 @@ public class Overviews {
     }
 
     public static List<String> PercentageWatched(String student) {
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -148,10 +130,6 @@ public class Overviews {
 
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
 
             // The query which requests the top 3 most viewed webcasts
             String SQL = "SELECT ContentItem.Titel, Koppeltabel_ContentItem_Cursist.Voortgang FROM Cursist " +
@@ -196,12 +174,9 @@ public class Overviews {
     }
 
     public static List<String> PercentageComplete(String student) {
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -215,10 +190,6 @@ public class Overviews {
 
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
 
             // The query which requests the top 3 most viewed webcasts
             String SQL = "SELECT ContentItem.Titel, Koppeltabel_ContentItem_Cursist.Voortgang FROM Cursist " +
@@ -263,15 +234,12 @@ public class Overviews {
     }
 
     public static List<String> certificatesBySelectedAccount(String student) {
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
 
         //Creates a list for the result of the query.
         List<String> listOfCertificatesByStudent = new ArrayList<String>();
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -281,10 +249,6 @@ public class Overviews {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
 
             //Making a SQL query.
             String SQL = "SELECT FK_Cursus, FK_Cursist, Beoordeling, NaamMedewerker FROM Certificaat AS C JOIN Inschrijving AS I ON C.CertificaatId = I.FK_Certificaat JOIN Cursus ON I.FK_Cursus = Cursus.Naam WHERE FK_Cursist = '" + student + "'";
@@ -331,7 +295,9 @@ public class Overviews {
     }
 
     public static String percentageByGender(String gender) {
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         String gender2 = "";
 
         if (gender.equals("Male")) {
@@ -340,12 +306,6 @@ public class Overviews {
         if (gender.equals("Female")) {
             gender2 = "Vrouw";
         }
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -358,10 +318,6 @@ public class Overviews {
         String percentage = "";
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
 
             //Making a SQL query.
             String SQL = "SELECT COUNT(FK_Certificaat) * 100 / COUNT(*) AS PercentageOfCompletion FROM Inschrijving AS I JOIN Cursist AS C ON I.FK_Cursist = C.Email WHERE Geslacht = '" + gender2 + "'";
@@ -401,15 +357,12 @@ public class Overviews {
     }
 
     public static List<String> unlinkedModules() {
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
 
         //Creates a list for the result of the query.
         List<String> unlinkedModules = new ArrayList<String>();
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -419,10 +372,6 @@ public class Overviews {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
 
             //Making a SQL query.
             String SQL = "SELECT Titel FROM ContentItem RIGHT JOIN Module ON ContentItem.ContentItemId = " +
@@ -465,11 +414,9 @@ public class Overviews {
     }
 
     public static void linkModule(String course, String moduleId) {
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -479,10 +426,6 @@ public class Overviews {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
 
             //Making a SQL query.
             String SQL = "UPDATE Module SET FK_Cursus = '" + course + "' WHERE Module.FK_ContentItem = " + moduleId;
@@ -513,13 +456,10 @@ public class Overviews {
     }
 
     public static String getModuleId(String module) {
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         String moduleId = "";
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -529,10 +469,6 @@ public class Overviews {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
 
             //Making a SQL query.
             String SQL = "SELECT ContentItemId FROM ContentItem WHERE Titel = '" + module + "'";
@@ -569,15 +505,11 @@ public class Overviews {
     }
 
     public static List<String> percentageByStudentAndCourse(String student, String course) {
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         //Creates a list for the result of the query.
         List<String> listOfStudentsAndCourses = new ArrayList<String>();
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -587,10 +519,6 @@ public class Overviews {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
 
             //Making a SQL query.
             String SQL = "SELECT ContentItem.Titel AS Titel, Koppel.Voortgang AS Voortgang FROM Cursist JOIN Koppeltabel_ContentItem_Cursist AS Koppel ON Cursist.Email = Koppel.FK_Cursist JOIN ContentItem ON Koppel.FK_ContentItem = ContentItem.ContentItemId JOIN Module ON ContentItem.ContentItemId = Module.FK_ContentItem JOIN Cursus ON Module.FK_Cursus = Cursus.Naam WHERE Cursist.Email = '" + student + "' AND Cursus.Naam = '" + course + "'";
@@ -633,15 +561,11 @@ public class Overviews {
     }
 
     public static List<String> averageProgressionInCourse(String course) {
-
+        //Connecting to the database...
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection con = connect.connect();
         //Creates a list for the result of the query.
         List<String> listOfAverageProgress = new ArrayList<String>();
-
-        //These are the settings for the connection.
-        String connectionUrl = "jdbc:sqlserver://localhost;databaseName=Codecademy;integratedSecurity=true;";
-
-        //Connection controls information about the connection to the database.
-        Connection con = null;
 
         //Statement lets us use SQL query's.
         Statement stmt = null;
@@ -651,10 +575,6 @@ public class Overviews {
         ResultSet rs = null;
 
         try {
-            //Importing driver...
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //Connecting to the database...
-            con = DriverManager.getConnection(connectionUrl);
 
             //Making a SQL query.
             String SQL = "SELECT ContentItem.Titel, SUM(Koppel.Voortgang) / COUNT(Koppel.Voortgang) AS " +

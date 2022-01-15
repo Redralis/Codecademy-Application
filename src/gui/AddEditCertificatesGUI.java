@@ -12,6 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
+import test.RatingTools;
 
 public class AddEditCertificatesGUI {
     public Scene getStage() {
@@ -87,7 +88,10 @@ public class AddEditCertificatesGUI {
                     enrollmentsBox.getSelectionModel().isEmpty()) {
                 Alert alert = new Alert(Alert.AlertType.WARNING, "Please make sure all fields have input.", ButtonType.OK);
                 alert.showAndWait();
-            } else {
+            } else if (RatingTools.isValidRating(Double.parseDouble(ratingField.getText())).equals("false")) {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Please make sure the rating is between 1 and 10.", ButtonType.OK);
+                alert.showAndWait();
+            }else {
                 AddItem.addCertificate(Double.parseDouble(ratingField.getText()), nameEmployeeField.getText());
                 String[] split = enrollmentsBox.getValue().split(", ");
                 EditItem.coupleCertificate(GetCertificates.latestId(), split[0], split[1]);
@@ -176,6 +180,9 @@ public class AddEditCertificatesGUI {
         submit.setOnAction(event -> {
             if (nameEmployeeField.getText().trim().length() == 0 || ratingField.getText().trim().length() == 0) {
                 Alert alert = new Alert(Alert.AlertType.WARNING, "Please make sure all fields have input.", ButtonType.OK);
+                alert.showAndWait();
+            } else if (RatingTools.isValidRating(Double.parseDouble(ratingField.getText())).equals("false")) {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Please make sure the rating is between 1 and 10.", ButtonType.OK);
                 alert.showAndWait();
             } else {
                 EditItem.editCertificate(id, ratingField.getText(), nameEmployeeField.getText());

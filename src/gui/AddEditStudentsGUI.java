@@ -128,10 +128,10 @@ public class AddEditStudentsGUI {
                     addressField.getText().trim().length() == 0 || comboBox.getSelectionModel().isEmpty() ||
                     cityField.getText().trim().length() == 0 || countryField.getText().trim().length() == 0 ||
                     postalCodeField.getText().trim().length() == 0) {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Please make sure all fields have input.", ButtonType.OK);
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Please make sure all fields have input.", ButtonType.OK);
                 alert.showAndWait();
             } else if (MailTools.validateMailAddress(emailField.getText()).equals("false")) {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Incorrect email input, try again.", ButtonType.OK);
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Incorrect email input, try again.", ButtonType.OK);
                 alert.showAndWait();
             } else {
                 String dateOfBirth = dateOfBirthYearField.getText() + "-" + dateOfBirthMonthField.getText() + "-" +
@@ -286,10 +286,10 @@ public class AddEditStudentsGUI {
                     addressField.getText().trim().length() == 0 || comboBox.getSelectionModel().isEmpty() ||
                     cityField.getText().trim().length() == 0 || countryField.getText().trim().length() == 0 ||
                     postalCodeField.getText().trim().length() == 0) {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Please make sure all fields have input.", ButtonType.OK);
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Please make sure all fields have input.", ButtonType.OK);
                 alert.showAndWait();
             } else if (MailTools.validateMailAddress(emailField.getText()).equals("false")) {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Incorrect email input, try again.", ButtonType.OK);
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Incorrect email input, try again.", ButtonType.OK);
                 alert.showAndWait();
             } else {
                 String newDateOfBirth = dateOfBirthYearField.getText() + "-" + dateOfBirthMonthField.getText() + "-" +

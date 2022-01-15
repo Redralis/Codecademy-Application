@@ -82,7 +82,7 @@ public class AddEditEnrollmentsGUI {
         });
         submit.setOnAction(event -> {
             if (studentsBox.getSelectionModel().isEmpty() || coursesBox.getSelectionModel().isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Please make sure all fields have input.", ButtonType.OK);
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Please make sure all fields have input.", ButtonType.OK);
                 alert.showAndWait();
             } else {
                 AddItem.addEnrollment((String) studentsBox.getValue(), (String) coursesBox.getValue());
@@ -201,7 +201,7 @@ public class AddEditEnrollmentsGUI {
                     dateOfEnrollmentDayField.getText().trim().length() == 0 ||
                     dateOfEnrollmentMonthField.getText().trim().length() == 0 ||
                     dateOfEnrollmentYearField.getText().trim().length() == 0) {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Please make sure all fields have input.", ButtonType.OK);
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Please make sure all fields have input.", ButtonType.OK);
                 alert.showAndWait();
             } else {
                 String newDateOfEnrollment = dateOfEnrollmentYearField.getText() + "-" + dateOfEnrollmentMonthField.getText() + "-" +

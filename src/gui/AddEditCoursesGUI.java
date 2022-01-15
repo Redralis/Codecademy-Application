@@ -102,7 +102,7 @@ public class AddEditCoursesGUI {
             if (nameField.getText().trim().length() == 0 || subjectField.getText().trim().length() == 0 ||
                     introductionField.getText().trim().length() == 0 || moduleBox.getSelectionModel().isEmpty() ||
                     comboBox.getSelectionModel().isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Please make sure all fields have input.", ButtonType.OK);
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Please make sure all fields have input.", ButtonType.OK);
                 alert.showAndWait();
             } else {
                 String module = (String) moduleBox.getValue();
@@ -211,7 +211,7 @@ public class AddEditCoursesGUI {
         submit.setOnAction(event -> {
             if (nameField.getText().trim().length() == 0 || subjectField.getText().trim().length() == 0 ||
                     introductionField.getText().trim().length() == 0 || comboBox.getSelectionModel().isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Please make sure all fields have input.", ButtonType.OK);
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Please make sure all fields have input.", ButtonType.OK);
                 alert.showAndWait();
             } else {
                 EditItem.editCourse(name, nameField.getText(), subjectField.getText(), introductionField.getText(),

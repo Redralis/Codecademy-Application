@@ -2,7 +2,7 @@ package test;
 
 public class DateTools {
     /**
-     * @desc Validates is a given date in the form of day, month and year is valid.
+     * @desc Validates if a given date in the form of day, month and year is valid.
      * 
      * @subcontract 31 days in month {
      * @requires (month == 1 || month == 3 || month == 5 || month == 7 ||

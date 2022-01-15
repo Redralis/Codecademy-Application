@@ -36,21 +36,21 @@ public class AddEditStudentsGUI {
         menu.setStyle("-fx-background-color: #ffd300;");
 
         //Creating buttons for the body...
-        Label nameLabel = new Label("Enter Student name: ");
+        Label nameLabel = new Label("Enter student's name: ");
         TextArea nameField = new TextArea();
-        nameField.setPromptText("Type your name: ");
-        Label emailLabel = new Label("Enter Student email: ");
+        nameField.setPromptText("Type the student's name: ");
+        Label emailLabel = new Label("Enter student's email: ");
         TextArea emailField = new TextArea();
-        emailField.setPromptText("Type your email: ");
-        Label dayLabel = new Label("Enter the day you were born: ");
+        emailField.setPromptText("Enter student's email: ");
+        Label dayLabel = new Label("Enter the day the student was born: ");
         TextArea dateOfBirthDayField = new TextArea();
-        dateOfBirthDayField.setPromptText("Type the day of your birth: ");
-        Label monthLabel = new Label("Enter the month you were born: ");
+        dateOfBirthDayField.setPromptText("Type the day of the student's birth: ");
+        Label monthLabel = new Label("Enter the month the student was born: ");
         TextArea dateOfBirthMonthField = new TextArea();
-        dateOfBirthMonthField.setPromptText("Type the month of your birth:  ");
+        dateOfBirthMonthField.setPromptText("Type the month of the student's birth:  ");
         TextArea dateOfBirthYearField = new TextArea();
-        Label yearLabel = new Label("Enter the year you were born: ");
-        dateOfBirthYearField.setPromptText("Type the year of your birth: ");
+        Label yearLabel = new Label("Enter the year the student was born: ");
+        dateOfBirthYearField.setPromptText("Type the year of the student's birth: ");
         Label gendersLabel = new Label("Pick gender: ");
         ObservableList<String> genders =
                 FXCollections.observableArrayList(
@@ -58,18 +58,18 @@ public class AddEditStudentsGUI {
                         "F"
                 );
         final ComboBox comboBox = new ComboBox(genders);
-        Label addressLabel = new Label("Enter Student's current address: ");
+        Label addressLabel = new Label("Enter student's current address: ");
         TextArea addressField = new TextArea();
-        addressField.setPromptText("Type your address: ");
-        Label cityLabel = new Label("Enter Student's current city: ");
+        addressField.setPromptText("Type the student's current address: ");
+        Label cityLabel = new Label("Enter student's current city: ");
         TextArea cityField = new TextArea();
-        cityField.setPromptText("Type your city: ");
-        Label countryLabel = new Label("Enter Student's current country: ");
+        cityField.setPromptText("Type the student's city: ");
+        Label countryLabel = new Label("Enter student's current country: ");
         TextArea countryField = new TextArea();
-        countryField.setPromptText("Type your country: ");
-        Label postalCodeLabel = new Label("Enter Student's current postal code: ");
+        countryField.setPromptText("Type the student's current country: ");
+        Label postalCodeLabel = new Label("Enter student's current postal code: ");
         TextArea postalCodeField = new TextArea();
-        postalCodeField.setPromptText("Type your postalcode: ");
+        postalCodeField.setPromptText("Type the student's current postalcode: ");
         Button submit = new Button("Submit");
 
 
@@ -184,25 +184,25 @@ public class AddEditStudentsGUI {
         String day = splitDate[2];
 
         //Creating buttons for the body...
-        Label nameLabel = new Label("Enter Student name: ");
+        Label nameLabel = new Label("Enter student's name: ");
         TextArea nameField = new TextArea();
-        nameField.setPromptText("Type your name: ");
+        nameField.setPromptText("Type student's name: ");
         nameField.setText(name);
-        Label emailLabel = new Label("Enter Student email: ");
+        Label emailLabel = new Label("Enter student's email: ");
         TextArea emailField = new TextArea();
-        emailField.setPromptText("Type your email: ");
+        emailField.setPromptText("Type student's email: ");
         emailField.setText(email);
-        Label dayLabel = new Label("Enter the day you were born: ");
+        Label dayLabel = new Label("Enter the day the student was born: ");
         TextArea dateOfBirthDayField = new TextArea();
-        dateOfBirthDayField.setPromptText("Type your date of birth: ");
+        dateOfBirthDayField.setPromptText("Enter the day the student was born: ");
         dateOfBirthDayField.setText(day);
-        Label monthLabel = new Label("Enter the month you were born: ");
+        Label monthLabel = new Label("Enter the month the student was born: ");
         TextArea dateOfBirthMonthField = new TextArea();
-        dateOfBirthMonthField.setPromptText("Type your date of birth: ");
+        dateOfBirthMonthField.setPromptText("Type the student's date of birth: ");
         dateOfBirthMonthField.setText(month);
-        Label yearLabel = new Label("Enter the year you were born: ");
+        Label yearLabel = new Label("Enter the year the student was born: ");
         TextArea dateOfBirthYearField = new TextArea();
-        dateOfBirthYearField.setPromptText("Type your date of birth: ");
+        dateOfBirthYearField.setPromptText("Type the student's date of birth: ");
         dateOfBirthYearField.setText(year);
         Label gendersLabel = new Label("Pick gender: ");
         ObservableList<String> genders =
@@ -212,21 +212,21 @@ public class AddEditStudentsGUI {
                 );
         final ComboBox comboBox = new ComboBox(genders);
         comboBox.setValue(gender);
-        Label addressLabel = new Label("Enter Student's current address: ");
+        Label addressLabel = new Label("Enter student's current address: ");
         TextArea addressField = new TextArea();
-        addressField.setPromptText("Type your address: ");
+        addressField.setPromptText("Type the student's address: ");
         addressField.setText(address);
-        Label cityLabel = new Label("Enter Student's current city: ");
+        Label cityLabel = new Label("Enter student's current city: ");
         TextArea cityField = new TextArea();
-        cityField.setPromptText("Type your city: ");
+        cityField.setPromptText("Type the student's current city: ");
         cityField.setText(city);
-        Label countryLabel = new Label("Enter Student's current country: ");
+        Label countryLabel = new Label("Enter student's current country: ");
         TextArea countryField = new TextArea();
-        countryField.setPromptText("Type your country: ");
+        countryField.setPromptText("Type the student's country: ");
         countryField.setText(country);
-        Label postalCodeLabel = new Label("Enter Student's current postal code: ");
+        Label postalCodeLabel = new Label("Enter student's current postal code: ");
         TextArea postalCodeField = new TextArea();
-        postalCodeField.setPromptText("Type your postalcode: ");
+        postalCodeField.setPromptText("Type the student's postalcode: ");
         postalCodeField.setText(postalCode);
         Button submit = new Button("Submit");
 

@@ -121,6 +121,14 @@ public class AddEditStudentsGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
+            String formattedPC = "";
+            try {
+                formattedPC = PostalCode.isValidPostalCode(postalCodeField.getText());
+            } catch (Exception e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Incorrect postal code input, make sure it has 4 numbers followed by 2 letters.", ButtonType.OK);
+                alert.showAndWait();
+                formattedPC = "";
+            }
             if (nameField.getText().trim().length() == 0 || emailField.getText().trim().length() == 0 ||
                     dateOfBirthDayField.getText().trim().length() == 0 ||
                     dateOfBirthMonthField.getText().trim().length() == 0 ||
@@ -130,6 +138,7 @@ public class AddEditStudentsGUI {
                     postalCodeField.getText().trim().length() == 0) {
                 Alert alert = new Alert(Alert.AlertType.WARNING, "Please make sure all fields have input.", ButtonType.OK);
                 alert.showAndWait();
+            } else if (formattedPC.trim().length() == 0) {
             } else if (MailTools.validateMailAddress(emailField.getText()).equals("false")) {
                 Alert alert = new Alert(Alert.AlertType.WARNING, "Incorrect email input, try again.", ButtonType.OK);
                 alert.showAndWait();
@@ -141,7 +150,7 @@ public class AddEditStudentsGUI {
                         dateOfBirthDayField.getText();
                 AddItem.addStudent(emailField.getText(), nameField.getText(), dateOfBirth,
                         (String) comboBox.getValue(), addressField.getText(), cityField.getText(), countryField.getText(),
-                        postalCodeField.getText());
+                        formattedPC);
                 StudentsGUI mGui = new StudentsGUI();
                 Stage window = MainGUI.getStage();
                 window.setScene(mGui.getScene());
@@ -282,6 +291,14 @@ public class AddEditStudentsGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
+            String formattedPC = "";
+            try {
+                formattedPC = PostalCode.isValidPostalCode(postalCodeField.getText());
+            } catch (Exception e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Incorrect postal code input, make sure it has 4 numbers followed by 2 letters.", ButtonType.OK);
+                alert.showAndWait();
+                formattedPC = "";
+            }
             if (nameField.getText().trim().length() == 0 || emailField.getText().trim().length() == 0 ||
                     dateOfBirthDayField.getText().trim().length() == 0 ||
                     dateOfBirthMonthField.getText().trim().length() == 0 ||
@@ -291,6 +308,7 @@ public class AddEditStudentsGUI {
                     postalCodeField.getText().trim().length() == 0) {
                 Alert alert = new Alert(Alert.AlertType.WARNING, "Please make sure all fields have input.", ButtonType.OK);
                 alert.showAndWait();
+            } else if (formattedPC.trim().length() == 0) {
             } else if (MailTools.validateMailAddress(emailField.getText()).equals("false")) {
                 Alert alert = new Alert(Alert.AlertType.WARNING, "Incorrect email input, try again.", ButtonType.OK);
                 alert.showAndWait();

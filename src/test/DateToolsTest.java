@@ -122,6 +122,28 @@ public class DateToolsTest {
         }
 
         /*
+         * }
+         *  @subcontract 14 months in a year {
+         * @requires month > 12;
+         *
+         * @ensures \result = false;
+         *
+         **/
+        @Test
+        public void testDateToolsRequiresMoreThan9999EnsuresFalse() {
+                // Arrange
+                int days = 30;
+                int month = 9;
+                int year = 11111;
+
+                // Act
+                String result = DateTools.validateDate(days, month, year);
+
+                // Assert
+                assertEquals("false", result);
+        }
+
+        /*
          *}
          * @subcontract all other cases {
          * 

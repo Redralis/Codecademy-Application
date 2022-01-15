@@ -2,7 +2,6 @@ package gui;
 
 import database.AddItem;
 import database.EditItem;
-import database.GetStudents;
 import database.Overviews;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -100,13 +99,20 @@ public class AddEditCoursesGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
-            String module = (String) moduleBox.getValue();
-            AddItem.addCourse(nameField.getText(), subjectField.getText(), introductionField.getText(),
-                    (String) comboBox.getValue());
-            Overviews.linkModule(nameField.getText(), Overviews.getModuleId(module));
-            CoursesGUI mGui = new CoursesGUI();
-            Stage window = MainGUI.getStage();
-            window.setScene(mGui.getScene());
+            if (nameField.getText().trim().length() == 0 || subjectField.getText().trim().length() == 0 ||
+                    introductionField.getText().trim().length() == 0 || moduleBox.getSelectionModel().isEmpty() ||
+                    comboBox.getSelectionModel().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Please make sure all fields have input.", ButtonType.OK);
+                alert.showAndWait();
+            } else {
+                String module = (String) moduleBox.getValue();
+                AddItem.addCourse(nameField.getText(), subjectField.getText(), introductionField.getText(),
+                        (String) comboBox.getValue());
+                Overviews.linkModule(nameField.getText(), Overviews.getModuleId(module));
+                CoursesGUI mGui = new CoursesGUI();
+                Stage window = MainGUI.getStage();
+                window.setScene(mGui.getScene());
+            }
         });
 
         //Creating the scrollpane...
@@ -203,11 +209,17 @@ public class AddEditCoursesGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
-            EditItem.editCourse(name, nameField.getText(), subjectField.getText(), introductionField.getText(),
-                    (String) comboBox.getValue());
-            CoursesGUI mGui = new CoursesGUI();
-            Stage window = MainGUI.getStage();
-            window.setScene(mGui.getScene());
+            if (nameField.getText().trim().length() == 0 || subjectField.getText().trim().length() == 0 ||
+                    introductionField.getText().trim().length() == 0 || comboBox.getSelectionModel().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Please make sure all fields have input.", ButtonType.OK);
+                alert.showAndWait();
+            } else {
+                EditItem.editCourse(name, nameField.getText(), subjectField.getText(), introductionField.getText(),
+                        (String) comboBox.getValue());
+                CoursesGUI mGui = new CoursesGUI();
+                Stage window = MainGUI.getStage();
+                window.setScene(mGui.getScene());
+            }
         });
 
         //Creating the scrollpane...

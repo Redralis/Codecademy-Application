@@ -118,14 +118,25 @@ public class AddEditStudentsGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
-            String dateOfBirth = dateOfBirthYearField.getText() + "-" + dateOfBirthMonthField.getText() + "-" +
-                    dateOfBirthDayField.getText();
-            AddItem.addStudent(emailField.getText(), nameField.getText(), dateOfBirth,
-                    (String) comboBox.getValue(), addressField.getText(), cityField.getText(), countryField.getText(),
-                    postalCodeField.getText());
-            StudentsGUI mGui = new StudentsGUI();
-            Stage window = MainGUI.getStage();
-            window.setScene(mGui.getScene());
+            if (nameField.getText().trim().length() == 0 || emailField.getText().trim().length() == 0 ||
+                    dateOfBirthDayField.getText().trim().length() == 0 ||
+                    dateOfBirthMonthField.getText().trim().length() == 0 ||
+                    dateOfBirthYearField.getText().trim().length() == 0 ||
+                    addressField.getText().trim().length() == 0 || comboBox.getSelectionModel().isEmpty() ||
+                    cityField.getText().trim().length() == 0 || countryField.getText().trim().length() == 0 ||
+                    postalCodeField.getText().trim().length() == 0) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Please make sure all fields have input.", ButtonType.OK);
+                alert.showAndWait();
+            } else {
+                String dateOfBirth = dateOfBirthYearField.getText() + "-" + dateOfBirthMonthField.getText() + "-" +
+                        dateOfBirthDayField.getText();
+                AddItem.addStudent(emailField.getText(), nameField.getText(), dateOfBirth,
+                        (String) comboBox.getValue(), addressField.getText(), cityField.getText(), countryField.getText(),
+                        postalCodeField.getText());
+                StudentsGUI mGui = new StudentsGUI();
+                Stage window = MainGUI.getStage();
+                window.setScene(mGui.getScene());
+            }
         });
 
         //Creating the scrollpane...
@@ -262,14 +273,25 @@ public class AddEditStudentsGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
-            String newDateOfBirth = dateOfBirthYearField.getText() + "-" + dateOfBirthMonthField.getText() + "-" +
-                    dateOfBirthDayField.getText();
-            EditItem.editStudent(email, emailField.getText(), nameField.getText(), newDateOfBirth,
-                    (String) comboBox.getValue(), addressField.getText(), cityField.getText(), countryField.getText(),
-                    postalCodeField.getText());
-            StudentsGUI mGui = new StudentsGUI();
-            Stage window = MainGUI.getStage();
-            window.setScene(mGui.getScene());
+            if (nameField.getText().trim().length() == 0 || emailField.getText().trim().length() == 0 ||
+                    dateOfBirthDayField.getText().trim().length() == 0 ||
+                    dateOfBirthMonthField.getText().trim().length() == 0 ||
+                    dateOfBirthYearField.getText().trim().length() == 0 ||
+                    addressField.getText().trim().length() == 0 || comboBox.getSelectionModel().isEmpty() ||
+                    cityField.getText().trim().length() == 0 || countryField.getText().trim().length() == 0 ||
+                    postalCodeField.getText().trim().length() == 0) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Please make sure all fields have input.", ButtonType.OK);
+                alert.showAndWait();
+            } else {
+                String newDateOfBirth = dateOfBirthYearField.getText() + "-" + dateOfBirthMonthField.getText() + "-" +
+                        dateOfBirthDayField.getText();
+                EditItem.editStudent(email, emailField.getText(), nameField.getText(), newDateOfBirth,
+                        (String) comboBox.getValue(), addressField.getText(), cityField.getText(), countryField.getText(),
+                        postalCodeField.getText());
+                StudentsGUI mGui = new StudentsGUI();
+                Stage window = MainGUI.getStage();
+                window.setScene(mGui.getScene());
+            }
         });
 
         //Creating the scrollpane...

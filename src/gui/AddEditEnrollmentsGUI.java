@@ -81,10 +81,15 @@ public class AddEditEnrollmentsGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
-            AddItem.addEnrollment((String) studentsBox.getValue(), (String) coursesBox.getValue());
-            EnrollmentsGUI mGui = new EnrollmentsGUI();
-            Stage window = MainGUI.getStage();
-            window.setScene(mGui.getScene());
+            if (studentsBox.getSelectionModel().isEmpty() || coursesBox.getSelectionModel().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Please make sure all fields have input.", ButtonType.OK);
+                alert.showAndWait();
+            } else {
+                AddItem.addEnrollment((String) studentsBox.getValue(), (String) coursesBox.getValue());
+                EnrollmentsGUI mGui = new EnrollmentsGUI();
+                Stage window = MainGUI.getStage();
+                window.setScene(mGui.getScene());
+            }
         });
 
         //Creating the scrollpane...
@@ -192,13 +197,21 @@ public class AddEditEnrollmentsGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
-            String newDateOfEnrollment = dateOfEnrollmentYearField.getText() + "-" + dateOfEnrollmentMonthField.getText() + "-" +
-                    dateOfEnrollmentDayField.getText();
-            EditItem.editEnrollment(dateOfEnrollment, student, course, newDateOfEnrollment,
-                    studentsBox.getValue().toString(), coursesBox.getValue().toString());
-            EnrollmentsGUI mGui = new EnrollmentsGUI();
-            Stage window = MainGUI.getStage();
-            window.setScene(mGui.getScene());
+            if (studentsBox.getSelectionModel().isEmpty() || coursesBox.getSelectionModel().isEmpty() ||
+                    dateOfEnrollmentDayField.getText().trim().length() == 0 ||
+                    dateOfEnrollmentMonthField.getText().trim().length() == 0 ||
+                    dateOfEnrollmentYearField.getText().trim().length() == 0) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Please make sure all fields have input.", ButtonType.OK);
+                alert.showAndWait();
+            } else {
+                String newDateOfEnrollment = dateOfEnrollmentYearField.getText() + "-" + dateOfEnrollmentMonthField.getText() + "-" +
+                        dateOfEnrollmentDayField.getText();
+                EditItem.editEnrollment(dateOfEnrollment, student, course, newDateOfEnrollment,
+                        studentsBox.getValue().toString(), coursesBox.getValue().toString());
+                EnrollmentsGUI mGui = new EnrollmentsGUI();
+                Stage window = MainGUI.getStage();
+                window.setScene(mGui.getScene());
+            }
         });
 
         //Creating the scrollpane...

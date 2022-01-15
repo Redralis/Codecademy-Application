@@ -11,6 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
 
 public class AddEditCertificatesGUI {
     public Scene getStage() {
@@ -82,12 +83,18 @@ public class AddEditCertificatesGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
-            AddItem.addCertificate(Double.parseDouble(ratingField.getText()), nameEmployeeField.getText());
-            String[] split = enrollmentsBox.getValue().split(", ");
-            EditItem.coupleCertificate(GetCertificates.latestId(), split[0], split[1]);
-            CertificatesGUI mGui = new CertificatesGUI();
-            Stage window = MainGUI.getStage();
-            window.setScene(mGui.getScene());
+            if (nameEmployeeField.getText().trim().length() == 0 || ratingField.getText().trim().length() == 0 ||
+                    enrollmentsBox.getSelectionModel().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Please make sure all fields have input.", ButtonType.OK);
+                alert.showAndWait();
+            } else {
+                AddItem.addCertificate(Double.parseDouble(ratingField.getText()), nameEmployeeField.getText());
+                String[] split = enrollmentsBox.getValue().split(", ");
+                EditItem.coupleCertificate(GetCertificates.latestId(), split[0], split[1]);
+                CertificatesGUI mGui = new CertificatesGUI();
+                Stage window = MainGUI.getStage();
+                window.setScene(mGui.getScene());
+            }
         });
 
         //Creating scrollpane...
@@ -167,10 +174,15 @@ public class AddEditCertificatesGUI {
             window.setScene(InfoGUI.getScene());
         });
         submit.setOnAction(event -> {
-            EditItem.editCertificate(id, ratingField.getText(), nameEmployeeField.getText());
-            CertificatesGUI mGui = new CertificatesGUI();
-            Stage window = MainGUI.getStage();
-            window.setScene(mGui.getScene());
+            if (nameEmployeeField.getText().trim().length() == 0 || ratingField.getText().trim().length() == 0) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Please make sure all fields have input.", ButtonType.OK);
+                alert.showAndWait();
+            } else {
+                EditItem.editCertificate(id, ratingField.getText(), nameEmployeeField.getText());
+                CertificatesGUI mGui = new CertificatesGUI();
+                Stage window = MainGUI.getStage();
+                window.setScene(mGui.getScene());
+            }
         });
 
         //Creating the scrollpane...

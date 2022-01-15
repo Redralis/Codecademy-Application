@@ -133,6 +133,9 @@ public class AddEditStudentsGUI {
             } else if (MailTools.validateMailAddress(emailField.getText()).equals("false")) {
                 Alert alert = new Alert(Alert.AlertType.WARNING, "Incorrect email input, try again.", ButtonType.OK);
                 alert.showAndWait();
+            } else if (DateTools.validateDate(Integer.parseInt(dateOfBirthDayField.getText()),Integer.parseInt(dateOfBirthMonthField.getText()),Integer.parseInt(dateOfBirthYearField.getText())).equals("false")) {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Incorrect date input, try again.", ButtonType.OK);
+                alert.showAndWait();
             } else {
                 String dateOfBirth = dateOfBirthYearField.getText() + "-" + dateOfBirthMonthField.getText() + "-" +
                         dateOfBirthDayField.getText();
@@ -291,6 +294,9 @@ public class AddEditStudentsGUI {
             } else if (MailTools.validateMailAddress(emailField.getText()).equals("false")) {
                 Alert alert = new Alert(Alert.AlertType.WARNING, "Incorrect email input, try again.", ButtonType.OK);
                 alert.showAndWait();
+            } else if (DateTools.validateDate(Integer.parseInt(dateOfBirthDayField.getText()),Integer.parseInt(dateOfBirthMonthField.getText()),Integer.parseInt(dateOfBirthYearField.getText())).equals("false")) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING, "Incorrect date input, try again.", ButtonType.OK);
+                    alert.showAndWait();
             } else {
                 String newDateOfBirth = dateOfBirthYearField.getText() + "-" + dateOfBirthMonthField.getText() + "-" +
                         dateOfBirthDayField.getText();

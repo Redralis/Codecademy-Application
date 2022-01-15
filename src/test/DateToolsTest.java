@@ -79,10 +79,10 @@ public class DateToolsTest {
          * }
          * 
          * @subcontract 28 days in month {
-         * 
+         *
          * @requires month == 2 && 1 <= day <= 28 &&
          * (year % 4 != 0 || (year % 100 == 0 && year % 400 != 0));
-         * 
+         *
          * @ensures \result = true;
          */
         @Test
@@ -101,7 +101,28 @@ public class DateToolsTest {
 
         /*
          * }
-         * 
+         *  @subcontract 14 months in a year {
+         * @requires month > 12;
+         *
+         * @ensures \result = false;
+         *
+         **/
+        @Test
+        public void testDateToolsRequiresMoreThan12EnsuresFalse() {
+                // Arrange
+                int days = 30;
+                int month = 14;
+                int year = 2022;
+
+                // Act
+                String result = DateTools.validateDate(days, month, year);
+
+                // Assert
+                assertEquals("false", result);
+        }
+
+        /*
+         *}
          * @subcontract all other cases {
          * 
          * @requires no other accepting precondition;
@@ -123,7 +144,7 @@ public class DateToolsTest {
         }
 
         /*
-         *
+
          */
         
 }

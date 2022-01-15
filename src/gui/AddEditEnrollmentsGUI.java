@@ -14,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import test.DateTools;
 
 public class AddEditEnrollmentsGUI {
     public Scene getStage() {
@@ -203,7 +204,10 @@ public class AddEditEnrollmentsGUI {
                     dateOfEnrollmentYearField.getText().trim().length() == 0) {
                 Alert alert = new Alert(Alert.AlertType.WARNING, "Please make sure all fields have input.", ButtonType.OK);
                 alert.showAndWait();
-            } else {
+            } else if(DateTools.validateDate(Integer.parseInt(dateOfEnrollmentDayField.getText()),Integer.parseInt(dateOfEnrollmentMonthField.getText()),Integer.parseInt(dateOfEnrollmentYearField.getText())).equals("false")){
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Incorrect date input, try again.", ButtonType.OK);
+                alert.showAndWait();
+            }else {
                 String newDateOfEnrollment = dateOfEnrollmentYearField.getText() + "-" + dateOfEnrollmentMonthField.getText() + "-" +
                         dateOfEnrollmentDayField.getText();
                 EditItem.editEnrollment(dateOfEnrollment, student, course, newDateOfEnrollment,

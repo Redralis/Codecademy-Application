@@ -10,6 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import test.DateTools;
+import test.MailTools;
+import test.PostalCode;
 
 public class AddEditStudentsGUI {
     public Scene getStage() {
@@ -126,6 +129,9 @@ public class AddEditStudentsGUI {
                     cityField.getText().trim().length() == 0 || countryField.getText().trim().length() == 0 ||
                     postalCodeField.getText().trim().length() == 0) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Please make sure all fields have input.", ButtonType.OK);
+                alert.showAndWait();
+            } else if (MailTools.validateMailAddress(emailField.getText()).equals("false")) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Incorrect email input, try again.", ButtonType.OK);
                 alert.showAndWait();
             } else {
                 String dateOfBirth = dateOfBirthYearField.getText() + "-" + dateOfBirthMonthField.getText() + "-" +
@@ -281,6 +287,9 @@ public class AddEditStudentsGUI {
                     cityField.getText().trim().length() == 0 || countryField.getText().trim().length() == 0 ||
                     postalCodeField.getText().trim().length() == 0) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Please make sure all fields have input.", ButtonType.OK);
+                alert.showAndWait();
+            } else if (MailTools.validateMailAddress(emailField.getText()).equals("false")) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Incorrect email input, try again.", ButtonType.OK);
                 alert.showAndWait();
             } else {
                 String newDateOfBirth = dateOfBirthYearField.getText() + "-" + dateOfBirthMonthField.getText() + "-" +

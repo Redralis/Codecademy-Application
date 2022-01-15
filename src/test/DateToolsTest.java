@@ -24,7 +24,7 @@ public class DateToolsTest {
                 String result = DateTools.validateDate(days, month, year);
 
                 //Assert
-                assertEquals("True", result);
+                assertEquals("true", result);
         }
 
         /*
@@ -48,7 +48,7 @@ public class DateToolsTest {
                 String result = DateTools.validateDate(days, month, year);
 
                 // Assert
-                assertEquals("True", result);
+                assertEquals("true", result);
         }
 
         /*
@@ -72,7 +72,7 @@ public class DateToolsTest {
                 String result = DateTools.validateDate(days, month, year);
 
                 // Assert
-                assertEquals("True", result);
+                assertEquals("true", result);
         }
 
         /*
@@ -96,7 +96,7 @@ public class DateToolsTest {
                 String result = DateTools.validateDate(days, month, year);
 
                 // Assert
-                assertEquals("True", result);
+                assertEquals("true", result);
         }
 
         /*
@@ -119,7 +119,7 @@ public class DateToolsTest {
                 String result = DateTools.validateDate(days, month, year);
 
                 // Assert
-                assertEquals("False", result);
+                assertEquals("false", result);
         }
 
         /*

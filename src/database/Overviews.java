@@ -71,13 +71,13 @@ public class Overviews {
         //We can iterate through the rows.
         ResultSet rs = null;
 
-        // In this list will the top 3 most viewed webcasts be stored
+        // In this list the top 3 most viewed webcasts will be stored
         List<String> listOfMostViewedWebcasts = new ArrayList<>();
 
 
         try {
 
-            // The query which requests the top 3 most viewed webcasts
+            //The query which requests the top 3 most viewed webcasts
             String SQL = "SELECT Titel FROM ContentItem WHERE ContentItemId IN (SELECT TOP 3 FK_ContentItem FROM Webcast ORDER BY Aantal_weergaven DESC)";
 
             stmt = con.createStatement();
@@ -87,7 +87,7 @@ public class Overviews {
             while (rs.next()) {
 
                 String title = rs.getString("Titel");
-                // Add the top 3 most viewed webcasts one by one into the list
+                //Adds the top 3 most viewed webcasts one by one into the list
                 listOfMostViewedWebcasts.add(title);
             }
         }
@@ -131,7 +131,7 @@ public class Overviews {
 
         try {
 
-            // The query which requests the top 3 most viewed webcasts
+            //This query requests the percentage watched per webcast for a student.
             String SQL = "SELECT ContentItem.Titel, Koppeltabel_ContentItem_Cursist.Voortgang FROM Cursist " +
                     "LEFT JOIN Koppeltabel_ContentItem_Cursist ON Cursist.Email = " +
                     "Koppeltabel_ContentItem_Cursist.FK_Cursist LEFT JOIN ContentItem ON " +
@@ -185,13 +185,13 @@ public class Overviews {
         //We can iterate through the rows.
         ResultSet rs = null;
 
-        // In this list the webcasts the student has watched will be stored.
+        //In this list the modules the student has progressed in will be stored.
         List<String> listOfStartedModules = new ArrayList<>();
 
 
         try {
 
-            // The query which requests the top 3 most viewed webcasts
+            //This query requests all modules and their progress for a student.
             String SQL = "SELECT ContentItem.Titel, Koppeltabel_ContentItem_Cursist.Voortgang FROM Cursist " +
                     "LEFT JOIN Koppeltabel_ContentItem_Cursist ON Cursist.Email = " +
                     "Koppeltabel_ContentItem_Cursist.FK_Cursist LEFT JOIN ContentItem ON " +
@@ -249,7 +249,6 @@ public class Overviews {
         ResultSet rs = null;
 
         try {
-
             //Making a SQL query.
             String SQL = "SELECT FK_Cursus, FK_Cursist, Beoordeling, NaamMedewerker FROM Certificaat AS C JOIN Inschrijving AS I ON C.CertificaatId = I.FK_Certificaat JOIN Cursus ON I.FK_Cursus = Cursus.Naam WHERE FK_Cursist = '" + student + "'";
 

@@ -11,7 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 
-public class HomeScreenGUI extends Application {
+public class HomeScreenGUI {
 
     public Scene getScene() {
 
@@ -111,9 +111,6 @@ public class HomeScreenGUI extends Application {
         return new Scene(layout, 800, 600);
     }
 
-    @Override
-    public void start(Stage window) throws Exception {
 
-    }
 
 }
